@@ -1,0 +1,52 @@
+Level 1: Super Basic
+Create a function that prints "Hello World".
+Create a function that prints your name.
+Create a function that prints "Welcome to Python".
+Create a function that prints numbers from 1 to 5.
+Create a function that prints "Good Morning" three times.
+
+
+
+Level 2: Functions with Parameters
+Create a function that accepts a name and prints it.
+Create a function that accepts an age and prints it.
+Create a function that accepts two numbers and prints them.
+Create a function that accepts a city name and prints "I live in ___".
+Create a function that accepts a number and prints its square.
+
+
+
+Level 3: Basic Calculations
+Create a function to add two numbers.
+Create a function to subtract two numbers.
+Create a function to multiply two numbers.
+Create a function to divide two numbers.
+Create a function to find the square of a number.
+Create a function to find the cube of a number.
+Create a function to find the sum of three numbers.
+
+
+Level 4: Functions with Conditions
+Create a function to check whether a number is even or odd.
+Create a function to check whether a number is positive, negative, or zero.
+Create a function to find the greater number between two numbers.
+Create a function to check whether a person is eligible to vote.
+Create a function to check whether a student has passed or failed.
+Create a function to check whether a number is divisible by 5.
+
+
+
+Level 5: Functions with Return
+Create a function that returns the sum of two numbers.
+Create a function that returns the square of a number.
+Create a function that returns the larger number between two numbers.
+Create a function that returns whether a number is even or odd.
+Create a function that returns the cube of a number.
+
+
+Level 6: Basic String Functions
+Create a function that accepts a string and prints it.
+Create a function that accepts a name and prints its length.
+Create a function that counts vowels in a string.
+Create a function that reverses a string.
+Create a function that checks whether a string is a palindrome.
