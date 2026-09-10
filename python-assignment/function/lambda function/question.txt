@@ -161,7 +161,7 @@ Menu
 4. Count Names Starting with a Vowel
 5. Find Longest Employee Name
 6. Exit
-====================================================
+=========================================================
 Enter your choice:
 Sample Input
 Employee Ages:
@@ -175,6 +175,8 @@ Senior Employees : 4
 Unique Ages : [34, 55, 29, 60, 42, 51]
 Names Starting with Vowel : 3
 Longest Employee Name : Ishita
+
+
 Instructions
 Implement all operations using separate functions.
 Each function must accept parameters and return the result.
