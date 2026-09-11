@@ -11,7 +11,7 @@ y2=today.year
 age=y2-y1
 print("current age is:",age,"years")
 
-nextbirthday=date+timedelta(year=1)
+nextbirthday=date+datetime(days=365)
 print(nextbirthday)
 
 
