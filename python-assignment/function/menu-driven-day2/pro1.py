@@ -1,6 +1,5 @@
-print("========================================")
-print("       NUMBER ANALYSIS SYSTEM")
-print("========================================")
+
+
 
 def eo(n):
 	for i in range(n):
