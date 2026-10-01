@@ -4,7 +4,7 @@ from rich.console import Console #rick=package..console=module..console k ander 
 from rich.markdown import Markdown #rick=package..markdown=module..markdown k ander markdown class h 
 
 
-
+key=''
 def getmodel():
     return ChatGroq(model='openai/gpt-oss-120b',api_key=key)
 
