@@ -2,6 +2,8 @@
 string=("Enter The String Here:")
 word=("Enter The Word You Want To Find:")
 for i in range(len(string)):
-	if 
+	if string[i]==word:
+		print(i)
+		
 
 
