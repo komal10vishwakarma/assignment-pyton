@@ -1,0 +1,137 @@
+Microsoft Windows [Version 10.0.26200.9457]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\HYY>cd ..
+
+C:\Users>cd ..
+
+C:\>cd /d "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database school2;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+13 rows in set (0.01 sec)
+
+mysql> use databse school2;
+ERROR 1049 (42000): Unknown database 'databse'
+mysql> use database school2;
+ERROR 1049 (42000): Unknown database 'database'
+mysql>  use school2;
+Database changed
+mysql> create table data(id INT,name VARCHAR(100),age INT,gender VARCHAR(10),address VARCHAR(150),phone VARCHAR(15),
+    -> email VARCHAR(100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> create table data(id INT,name VARCHAR(100),age INT,gender VARCHAR(10),address VARCHAR(150),phone VARCHAR(15),email VARCHAR(100));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc achool2;
+ERROR 1146 (42S02): Table 'school2.achool2' doesn't exist
+mysql> desc data;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| age     | int          | YES  |     | NULL    |       |
+| gender  | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(150) | YES  |     | NULL    |       |
+| phone   | varchar(15)  | YES  |     | NULL    |       |
+| email   | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> insert into data(1,'aayush',12,'male','khandwa',123456789,'aayush@12.com'),(2,'shreeji',22,'male','indore',1234765449,'shree@12.com'),(3,'komal',12,'female','indore',114524789,'komal@12.com'),(4,'chnchal',42,'female','indore',16746736789,'chnchal@12.com'),(5,'divyansh',82,'male','indore',129867789,'divyansh@12.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1,'aayush',12,'male','khandwa',123456789,'aayush@12.com'),(2,'shreeji',22,'male'' at line 1
+mysql> insert into table data(1,'aayush',12,'male','khandwa',123456789,'aayush@12.com'),(2,'shreeji',22,'male','indore',1234765449,'shree@12.com'),(3,'komal',12,'female','indore',114524789,'komal@12.com'),(4,'chnchal',42,'female','indore',16746736789,'chnchal@12.com'),(5,'divyansh',82,'male','indore',129867789,'divyansh@12.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table data(1,'aayush',12,'male','khandwa',123456789,'aayush@12.com'),(2,'shreeji' at line 1
+mysql> insert into table data values(1,'aayush',12,'male','khandwa',123456789,'aayush@12.com'),(2,'shreeji',22,'male','indore',1234765449,'shree@12.com'),(3,'komal',12,'female','indore',114524789,'komal@12.com'),(4,'chnchal',42,'female','indore',16746736789,'chnchal@12.com'),(5,'divyansh',82,'male','indore',129867789,'divyansh@12.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table data values(1,'aayush',12,'male','khandwa',123456789,'aayush@12.com'),(2,'' at line 1
+mysql> insert into table data values(1,'aayush',12,'male','khandwa',123456789,'aayush@12.com'),(2,'shreeji',22,'male','indore',1234765449,'shree@12.com'),(3,'komal',12,'female','indore',114524789,'komal@12.com'),(4,'chnchal',42,'female','indore',16746736789,'chnchal@12.com'),(5,'divyansh',82,'male','indore',129867789,'divyansh@12.com');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table data values(1,'aayush',12,'male','khandwa',123456789,'aayush@12.com'),(2,'' at line 1
+mysql> show table
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show tables;
++-------------------+
+| Tables_in_school2 |
++-------------------+
+| data              |
++-------------------+
+1 row in set (0.01 sec)
+
+mysql> INSERT INTO data
+    -> VALUES
+    -> (1, 'aayush', 12, 'male', 'khandwa', 123456789, 'aayush@12.com'),
+    -> (2, 'shreeji', 22, 'male', 'indore', 1234765449, 'shree@12.com'),
+    -> (3, 'komal', 12, 'female', 'indore', 114524789, 'komal@12.com'),
+    -> (4, 'chnchal', 42, 'female', 'indore', 16746736789, 'chnchal@12.com'),
+    -> (5, 'divyansh', 82, 'male', 'indore', 129867789, 'divyansh@12.com');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select *from school2;
+ERROR 1146 (42S02): Table 'school2.school2' doesn't exist
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> selct * from data;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct * from data' at line 1
+mysql> select * from data;
++------+----------+------+--------+---------+-------------+-----------------+
+| id   | name     | age  | gender | address | phone       | email           |
++------+----------+------+--------+---------+-------------+-----------------+
+|    1 | aayush   |   12 | male   | khandwa | 123456789   | aayush@12.com   |
+|    2 | shreeji  |   22 | male   | indore  | 1234765449  | shree@12.com    |
+|    3 | komal    |   12 | female | indore  | 114524789   | komal@12.com    |
+|    4 | chnchal  |   42 | female | indore  | 16746736789 | chnchal@12.com  |
+|    5 | divyansh |   82 | male   | indore  | 129867789   | divyansh@12.com |
++------+----------+------+--------+---------+-------------+-----------------+
