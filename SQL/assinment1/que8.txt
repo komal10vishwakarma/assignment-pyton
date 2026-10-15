@@ -1,0 +1,72 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| employee_12        |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+15 rows in set (0.00 sec)
+
+mysql> create database employee_13;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> use employee_13;
+Database changed
+mysql> create table employee_table(emp_id INT,emp_name VARCHAR(100),gender VARCHAR(10),dob DATE,department VARCHAR(100),position VARCHAR(100),salary DECIMAL(8,2),joining_date DATE,phone VARCHAR(15));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc employee_table;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| emp_id       | int          | YES  |     | NULL    |       |
+| emp_name     | varchar(100) | YES  |     | NULL    |       |
+| gender       | varchar(10)  | YES  |     | NULL    |       |
+| dob          | date         | YES  |     | NULL    |       |
+| department   | varchar(100) | YES  |     | NULL    |       |
+| position     | varchar(100) | YES  |     | NULL    |       |
+| salary       | decimal(8,2) | YES  |     | NULL    |       |
+| joining_date | date         | YES  |     | NULL    |       |
+| phone        | varchar(15)  | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> INSERT INTO employee_table
+    -> (emp_id, emp_name, gender, dob, department, position, salary, joining_date, phone)
+    -> VALUES
+    -> (1, 'Aayush Sharma', 'Male', '2000-05-12', 'IT', 'Software Developer', 45000.00, '2023-06-15', '9876543210'),
+    -> (2, 'Komal Verma', 'Female', '2002-08-20', 'HR', 'HR Executive', 35000.00, '2024-01-10', '9876543211'),
+    -> (3, 'Rahul Patel', 'Male', '1999-11-05', 'Finance', 'Accountant', 40000.00, '2022-03-21', '9876543212'),
+    -> (4, 'Priya Singh', 'Female', '2001-02-14', 'IT', 'Web Developer', 42000.00, '2023-09-01', '9876543213'),
+    -> (5, 'Rohit Jain', 'Male', '1998-07-30', 'Marketing', 'Marketing Manager', 55000.00, '2021-07-12', '9876543214'),
+    -> (6, 'Neha Gupta', 'Female', '2000-12-18', 'Sales', 'Sales Executive', 32000.00, '2024-04-05', '9876543215');
+Query OK, 6 rows affected (0.22 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select*from employee_table;
++--------+---------------+--------+------------+------------+--------------------+----------+--------------+------------+
+| emp_id | emp_name      | gender | dob        | department | position           | salary   | joining_date | phone      |
++--------+---------------+--------+------------+------------+--------------------+----------+--------------+------------+
+|      1 | Aayush Sharma | Male   | 2000-05-12 | IT         | Software Developer | 45000.00 | 2023-06-15   | 9876543210 |
+|      2 | Komal Verma   | Female | 2002-08-20 | HR         | HR Executive       | 35000.00 | 2024-01-10   | 9876543211 |
+|      3 | Rahul Patel   | Male   | 1999-11-05 | Finance    | Accountant         | 40000.00 | 2022-03-21   | 9876543212 |
+|      4 | Priya Singh   | Female | 2001-02-14 | IT         | Web Developer      | 42000.00 | 2023-09-01   | 9876543213 |
+|      5 | Rohit Jain    | Male   | 1998-07-30 | Marketing  | Marketing Manager  | 55000.00 | 2021-07-12   | 9876543214 |
+|      6 | Neha Gupta    | Female | 2000-12-18 | Sales      | Sales Executive    | 32000.00 | 2024-04-05   | 9876543215 |
++--------+---------------+--------+------------+------------+--------------------+----------+--------------+------------+
+6 rows in set (0.00 sec)
+
+mysql>

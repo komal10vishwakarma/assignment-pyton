@@ -1,0 +1,41 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+14 rows in set (0.00 sec)
+
+mysql> use library;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_library |
++-------------------+
+| books             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> rename table books to ibrary_books;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_library |
++-------------------+
+| ibrary_books      |
++-------------------+
+1 row in set (0.00 sec)

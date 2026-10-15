@@ -1,0 +1,99 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+14 rows in set (0.00 sec)
+
+mysql> use school2;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_school2 |
++-------------------+
+| data              |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> desc data;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| age     | int          | YES  |     | NULL    |       |
+| gender  | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(150) | YES  |     | NULL    |       |
+| phone   | varchar(15)  | YES  |     | NULL    |       |
+| email   | varchar(100) | YES  |     | NULL    |       |
+| dob     | date         | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table data rename column phone to mobile_phone;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc data;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| id           | int          | YES  |     | NULL    |       |
+| name         | varchar(100) | YES  |     | NULL    |       |
+| age          | int          | YES  |     | NULL    |       |
+| gender       | varchar(10)  | YES  |     | NULL    |       |
+| address      | varchar(150) | YES  |     | NULL    |       |
+| mobile_phone | varchar(15)  | YES  |     | NULL    |       |
+| email        | varchar(100) | YES  |     | NULL    |       |
+| dob          | date         | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table data modify column age smallint;
+Query OK, 5 rows affected (0.12 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> desc data;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| id           | int          | YES  |     | NULL    |       |
+| name         | varchar(100) | YES  |     | NULL    |       |
+| age          | smallint     | YES  |     | NULL    |       |
+| gender       | varchar(10)  | YES  |     | NULL    |       |
+| address      | varchar(150) | YES  |     | NULL    |       |
+| mobile_phone | varchar(15)  | YES  |     | NULL    |       |
+| email        | varchar(100) | YES  |     | NULL    |       |
+| dob          | date         | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table data drop column email;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select*from data;
++------+----------+------+--------+---------+--------------+------+
+| id   | name     | age  | gender | address | mobile_phone | dob  |
++------+----------+------+--------+---------+--------------+------+
+|    1 | aayush   |   12 | male   | khandwa | 123456789    | NULL |
+|    2 | shreeji  |   22 | male   | indore  | 1234765449   | NULL |
+|    3 | komal    |   12 | female | indore  | 114524789    | NULL |
+|    4 | chnchal  |   42 | female | indore  | 16746736789  | NULL |
+|    5 | divyansh |   82 | male   | indore  | 129867789    | NULL |
++------+----------+------+--------+---------+--------------+------+
+5 rows in set (0.00 sec)

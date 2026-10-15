@@ -1,0 +1,57 @@
+mysql> create database library;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+14 rows in set (0.01 sec)
+
+mysql> use library;
+Database changed
+mysql> create table books(book_id INT,title VARCHAR(150),author VARCHAR(100),genre VARCHAR(50),publication_year INT,price DECIMAL(6,2),publisher VARCHAR(100));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc books;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| book_id          | int          | YES  |     | NULL    |       |
+| title            | varchar(150) | YES  |     | NULL    |       |
+| author           | varchar(100) | YES  |     | NULL    |       |
+| genre            | varchar(50)  | YES  |     | NULL    |       |
+| publication_year | int          | YES  |     | NULL    |       |
+| price            | decimal(6,2) | YES  |     | NULL    |       |
+| publisher        | varchar(100) | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> insert into books values(1, 'The Alchemist', 'Paulo Coelho', 'Fiction', 1988, 299.00, 'HarperCollins'),(2, 'Wings of Fire', 'A.P.J. Abdul Kalam', 'Autobiography', 1999, 250.00, 'Universities Press'),(3, 'Rich Dad Poor Dad', 'Robert Kiyosaki', 'Finance', 1997, 399.50, 'Plata Publishing'),(4, 'Atomic Habits', 'James Clear', 'Self-Help', 2018, 450.00, 'Penguin Random House');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from books;
++---------+-------------------+--------------------+---------------+------------------+--------+----------------------+
+| book_id | title             | author             | genre         | publication_year | price  | publisher            |
++---------+-------------------+--------------------+---------------+------------------+--------+----------------------+
+|       1 | The Alchemist     | Paulo Coelho       | Fiction       |             1988 | 299.00 | HarperCollins        |
+|       2 | Wings of Fire     | A.P.J. Abdul Kalam | Autobiography |             1999 | 250.00 | Universities Press   |
+|       3 | Rich Dad Poor Dad | Robert Kiyosaki    | Finance       |             1997 | 399.50 | Plata Publishing     |
+|       4 | Atomic Habits     | James Clear        | Self-Help     |             2018 | 450.00 | Penguin Random House |
++---------+-------------------+--------------------+---------------+------------------+--------+----------------------+
+4 rows in set (0.00 sec)

@@ -1,0 +1,141 @@
+mysql> create database employee_12;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| employee_12        |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+15 rows in set (0.00 sec)
+
+mysql> use employee_12;
+Database changed
+mysql> create table products;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> create table products(product_id INT,product_name VARCHAR(100),category VARCHAR(50),price DECIMAL(7,2),stock_quantity INT,supplier_name VARCHAR(100),manufacture_date DATE,expiry_date DATE);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc employee_12;
+ERROR 1146 (42S02): Table 'employee_12.employee_12' doesn't exist
+mysql> desc products;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| product_id       | int          | YES  |     | NULL    |       |
+| product_name     | varchar(100) | YES  |     | NULL    |       |
+| category         | varchar(50)  | YES  |     | NULL    |       |
+| price            | decimal(7,2) | YES  |     | NULL    |       |
+| stock_quantity   | int          | YES  |     | NULL    |       |
+| supplier_name    | varchar(100) | YES  |     | NULL    |       |
+| manufacture_date | date         | YES  |     | NULL    |       |
+| expiry_date      | date         | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> show tables;
++-----------------------+
+| Tables_in_employee_12 |
++-----------------------+
+| products              |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into products values(1, 'Laptop', 'Electronics', 55000.00, 10, 'Dell Suppliers', '2025-01-15', '2030-01-15'),(^C(),(),(),();
+mysql> insert into products values(1, 'Laptop', 'Electronics', 55000.00, 10, 'Dell Suppliers', '2025-01-15', '2030-01-15'),(2, 'Smartphone', 'Electronics', 25000.00, 15, 'Samsung Distributors', '2025-03-10', '2030-03-10'),
+    -> (3, 'Milk', 'Dairy', 60.00, 100, 'Fresh Dairy Farm', '2026-10-10', '2026-10-20'),
+    -> (4, 'Bread', 'Bakery', 40.00, 50, 'Modern Bakery', '2026-10-12', '2026-10-17'),
+    -> (5, 'Shampoo', 'Personal Care', 180.00, 40, 'Beauty Care Suppliers', '2025-06-01', '2028-06-01'),
+    -> (6, 'Rice', 'Grocery', 1200.00, 25, 'Shree Traders', '2026-01-10', '2027-01-10'));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 5
+mysql>  25000.00, 15, 'Samsung Distributors', '2025-03-10', '2030-03-10'),
+    ->     -> (3, 'Milk', 'Dairy', 60.00, 100, 'Fresh Dairy Farm', '2026-10-10', '2026-10-20'),
+    ->     -> (4, 'Bread', 'Bakery', 40.00, 50, 'Modern Bakery', '2026-10-12', '2026-10-17'),
+    ->     -> (5, 'Shampoo', 'Personal Care', 180.00, 40, 'Beauty Care Suppliers', '2025-06-01', '2028-06-01'),
+    ->     -> (6, 'Rice', 'Grocery', 1200.00, 25, 'Shree Traders', '2026-01-10', '2027-01-10'));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '25000.00, 15, 'Samsung Distributors', '2025-03-10', '2030-03-10'),
+    -> (3, 'M' at line 1
+mysql>
+mysql>
+mysql> insert into products values((1, 'Laptop', 'Electronics', 55000.00, 10, 'Dell Suppliers', '2025-01-15', '2030-01-15'),(2, 'Smartphone', 'Electronics', 25000.00, 15, 'Samsung Distributors', '2025-03-10', '2030-03-10'),(3, 'Milk', 'Dairy', 60.00, 100, 'Fresh Dairy Farm', '2026-10-10', '2026-10-20'),(4, 'Bread', 'Bakery', 40.00, 50, 'Modern Bakery', '2026-10-12', '2026-10-17'),(5, 'Shampoo', 'Personal Care', 180.00, 40, 'Beauty Care Suppliers', '2025-06-01'),(6, 'Rice', 'Grocery', 1200.00, 25, 'Shree Traders', '2026-01-10'));
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into products values((1, 'Laptop', 'Electronics', 55000.00, 10, 'Dell Suppliers', '2025-01-15', '2030-01-15'),(2, 'Smartphone', 'Electronics', 25000.00, 15, 'Samsung Distributors', '2025-03-10', '2030-03-10'),(3, 'Milk', 'Dairy', 60.00, 100, 'Fresh Dairy Farm', '2026-10-10', '2026-10-20'),(4, 'Bread', 'Bakery', 40.00, 50, 'Modern Bakery', '2026-10-12', '2026-10-17'),(5, 'Shampoo', 'Personal Care', 180.00, 40, 'Beauty Care Suppliers', '2025-06-01'),(6, 'Rice', 'Grocery', 1200.00, 25, 'Shree Traders', '2026-01-10'));
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO product
+    -> (product_id, product_name, category, price, stock_quantity, supplier_name, manufacture_date, expiry_date)
+    -> VALUES
+    -> (1, 'Laptop', 'Electronics', 55000.00, 10, 'Dell Suppliers', '2025-01-15', '2030-01-15'),
+    -> (2, 'Smartphone', 'Electronics', 25000.00, 15, 'Samsung Distributors', '2025-03-10', '2030-03-10'),
+    -> (3, 'Milk', 'Dairy', 60.00, 100, 'Fresh Dairy Farm', '2026-10-10', '2026-10-20'),
+    -> (4, 'Bread', 'Bakery', 40.00, 50, 'Modern Bakery', '2026-10-12', '2026-10-17'),
+    -> (5, 'Shampoo', 'Personal Care', 180.00, 40, 'Beauty Care Suppliers', '2025-06-01', '2028-06-01'),
+    -> (6, 'Rice', 'Grocery', 1200.00, 25, 'Shree Traders', '2026-01-10', '2027-01-10'),
+    -> (7, 'Headphones', 'Electronics', 3000.00, 20, 'Sony Distributors', '2025-07-15', '2030-07-15'),
+    -> (8, 'Cooking Oil', 'Grocery', 160.00, 60, 'Fortune Suppliers', '2026-04-01', '2027-04-01'),
+    -> (9, 'Toothpaste', 'Personal Care', 95.00, 35, 'Oral Care Traders', '2025-09-20', '2028-09-20'),
+    -> (10, 'Biscuits', 'Snacks', 30.00, 80, 'Parle Distributors', '2026-10-11', '2027-04-11'),
+    -> (11, 'Monitor', 'Electronics', 18000.00, 12, 'LG Suppliers', '2025-02-20', '2030-02-20'),
+    -> (12, 'Butter', 'Dairy', 250.00, 30, 'Amul Distributors', '2026-10-12', '2026-11-12'),
+    -> (13, 'Notebook', 'Stationery', 60.00, 100, 'Classic Stationers', '2025-01-01', '2030-01-01'),
+    -> (14, 'Detergent', 'Household', 220.00, 45, 'Clean Home Traders', '2025-08-15', '2028-08-15'),
+    -> (15, 'Orange Juice', 'Beverages', 110.00, 40, 'Fresh Drinks Ltd', '2026-10-13', '2026-11-13');
+ERROR 1146 (42S02): Table 'employee_12.product' doesn't exist
+mysql> INSERT INTO product
+    -> (product_id, product_name, category, price, stock_quantity, supplier_name, manufacture_date, expiry_date)
+    -> VALUES
+    -> (1, 'Laptop', 'Electronics', 55000.00, 10, 'Dell Suppliers', '2025-01-15', '2030-01-15'),
+    -> (2, 'Smartphone', 'Electronics', 25000.00, 15, 'Samsung Distributors', '2025-03-10', '2030-03-10'),
+    -> (3, 'Milk', 'Dairy', 60.00, 100, 'Fresh Dairy Farm', '2026-10-10', '2026-10-20'),
+    -> (4, 'Bread', 'Bakery', 40.00, 50, 'Modern Bakery', '2026-10-12', '2026-10-17'),
+    -> (5, 'Shampoo', 'Personal Care', 180.00, 40, 'Beauty Care Suppliers', '2025-06-01', '2028-06-01'),
+    -> (6, 'Rice', 'Grocery', 1200.00, 25, 'Shree Traders', '2026-01-10', '2027-01-10'),
+    -> (7, 'Headphones', 'Electronics', 3000.00, 20, 'Sony Distributors', '2025-07-15', '2030-07-15'),
+    -> (8, 'Cooking Oil', 'Grocery', 160.00, 60, 'Fortune Suppliers', '2026-04-01', '2027-04-01'),
+    -> (9, 'Toothpaste', 'Personal Care', 95.00, 35, 'Oral Care Traders', '2025-09-20', '2028-09-20'),
+    -> (10, 'Biscuits', 'Snacks', 30.00, 80, 'Parle Distributors', '2026-10-11', '2027-04-11'),
+    -> (11, 'Monitor', 'Electronics', 18000.00, 12, 'LG Suppliers', '2025-02-20', '2030-02-20'),
+    -> (12, 'Butter', 'Dairy', 250.00, 30, 'Amul Distributors', '2026-10-12', '2026-11-12'),
+    -> (13, 'Notebook', 'Stationery', 60.00, 100, 'Classic Stationers', '2025-01-01', '2030-01-01'),
+    -> (14, 'Detergent', 'Household', 220.00, 45, 'Clean Home Traders', '2025-08-15', '2028-08-15'),
+    -> (14, 'Detergent', 'Household', 220.00, 45, 'Clean Home Traders', '2025-08-15', '2028-08-15'),
+    ->
+    ->
+    -> ^C
+mysql> INSERT INTO products
+    -> (product_id, product_name, category, price, stock_quantity, supplier_name, manufacture_date, expiry_date)
+    -> VALUES
+    -> (1, 'Laptop', 'Electronics', 55000.00, 10, 'Dell Suppliers', '2025-01-15', '2030-01-15'),
+    -> (2, 'Smartphone', 'Electronics', 25000.00, 15, 'Samsung Distributors', '2025-03-10', '2030-03-10'),
+    -> (3, 'Milk', 'Dairy', 60.00, 100, 'Fresh Dairy Farm', '2026-10-10', '2026-10-20'),
+    -> (4, 'Bread', 'Bakery', 40.00, 50, 'Modern Bakery', '2026-10-12', '2026-10-17'),
+    -> (5, 'Shampoo', 'Personal Care', 180.00, 40, 'Beauty Care Suppliers', '2025-06-01', '2028-06-01'),
+    -> (6, 'Rice', 'Grocery', 1200.00, 25, 'Shree Traders', '2026-01-10', '2027-01-10');
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from products;
++------------+--------------+---------------+----------+----------------+-----------------------+------------------+-------------+
+| product_id | product_name | category      | price    | stock_quantity | supplier_name         | manufacture_date | expiry_date |
++------------+--------------+---------------+----------+----------------+-----------------------+------------------+-------------+
+|          1 | Laptop       | Electronics   | 55000.00 |             10 | Dell Suppliers        | 2025-01-15       | 2030-01-15  |
+|          2 | Smartphone   | Electronics   | 25000.00 |             15 | Samsung Distributors  | 2025-03-10       | 2030-03-10  |
+|          3 | Milk         | Dairy         |    60.00 |            100 | Fresh Dairy Farm      | 2026-10-10       | 2026-10-20  |
+|          4 | Bread        | Bakery        |    40.00 |             50 | Modern Bakery         | 2026-10-12       | 2026-10-17  |
+|          5 | Shampoo      | Personal Care |   180.00 |             40 | Beauty Care Suppliers | 2025-06-01       | 2028-06-01  |
+|          6 | Rice         | Grocery       |  1200.00 |             25 | Shree Traders         | 2026-01-10       | 2027-01-10  |
++------------+--------------+---------------+----------+----------------+-----------------------+------------------+-------------+
+6 rows in set (0.00 sec)

@@ -1,0 +1,101 @@
+mysql> create database movie;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| employee_12        |
+| employee_13        |
+| information_schema |
+| library            |
+| movie              |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+17 rows in set (0.00 sec)
+
+mysql> use movie;
+Database changed
+mysql> create table movie_reviews(review_id INT,movie_title VARCHAR(150),reviewer_name VARCHAR(100),rating DECIMAL(2,1),review_text TEXT);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show movie_reviews;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'movie_reviews' at line 1
+mysql> show tables;
++-----------------+
+| Tables_in_movie |
++-----------------+
+| movie_reviews   |
++-----------------+
+1 row in set (0.01 sec)
+
+mysql> desc movie_reviews;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| review_id     | int          | YES  |     | NULL    |       |
+| movie_title   | varchar(150) | YES  |     | NULL    |       |
+| reviewer_name | varchar(100) | YES  |     | NULL    |       |
+| rating        | decimal(2,1) | YES  |     | NULL    |       |
+| review_text   | text         | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> alter table movie_reviews add column review_date DATE;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table movie_reviews add column platform VARCHAR(50) , add column , add column likes INT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', add column likes INT' at line 1
+mysql> alter table movie_reviews  add column platform VARCHAR(50),add column likes int,add column review_date DATE;
+ERROR 1060 (42S21): Duplicate column name 'review_date'
+mysql> alter table movie_reviews  add column platform VARCHAR(50),add column likes int;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc movie_reviews;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| review_id     | int          | YES  |     | NULL    |       |
+| movie_title   | varchar(150) | YES  |     | NULL    |       |
+| reviewer_name | varchar(100) | YES  |     | NULL    |       |
+| rating        | decimal(2,1) | YES  |     | NULL    |       |
+| review_text   | text         | YES  |     | NULL    |       |
+| review_date   | date         | YES  |     | NULL    |       |
+| platform      | varchar(50)  | YES  |     | NULL    |       |
+| likes         | int          | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table movie_reviews modify column rating to DECIMAL(3,1),modify column movie_title to VARCHAR(200) ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to DECIMAL(3,1),modify column movie_title to VARCHAR(200)' at line 1
+mysql> alter table movie_reviews modify column rating DECIMAL(3,1),modify column movie_title VARCHAR(200) ;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> drop column likes;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column likes' at line 1
+mysql> alter table movie_reviews drop column likes;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> truncate table movie_reviews;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> rename table movie_reviews to archived_reviews;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table archived_reviews;
+Query OK, 0 rows affected (0.02 sec)

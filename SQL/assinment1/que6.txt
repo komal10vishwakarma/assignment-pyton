@@ -1,0 +1,38 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch19            |
+| batch20            |
+| batch21            |
+| company_db         |
+| employee           |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| school2            |
+| school_db          |
+| shop_db            |
+| student            |
+| sys                |
++--------------------+
+14 rows in set (0.00 sec)
+
+mysql> use library;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_library |
++-------------------+
+| ibrary_books      |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> drop ibrary_books;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ibrary_books' at line 1
+mysql> drop table ibrary_books;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
