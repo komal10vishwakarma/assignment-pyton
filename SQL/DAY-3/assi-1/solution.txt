@@ -1,0 +1,277 @@
+
+
+Microsoft Windows [Version 10.0.26200.9457]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\HYY>cd..
+
+C:\Users>cd..
+
+C:\>cd /d "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 19
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database employee_management;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use employee_management;
+Database changed
+mysql> create table employees (employee_id  PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,experience_months varchar(20),salary decimal(7,2),performance_score decimal(7,2),productivity_score decimal(7,2),department_id int,date_of_birth date,login_time time,interview_datetime datetime, birth_year year);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,expe' at line 1
+mysql> create table employees (employee_id PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,experience_months varchar(20),salary decimal(7,2),performance_score decimal(7,2),productivity_score decimal(7,2),department_id int,date_of_birth date,login_time time,interview_datetime datetime, birth_year year);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,expe' at line 1
+mysql> create table employees (employee_id PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,experience_months varchar(20),salary decimal(7,2),performance_score decimal(7,2),productivity_score decimal(7,2),department_id int,date_of_birth date,login_time time,interv;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,expe' at line 1
+mysql> create table employees (employee_id PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,experience_months varchar(20),salary decimal(7,2),performance_score decimal(7,2),productivity_score decimal(7,2),department_id int,employee_status  status Enum ('active','inactive'), skill set('database expert','tech expert','cloud expert'),gender skill set ('male','female'),date_of_birth date,login_time time,interview_datetime datetime, birth_year year,is_active skill set('yes','no'),short_note tinytext ,employee_description text, training_history medium text,employee_profile long text,created_at  timestamp default current_timestamp,updated_at timestamp default current_timestamp updation timestamp on update current_time);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,expe' at line 1
+mysql> create table employees(employee_id PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,experience_months varchar(20),salary decimal(7,2),performance_score decimal(7,2),productivity_score decimal(7,2),department_id int,employee_status  status Enum ('active','inactive'), skill set('database expert','tech expert','cloud expert'),gender skill set ('male','female'),date_of_birth date,login_time time,interview_datetime datetime, birth_year year,is_active skill set('yes','no'),short_note tinytext ,employee_description text, training_history medium text,employee_profile long text,created_at  timestamp default current_timestamp,updated_at timestamp default current_timestamp updation timestamp on update current_time);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,expe' at line 1
+mysql> create table employees (employee_id int PRIMARY KEY AUTO_INCREMENT,employee_name varchar(20),number_of_children int,experience_months varchar(20),salary decimal(7,2),performance_score decimal(7,2),productivity_score decimal(7,2),department_id int,employee_status  ENUM('active','inactive'), skill SET('database expert','tech expert','cloud expert'),gender ENUM('male','female'),date_of_birth date,login_time time,interview_datetime datetime, birth_year year,is_active SET('yes','no'),short_note tinytext ,employee_description text, training_history MEDIUMTEXT,employee_profile LONGTEXT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> ON UPDATE CURRENT_TIMESTAMP);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc employees;
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+| Field                | Type                                                | Null | Key | Default           | Extra                                         |
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+| employee_id          | int                                                 | NO   | PRI | NULL              | auto_increment                                |
+| employee_name        | varchar(20)                                         | YES  |     | NULL              |                                               |
+| number_of_children   | int                                                 | YES  |     | NULL              |                                               |
+| experience_months    | varchar(20)                                         | YES  |     | NULL              |                                               |
+| salary               | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| performance_score    | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| productivity_score   | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| department_id        | int                                                 | YES  |     | NULL              |                                               |
+| employee_status      | enum('active','inactive')                           | YES  |     | NULL              |                                               |
+| skill                | set('database expert','tech expert','cloud expert') | YES  |     | NULL              |                                               |
+| gender               | enum('male','female')                               | YES  |     | NULL              |                                               |
+| date_of_birth        | date                                                | YES  |     | NULL              |                                               |
+| login_time           | time                                                | YES  |     | NULL              |                                               |
+| interview_datetime   | datetime                                            | YES  |     | NULL              |                                               |
+| birth_year           | year                                                | YES  |     | NULL              |                                               |
+| is_active            | set('yes','no')                                     | YES  |     | NULL              |                                               |
+| short_note           | tinytext                                            | YES  |     | NULL              |                                               |
+| employee_description | text                                                | YES  |     | NULL              |                                               |
+| training_history     | mediumtext                                          | YES  |     | NULL              |                                               |
+| employee_profile     | longtext                                            | YES  |     | NULL              |                                               |
+| created_at           | timestamp                                           | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED                             |
+| updated_at           | timestamp                                           | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+
+insert into  employees(employee_name,number_of_children,experience_months,salary,performance_score,productivity_score,department_id,employee_status,skill,gender,date_of_birth,login_time,interview_datetime,birth_year,is_active,short_note,employee_description,training_history,employee_profile)VALUES('komal',4,5,13456.09,12.22,43.22,12,'active','cloud expert','female','2005','yes','i m cloud expert','i m very very intresetes in this industry and so oin...','hello i m a cloud technician whose work is to manage all cloud related task','i m komal Vishwakarma who is current learning the technical skilss and i want to do my best ');
+
+mysql> show databases;
++---------------------+
+| Database            |
++---------------------+
+| batch19             |
+| batch20             |
+| batch21             |
+| company_db          |
+| employee            |
+| employee_12         |
+| employee_13         |
+| employee_management |
+| information_schema  |
+| library             |
+| movie               |
+| mysql               |
+| performance_schema  |
+| school2             |
+| school_db           |
+| shop_db             |
+| student             |
+| sys                 |
++---------------------+
+18 rows in set (0.00 sec)
+
+mysql> use employee_management;
+Database changed
+mysql> show tables;
++-------------------------------+
+| Tables_in_employee_management |
++-------------------------------+
+| employees                     |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> desc employees;
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+| Field                | Type                                                | Null | Key | Default           | Extra                                         |
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+| employee_id          | int                                                 | NO   | PRI | NULL              | auto_increment                                |
+| employee_name        | varchar(20)                                         | YES  |     | NULL              |                                               |
+| number_of_children   | int                                                 | YES  |     | NULL              |                                               |
+| experience_months    | int                                                 | YES  |     | NULL              |                                               |
+| salary               | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| performance_score    | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| productivity_score   | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| department_id        | int                                                 | YES  |     | NULL              |                                               |
+| employee_status      | enum('active','inactive')                           | YES  |     | NULL              |                                               |
+| skill                | set('database expert','tech expert','cloud expert') | YES  |     | NULL              |                                               |
+| gender               | enum('male','female')                               | YES  |     | NULL              |                                               |
+| date_of_birth        | date                                                | YES  |     | NULL              |                                               |
+| login_time           | time                                                | YES  |     | NULL              |                                               |
+| interview_datetime   | datetime                                            | YES  |     | NULL              |                                               |
+| birth_year           | year                                                | YES  |     | NULL              |                                               |
+| is_active            | set('yes','no')                                     | YES  |     | NULL              |                                               |
+| short_note           | tinytext                                            | YES  |     | NULL              |                                               |
+| employee_description | text                                                | YES  |     | NULL              |                                               |
+| training_history     | mediumtext                                          | YES  |     | NULL              |                                               |
+| employee_profile     | longtext                                            | YES  |     | NULL              |                                               |
+| created_at           | timestamp                                           | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED                             |
+| updated_at           | timestamp                                           | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+22 rows in set (0.01 sec)
+
+mysql> alter table employees modify column employee_id char(5) check(char_lenght(employee_id)=5)
+    -> ;
+ERROR 3814 (HY000): An expression of a check constraint 'employees_chk_1' contains disallowed function: `char_lenght`.
+mysql> alter table employees modify column employee_id char(5) check (char_lenght(employee_id)=5).;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.' at line 1
+mysql> alter table employees modify column employee_id char(5) check (char_lenght(employee_id)=5).;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.' at line 1
+mysql> alter table employees modify column employee_id char(5) check (char_lenght(employee_id)=5);
+ERROR 3814 (HY000): An expression of a check constraint 'employees_chk_1' contains disallowed function: `char_lenght`.
+mysql> alter table employees modify column employee_id char(5) check (CHAR_LENGTH(employee_id)=5);
+ERROR 3819 (HY000): Check constraint 'employees_chk_1' is violated.
+mysql> alter table employees ADD column employee_code;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table employees ADD column employee_code char(5) CHECK (CHAR_LENGTH(employee_code)<=5);
+Query OK, 15 rows affected (0.12 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee ADD column phone_number ,add column email;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',add column email' at line 1
+mysql> alter table employee ADD column phone_number int ,add column email varchar(15);
+ERROR 1146 (42S02): Table 'employee_management.employee' doesn't exist
+mysql> alter table employees ADD column phone_number int ,add column email varchar(15);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employees;
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+| Field                | Type                                                | Null | Key | Default           | Extra                                         |
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+| employee_id          | int                                                 | NO   | PRI | NULL              | auto_increment                                |
+| employee_name        | varchar(20)                                         | YES  |     | NULL              |                                               |
+| number_of_children   | int                                                 | YES  |     | NULL              |                                               |
+| experience_months    | int                                                 | YES  |     | NULL              |                                               |
+| salary               | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| performance_score    | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| productivity_score   | decimal(7,2)                                        | YES  |     | NULL              |                                               |
+| department_id        | int                                                 | YES  |     | NULL              |                                               |
+| employee_status      | enum('active','inactive')                           | YES  |     | NULL              |                                               |
+| skill                | set('database expert','tech expert','cloud expert') | YES  |     | NULL              |                                               |
+| gender               | enum('male','female')                               | YES  |     | NULL              |                                               |
+| date_of_birth        | date                                                | YES  |     | NULL              |                                               |
+| login_time           | time                                                | YES  |     | NULL              |                                               |
+| interview_datetime   | datetime                                            | YES  |     | NULL              |                                               |
+| birth_year           | year                                                | YES  |     | NULL              |                                               |
+| is_active            | set('yes','no')                                     | YES  |     | NULL              |                                               |
+| short_note           | tinytext                                            | YES  |     | NULL              |                                               |
+| employee_description | text                                                | YES  |     | NULL              |                                               |
+| training_history     | mediumtext                                          | YES  |     | NULL              |                                               |
+| employee_profile     | longtext                                            | YES  |     | NULL              |                                               |
+| created_at           | timestamp                                           | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED                             |
+| updated_at           | timestamp                                           | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
+| employee_code        | char(5)                                             | YES  |     | NULL              |                                               |
+| phone_number         | int                                                 | YES  |     | NULL              |                                               |
+| email                | varchar(15)                                         | YES  |     | NULL              |                                               |
++----------------------+-----------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+25 rows in set (0.01 sec)
+
+mysql> alter table employees modify employee_name varchar(50),modify ^C
+mysql>  alter table employees modify employee_name varchar(50),modify employee_code char
+    ->
+    ->
+    ->
+    -> ^C
+mysql> alter table employees modify employee_name varchar(50),modify employee_code char(50);
+Query OK, 15 rows affected (0.07 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+mysql> alter table employees rename short_note to employee_note;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to employee_note' at line 1
+mysql> alter table employees rename column short_note to employee_note;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employees drop column email;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employees drop column phone_number;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> create table employee_documents;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> create table employee_documents(document_id int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++-------------------------------+
+| Tables_in_employee_management |
++-------------------------------+
+| employee_documents            |
+| employees                     |
++-------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> use employee_documents;
+ERROR 1049 (42000): Unknown database 'employee_documents'
+mysql> use table employee_documents;
+ERROR 1049 (42000): Unknown database 'table'
+mysql> alter table employee_documents modify document_id int AUNTO_INCREMENT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AUNTO_INCREMENT' at line 1
+mysql> alter table employee_documents modify document_id int AUTO_INCREMENT;
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> alter table employee_documents modify document_id AUTO_INCREMENT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AUTO_INCREMENT' at line 1
+mysql> alter table employee_documents modify document_id AUTO_INCREMENT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AUTO_INCREMENT' at line 1
+mysql> alter table employee_documents modify column document_id AUTO_INCREMENT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AUTO_INCREMENT' at line 1
+mysql> alter table employee_documents modify column document_id int AUTO_INCREMENT ;
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> desc employee_documents
+    -> ;
++-------------+------+------+-----+---------+-------+
+| Field       | Type | Null | Key | Default | Extra |
++-------------+------+------+-----+---------+-------+
+| document_id | int  | YES  |     | NULL    |       |
++-------------+------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> alter table employee_documents modify column document_id int not null AUTO_INCREMENT ;
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> alter table employee_documents modify column document_id INT NOT NULL AUTO_INCREMENT ;
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> alter table employee_documents MODIFY column document_id INT NOT NULL AUTO_INCREMENT ;
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> alter table employee_documents MODIFY column document_id INT NOT NULL AUTO_INCREMENT ;
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> ^C
+mysql> ALTER TABLE employee_documents
+    -> MODIFY COLUMN document_id INT NOT NULL AUTO_INCREMENT,
+    -> ADD PRIMARY KEY (document_id);
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> create table employee_backup as select * from employees;
+Query OK, 15 rows affected (0.04 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+ 
