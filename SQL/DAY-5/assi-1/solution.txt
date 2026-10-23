@@ -1,552 +1,84 @@
-Microsoft Windows [Version 10.0.26200.9711]
-(c) Microsoft Corporation. All rights reserved.
+# Assignment 6 — Employee Management System
 
-C:\Users\HYY>cd..
+**Use the `employees` table and sample data given below.**
 
-C:\Users>cd..
+## Table Structure
 
-C:\>cd /d "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+Create an `employees` table with the following columns:
 
-C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
-Enter password: *****
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 8
-Server version: 8.0.46 MySQL Community Server - GPL
+* `employee_id`
+* `employee_name`
+* `department`
+* `city`
+* `salary`
+* `joining_date`
+* `experience`
+* `age`
+* `gender`
+* `employment_type`
+* `skills`
+* `email`
+* `manager_id`
 
-Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+### Data Type Requirements
 
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
+Use:
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+* `ENUM` for `gender`
+* `ENUM` for `employment_type`
+* `SET` for `skills`
+* `DATE` for `joining_date`
+* `DATE` for any other date column if required
+* Allow appropriate columns such as `email` and `manager_id` to contain `NULL`
 
-mysql> show databases
-    -> ;
-+---------------------+
-| Database            |
-+---------------------+
-| batch19             |
-| batch20             |
-| batch21             |
-| company_db          |
-| employee            |
-| employee_12         |
-| employee_13         |
-| employee_management |
-| information_schema  |
-| library             |
-| movie               |
-| mysql               |
-| performance_schema  |
-| school2             |
-| school_db           |
-| shop_db             |
-| student             |
-| sys                 |
-+---------------------+
-18 rows in set (0.12 sec)
+Insert **at least 10 employees** with different values.
 
-mysql> create database Employee Management System;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Management System' at line 1
-mysql> create database Employee_Management_System;
-Query OK, 1 row affected (0.03 sec)
+Your data must include:
 
-mysql> use Employee_Management_System;
-Database changed
-mysql> create table employee;
-ERROR 4028 (HY000): A table must have at least one visible column.
-mysql> create table employee(employee_id int, employee_name varchar(50), department varchar(50), city varchar(50), salary decimal(10,2), experience int, age int, joining_date date);
-Query OK, 0 rows affected (0.06 sec)
+* At least SOME different departments
+* At least SOME different cities
+* Some employees with `NULL` email
+* Some employees with `NULL` manager_id
+* Different employment types such as `FULL_TIME`, `PART_TIME`, `CONTRACT`, `INTERN`
+* Different combinations of skills using `SET`
+* Employees who joined before 2022
+* Employees who joined between 2022 and 2024
+* Employees who joined after 2024
+* Different salary ranges
+* Different experience levels
+* Both male and female employees
 
-mysql>
-mysql> INSERT INTO employees
-    -> (employee_id, employee_name, department, city, salary, experience, age, joining_date)
-    -> VALUES
-    -> (1, 'Komal', 'IT', 'Indore', 70000, 5, 25, '2023-06-15'),
-    -> (2, 'Aayush', 'HR', 'Bhopal', 40000, 2, 24, '2024-03-10'),
-    -> (3, 'Priya', 'Finance', 'Pune', 65000, 6, 30, '2022-08-20'),
-    -> (4, 'Rahul', 'Sales', 'Mumbai', 35000, 1, 22, '2025-01-12'),
-    -> (5, 'Neha', 'IT', 'Bangalore', 90000, 8, 32, '2021-04-05'),
-    -> (6, 'Amit', 'HR', 'Indore', 45000, 3, 27, '2020-11-18'),
-    -> (7, 'Sneha', 'Finance', 'Bhopal', 75000, 7, 35, '2023-09-25'),
-    -> (8, 'Rohit', 'Sales', 'Pune', 50000, 4, 28, '2022-02-14'),
-    -> (9, 'Anjali', 'IT', 'Mumbai', 80000, 9, 38, '2020-07-30'),
-    -> (10, 'Vikas', 'Finance', 'Bangalore', 60000, 5, 31, '2024-12-01'),
-    -> (11, 'Pooja', 'HR', 'Pune', 30000, 1, 23, '2026-01-15'),
-    -> (12, 'Karan', 'Sales', 'Indore', 55000, 4, 29, '2021-10-22'),
-    -> (13, 'Meena', 'IT', 'Bhopal', 100000, 10, 40, '2025-05-19'),
-    -> (14, 'Arjun', 'Finance', 'Mumbai', 70000, 6, 34, '2022-06-08'),
-    -> (15, 'Riya', 'Sales', 'Bangalore', 45000, 3, 26, '2026-03-11');
-ERROR 1146 (42S02): Table 'employee_management_system.employees' doesn't exist
-mysql>
-mysql> INSERT INTO employee
-    -> (employee_id, employee_name, department, city, salary, experience, age, joining_date)
-    -> VALUES
-    -> (1, 'Komal', 'IT', 'Indore', 70000, 5, 25, '2023-06-15'),
-    -> (2, 'Aayush', 'HR', 'Bhopal', 40000, 2, 24, '2024-03-10'),
-    -> (3, 'Priya', 'Finance', 'Pune', 65000, 6, 30, '2022-08-20'),
-    -> (4, 'Rahul', 'Sales', 'Mumbai', 35000, 1, 22, '2025-01-12'),
-    -> (5, 'Neha', 'IT', 'Bangalore', 90000, 8, 32, '2021-04-05'),
-    -> (6, 'Amit', 'HR', 'Indore', 45000, 3, 27, '2020-11-18'),
-    -> (7, 'Sneha', 'Finance', 'Bhopal', 75000, 7, 35, '2023-09-25'),
-    -> (8, 'Rohit', 'Sales', 'Pune', 50000, 4, 28, '2022-02-14'),
-    -> (9, 'Anjali', 'IT', 'Mumbai', 80000, 9, 38, '2020-07-30'),
-    -> (10, 'Vikas', 'Finance', 'Bangalore', 60000, 5, 31, '2024-12-01'),
-    -> (11, 'Pooja', 'HR', 'Pune', 30000, 1, 23, '2026-01-15'),
-    -> (12, 'Karan', 'Sales', 'Indore', 55000, 4, 29, '2021-10-22'),
-    -> (13, 'Meena', 'IT', 'Bhopal', 100000, 10, 40, '2025-05-19'),
-    -> (14, 'Arjun', 'Finance', 'Mumbai', 70000, 6, 34, '2022-06-08'),
-    -> (15, 'Riya', 'Sales', 'Bangalore', 45000, 3, 26, '2026-03-11');
-Query OK, 15 rows affected (0.03 sec)
-Records: 15  Duplicates: 0  Warnings: 0
+---
 
-mysql> select * from employee where salary>60000;
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-7 rows in set (0.00 sec)
+## Write SQL queries for the following questions:
 
-mysql> select * from employee where salary<50000;
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           2 | Aayush        | HR         | Bhopal    | 40000.00 |          2 |   24 | 2024-03-10   |
-|           4 | Rahul         | Sales      | Mumbai    | 35000.00 |          1 |   22 | 2025-01-12   |
-|           6 | Amit          | HR         | Indore    | 45000.00 |          3 |   27 | 2020-11-18   |
-|          11 | Pooja         | HR         | Pune      | 30000.00 |          1 |   23 | 2026-01-15   |
-|          15 | Riya          | Sales      | Bangalore | 45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-5 rows in set (0.00 sec)
-
-mysql> select * from employee where age>30;
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-6 rows in set (0.00 sec)
-
-mysql> select * from employee where experience>=5;
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-8 rows in set (0.00 sec)
-
-mysql> select * from employee where (department='IT' or department='Finance';
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
-mysql> select * from employee where (department='IT' or department='Finance');
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-8 rows in set (0.00 sec)
-
-mysql> select * from employee where (department='IT' or department='Hr' or department='Sales');
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           2 | Aayush        | HR         | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   |
-|           4 | Rahul         | Sales      | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    |  45000.00 |          3 |   27 | 2020-11-18   |
-|           8 | Rohit         | Sales      | Pune      |  50000.00 |          4 |   28 | 2022-02-14   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          11 | Pooja         | HR         | Pune      |  30000.00 |          1 |   23 | 2026-01-15   |
-|          12 | Karan         | Sales      | Indore    |  55000.00 |          4 |   29 | 2021-10-22   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          15 | Riya          | Sales      | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-11 rows in set (0.00 sec)
-
-mysql> select * from employee where not (department='IT' or department='Hr');
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           4 | Rahul         | Sales      | Mumbai    | 35000.00 |          1 |   22 | 2025-01-12   |
-|           7 | Sneha         | Finance    | Bhopal    | 75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      | 50000.00 |          4 |   28 | 2022-02-14   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          12 | Karan         | Sales      | Indore    | 55000.00 |          4 |   29 | 2021-10-22   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-|          15 | Riya          | Sales      | Bangalore | 45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-8 rows in set (0.00 sec)
-
-mysql> select * from employee where (city=-'indore' or city='pune');
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           2 | Aayush        | HR         | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           4 | Rahul         | Sales      | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    |  45000.00 |          3 |   27 | 2020-11-18   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      |  50000.00 |          4 |   28 | 2022-02-14   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          11 | Pooja         | HR         | Pune      |  30000.00 |          1 |   23 | 2026-01-15   |
-|          12 | Karan         | Sales      | Indore    |  55000.00 |          4 |   29 | 2021-10-22   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-|          15 | Riya          | Sales      | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-15 rows in set, 18 warnings (0.01 sec)
-
-mysql> select * from employee where not (city='indore' or city='pune' or city='bhopal' );
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           4 | Rahul         | Sales      | Mumbai    | 35000.00 |          1 |   22 | 2025-01-12   |
-|           5 | Neha          | IT         | Bangalore | 90000.00 |          8 |   32 | 2021-04-05   |
-|           9 | Anjali        | IT         | Mumbai    | 80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-|          15 | Riya          | Sales      | Bangalore | 45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-6 rows in set (0.00 sec)
-
-mysql> select * from employee where salary between 40000 to 70000;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to 70000' at line 1
-mysql> select * from employee where salary between 40000 and 70000;
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    | 70000.00 |          5 |   25 | 2023-06-15   |
-|           2 | Aayush        | HR         | Bhopal    | 40000.00 |          2 |   24 | 2024-03-10   |
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           6 | Amit          | HR         | Indore    | 45000.00 |          3 |   27 | 2020-11-18   |
-|           8 | Rohit         | Sales      | Pune      | 50000.00 |          4 |   28 | 2022-02-14   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          12 | Karan         | Sales      | Indore    | 55000.00 |          4 |   29 | 2021-10-22   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-|          15 | Riya          | Sales      | Bangalore | 45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-9 rows in set (0.00 sec)
-
-mysql> select * from employee where age between 25 and 35;
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    | 70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore | 90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    | 45000.00 |          3 |   27 | 2020-11-18   |
-|           7 | Sneha         | Finance    | Bhopal    | 75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      | 50000.00 |          4 |   28 | 2022-02-14   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          12 | Karan         | Sales      | Indore    | 55000.00 |          4 |   29 | 2021-10-22   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-|          15 | Riya          | Sales      | Bangalore | 45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-10 rows in set (0.00 sec)
-
-mysql> select * from employee where experience between 3 and 7;
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    | 70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           6 | Amit          | HR         | Indore    | 45000.00 |          3 |   27 | 2020-11-18   |
-|           7 | Sneha         | Finance    | Bhopal    | 75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      | 50000.00 |          4 |   28 | 2022-02-14   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          12 | Karan         | Sales      | Indore    | 55000.00 |          4 |   29 | 2021-10-22   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-|          15 | Riya          | Sales      | Bangalore | 45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-9 rows in set (0.00 sec)
-
-mysql> select * from employee where joined_date between 3 and 7;
-ERROR 1054 (42S22): Unknown column 'joined_date' in 'where clause'
-mysql> select * from employee where joining_date between 3 and 7;
-Empty set, 2 warnings (0.00 sec)
-
-mysql> SELECT *
-    -> FROM employee
-    -> WHERE joining_date < '2023-01-01';
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore | 90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    | 45000.00 |          3 |   27 | 2020-11-18   |
-|           8 | Rohit         | Sales      | Pune      | 50000.00 |          4 |   28 | 2022-02-14   |
-|           9 | Anjali        | IT         | Mumbai    | 80000.00 |          9 |   38 | 2020-07-30   |
-|          12 | Karan         | Sales      | Indore    | 55000.00 |          4 |   29 | 2021-10-22   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-7 rows in set (0.00 sec)
-
-mysql> select*from employee where joining_date<'2024-12-31';
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    | 70000.00 |          5 |   25 | 2023-06-15   |
-|           2 | Aayush        | HR         | Bhopal    | 40000.00 |          2 |   24 | 2024-03-10   |
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore | 90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    | 45000.00 |          3 |   27 | 2020-11-18   |
-|           7 | Sneha         | Finance    | Bhopal    | 75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      | 50000.00 |          4 |   28 | 2022-02-14   |
-|           9 | Anjali        | IT         | Mumbai    | 80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          12 | Karan         | Sales      | Indore    | 55000.00 |          4 |   29 | 2021-10-22   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-11 rows in set (0.00 sec)
-
-mysql> select * from employee where (city='indore') or (department='it');
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    |  45000.00 |          3 |   27 | 2020-11-18   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          12 | Karan         | Sales      | Indore    |  55000.00 |          4 |   29 | 2021-10-22   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-6 rows in set (0.00 sec)
-
-mysql> select * from employee where (department='it') or (salary>70000);
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-5 rows in set (0.00 sec)
-
-mysql> select * from employee where (salary between 50000 and 90000) or experience>4;
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      |  50000.00 |          4 |   28 | 2022-02-14   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          12 | Karan         | Sales      | Indore    |  55000.00 |          4 |   29 | 2021-10-22   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-10 rows in set (0.00 sec)
-
-mysql> select * from employee where (department='IT' or department='finance') or (salary >60000);
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-8 rows in set (0.00 sec)
-
-mysql> select * from employee where not (salary between 40000 and 70000);
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           4 | Rahul         | Sales      | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          11 | Pooja         | HR         | Pune      |  30000.00 |          1 |   23 | 2026-01-15   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-6 rows in set (0.00 sec)
-
-mysql> select * from employee where not (department='IT' or department='he' ordepartment='sales') or (salary >60000);
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ordepartment='sales') or (salary >60000)' at line 1
-mysql> select * from employee where not (department='IT' or department='hr' ordepartment='sales') or (salary >60000);
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ordepartment='sales') or (salary >60000)' at line 1
-mysql> select * from employee where not (department='IT' or department='hr' or department='sales');
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           7 | Sneha         | Finance    | Bhopal    | 75000.00 |          7 |   35 | 2023-09-25   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-4 rows in set (0.00 sec)
-
-mysql> select * from employee where (city=-'indore' or city='pune') or salary between 45000 and 80000 or (experience >3);
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           2 | Aayush        | HR         | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           4 | Rahul         | Sales      | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    |  45000.00 |          3 |   27 | 2020-11-18   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      |  50000.00 |          4 |   28 | 2022-02-14   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          11 | Pooja         | HR         | Pune      |  30000.00 |          1 |   23 | 2026-01-15   |
-|          12 | Karan         | Sales      | Indore    |  55000.00 |          4 |   29 | 2021-10-22   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-|          15 | Riya          | Sales      | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-15 rows in set, 18 warnings (0.00 sec)
-
-mysql> select * from employee where (city='indore' or city='pune' or city='banglore') or salary between 50000 and 90000 or (experience >=4);
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    |  45000.00 |          3 |   27 | 2020-11-18   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      |  50000.00 |          4 |   28 | 2022-02-14   |
-|           9 | Anjali        | IT         | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          11 | Pooja         | HR         | Pune      |  30000.00 |          1 |   23 | 2026-01-15   |
-|          12 | Karan         | Sales      | Indore    |  55000.00 |          4 |   29 | 2021-10-22   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-12 rows in set (0.00 sec)
-
-mysql> SELECT *
-    -> FROM employee
-    -> WHERE joining_date BETWEEN '2021-01-01' AND '2024-12-31'
-    -> AND salary > 50000;
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    | 70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore | 90000.00 |          8 |   32 | 2021-04-05   |
-|           7 | Sneha         | Finance    | Bhopal    | 75000.00 |          7 |   35 | 2023-09-25   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          12 | Karan         | Sales      | Indore    | 55000.00 |          4 |   29 | 2021-10-22   |
-|          14 | Arjun         | Finance    | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-7 rows in set (0.00 sec)
-
-mysql> SELECT *
-    -> FROM employee
-    -> WHERE joining_date NOT BETWEEN '2020-01-01' AND '2023-12-31'
-    -> AND salary > 60000;
-+-------------+---------------+------------+--------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city   | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+--------+-----------+------------+------+--------------+
-|          13 | Meena         | IT         | Bhopal | 100000.00 |         10 |   40 | 2025-05-19   |
-+-------------+---------------+------------+--------+-----------+------------+------+--------------+
-1 row in set (0.00 sec)
-
-mysql> SELECT *
-    -> FROM employee
-    -> WHERE city NOT IN ('Bhopal', 'Mumbai')
-    -> AND department != 'HR'
-    -> AND joining_date BETWEEN '2021-01-01' AND '2025-12-31';
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    | 70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune      | 65000.00 |          6 |   30 | 2022-08-20   |
-|           5 | Neha          | IT         | Bangalore | 90000.00 |          8 |   32 | 2021-04-05   |
-|           8 | Rohit         | Sales      | Pune      | 50000.00 |          4 |   28 | 2022-02-14   |
-|          10 | Vikas         | Finance    | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   |
-|          12 | Karan         | Sales      | Indore    | 55000.00 |          4 |   29 | 2021-10-22   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-6 rows in set (0.00 sec)
-
-mysql> select * from employee where not (city='bhopal'or city='mumbai') or (department='hr') or joining_date between '2021-01-01' and '2025-12-12';
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary    | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore    |  70000.00 |          5 |   25 | 2023-06-15   |
-|           2 | Aayush        | HR         | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   |
-|           3 | Priya         | Finance    | Pune      |  65000.00 |          6 |   30 | 2022-08-20   |
-|           4 | Rahul         | Sales      | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   |
-|           5 | Neha          | IT         | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   |
-|           6 | Amit          | HR         | Indore    |  45000.00 |          3 |   27 | 2020-11-18   |
-|           7 | Sneha         | Finance    | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   |
-|           8 | Rohit         | Sales      | Pune      |  50000.00 |          4 |   28 | 2022-02-14   |
-|          10 | Vikas         | Finance    | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   |
-|          11 | Pooja         | HR         | Pune      |  30000.00 |          1 |   23 | 2026-01-15   |
-|          12 | Karan         | Sales      | Indore    |  55000.00 |          4 |   29 | 2021-10-22   |
-|          13 | Meena         | IT         | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   |
-|          14 | Arjun         | Finance    | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   |
-|          15 | Riya          | Sales      | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   |
-+-------------+---------------+------------+-----------+-----------+------------+------+--------------+
-14 rows in set (0.00 sec)
-
-mysql> SELECT * FROM employee WHERE department IN ('IT', 'Finance') AND salary > 60000 AND age BETWEEN 25 AND 35 AND joining_date >= '2023-01-01';
-+-------------+---------------+------------+--------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city   | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+--------+----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore | 70000.00 |          5 |   25 | 2023-06-15   |
-|           7 | Sneha         | Finance    | Bhopal | 75000.00 |          7 |   35 | 2023-09-25   |
-+-------------+---------------+------------+--------+----------+------------+------+--------------+
-2 rows in set (0.00 sec)
-
-mysql> SELECT * FROM employee WHERE salary NOT BETWEEN 40000 AND 75000 AND experience BETWEEN 2 AND 8 AND department != 'Sales';
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city      | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-|           5 | Neha          | IT         | Bangalore | 90000.00 |          8 |   32 | 2021-04-05   |
-+-------------+---------------+------------+-----------+----------+------------+------+--------------+
-1 row in set (0.00 sec)
-
-mysql> SELECT * FROM employee WHERE city IN ('Indore', 'Pune') AND department IN ('IT', 'Finance', 'HR') AND salary BETWEEN 45000 AND 85000 AND joining_date BETWEEN '2020-01-01' AND '2024-12-31';
-+-------------+---------------+------------+--------+----------+------------+------+--------------+
-| employee_id | employee_name | department | city   | salary   | experience | age  | joining_date |
-+-------------+---------------+------------+--------+----------+------------+------+--------------+
-|           1 | Komal         | IT         | Indore | 70000.00 |          5 |   25 | 2023-06-15   |
-|           3 | Priya         | Finance    | Pune   | 65000.00 |          6 |   30 | 2022-08-20   |
-|           6 | Amit          | HR         | Indore | 45000.00 |          3 |   27 | 2020-11-18   |
-+-------------+---------------+------------+--------+----------+------------+------+--------------+
-3 rows in set (0.00 sec)
-
-mysql>   
+Find employees from IT, Finance, or HR who joined after '2023-01-01', have salary between ₹40,000 and ₹90,000, and have experience greater than 3 years.
+Find employees whose email is NULL, salary is greater than ₹50,000, and joining date is after '2022-01-01'.
+Find employees whose manager_id is NOT NULL, department is not HR, and salary is either below ₹40,000 or above ₹80,000.
+Find employees from Indore, Pune, or Delhi who joined between '2022-01-01' and '2025-12-31', have salary greater than ₹45,000, and experience of at least 3 years.
+Find employees who are FULL_TIME, have JAVA or PYTHON in their skills, salary greater than ₹50,000, and email is NOT NULL.
+Find employees whose name starts with A or S, joining date is after '2023-01-01', salary is between ₹30,000 and ₹80,000, and age is between 25 and 35.
+Find employees who belong to IT or Finance, have JAVA in skills, experience greater than 4 years, and salary is NOT between ₹50,000 and ₹80,000.
+Find employees whose department is IT, HR, or Marketing, city is not Mumbai, salary is greater than ₹40,000, and either email is NULL or manager_id is NULL.
+Find employees who joined after '2022-01-01', are not INTERN, have salary greater than ₹45,000, and have either SQL or PYTHON in their skills.
+Find employees whose salary is greater than ₹60,000 OR experience is greater than 7 years, but exclude employees from Mumbai and Bhopal.
+Find employees who joined between '2023-01-01' and '2026-12-31', belong to Electronics-related departments? Instead, use: departments IT or Development, salary greater than ₹50,000, and email is NOT NULL.
+Find employees whose name contains the letter a, department is not HR, salary is between ₹35,000 and ₹75,000, and joining date is after '2022-06-01'.
+Find employees who have both JAVA and SQL skills, salary greater than ₹55,000, experience greater than 3 years, and manager_id is NOT NULL.
+Find employees who have PYTHON or REACT skills, belong to IT or Development, joined after '2023-01-01', and salary is greater than ₹50,000.
+Find employees whose employment type is CONTRACT or PART_TIME, salary is greater than ₹35,000, joining date is between '2022-01-01' and '2025-12-31', and email is NOT NULL.
+Find employees whose gender is FEMALE, department is IT or Finance, salary is greater than ₹45,000, and experience is greater than 2 years.
+Find employees whose city is Indore, Pune, or Delhi, department is not HR, joining date is after '2023-01-01', salary is between ₹40,000 and ₹1,00,000, and manager_id is NOT NULL.
+Find employees whose salary is NOT between ₹30,000 and ₹60,000, experience is greater than 5 years, and either department is IT or Finance.
+Find employees whose email is NULL OR manager_id is NULL, but salary must be greater than ₹40,000 and joining date must be after '2022-01-01'.
+Find employees whose name starts with S OR contains a, department is IT or Finance, salary is between ₹40,000 and ₹90,000, and experience is at least 3 years.
+Find employees who joined between '2022-01-01' and '2025-12-31', are not from Mumbai or Bhopal, salary is greater than ₹50,000, and have JAVA in their skills.
+Find employees who are FULL_TIME, joined after '2023-01-01', have salary greater than ₹60,000, and have either JAVA + SQL or PYTHON + REACT skills.
+Find employees from IT, Finance, or Development whose salary is between ₹45,000 and ₹90,000, experience is greater than 3 years, email is NOT NULL, and manager_id is NOT NULL.
+Find employees whose joining date is after '2023-01-01', department is not HR, salary is greater than ₹50,000 OR experience is greater than 6 years, and city is not Mumbai.
+Find employees whose name starts with A or M, gender is FEMALE, employment type is FULL_TIME, salary is greater than ₹45,000, and email is NOT NULL.
+Find employees who have JAVA or SPRING in their skills, joined after '2022-01-01', salary is NOT between ₹40,000 and ₹70,000, and manager_id is NOT NULL.
+Find employees from Indore, Pune, or Delhi whose joining date is between '2023-01-01' and '2026-12-31', salary is between ₹40,000 and ₹1,00,000, experience is greater than 2 years, and either email or manager_id is NULL.
+Find employees belonging to IT or Development, whose name contains a, skills contain JAVA or PYTHON, salary is greater than ₹50,000, joining date is after '2023-01-01', and email is NOT NULL.
+Find employees whose department is IT, Finance, or Development, city is not Mumbai or Bhopal, salary is between ₹40,000 and ₹90,000, experience is greater than 3 years, skills contain SQL, and manager_id is NOT NULL. Display the result ordered by salary in descending order.
+Find employees whose name starts with S OR contains a, department is IT or Finance, joining date is between '2023-01-01' and '2026-12-31', salary is between ₹40,000 and ₹1,00,000, experience is greater than 2 years, email is NOT NULL, manager_id is NOT NULL, skills contain JAVA or PYTHON, and city is Indore, Pune, or Delhi. Display the result first by department ascending and then by salary descending.

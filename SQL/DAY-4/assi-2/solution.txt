@@ -1,0 +1,496 @@
+Assignment 2 — Product_Management_System
+Table: products
+
+Create a products table with:
+
+Product ID
+Product Name
+Category
+Brand
+City
+Price
+Stock
+Rating
+Manufacturing_Date
+Data Requirements
+
+Insert at least 8 products.
+
+Your data should include:
+
+Categories: Electronics, Furniture, Clothing, Grocery
+At least 5 different brands
+Cities: Indore, Bhopal, Pune, Mumbai, Delhi
+Price: ₹500 to ₹1,00,000
+Stock: 0 to 100
+Rating: 1 to 5
+Manufacturing dates from 2021 to 2026
+Some products with the same category
+Some products with the same brand
+Some similar prices
+Some products with zero stock
+
+SQL Queries
+1. Find products whose price is greater than ₹30,000 AND rating is at least 4, but exclude products from Mumbai.
+
+2. Find products whose stock is less than 20 OR price is greater than ₹75,000, and whose category is not Grocery.
+
+3. Find products whose price is between ₹15,000 and ₹60,000 AND rating is between 3 and 5, and which were manufactured after 2022.
+
+4. Find products from Indore, Pune, or Delhi whose price is greater than ₹20,000 AND stock is not 0.
+
+5. Find products belonging to Electronics or Furniture using IN.
+
+6. Find products belonging to Electronics, Clothing, or Grocery using IN.
+
+7. Find products that are not from Indore or Bhopal using NOT IN.
+
+8. Find products whose brand is not Samsung, LG, or Sony.
+
+9. Find products whose price is between ₹10,000 and ₹50,000.
+
+10. Find products whose stock is between 20 and 60.
+
+11. Find products whose rating is between 3 and 5, and whose price is greater than ₹20,000.
+
+12. Find products manufactured between 2023 and 2025, whose category is Electronics or Furniture.
+
+13. Find products whose name starts with S.
+
+14. Find products whose name contains phone anywhere.
+
+15. Find products whose brand ends with a.
+
+16. Find products from Indore or Pune, whose price is between ₹20,000 and ₹70,000, and whose rating is at least 4.
+
+17. Find products belonging to Electronics or Furniture, whose stock is greater than 10, whose price is less than ₹60,000, and whose manufacturing date is after 2022.
+
+18. Find products whose name contains the letter a, whose price is NOT between ₹10,000 and ₹50,000, and whose stock is greater than 5.
+
+19. Find products manufactured between 2022 and 2025, belonging to Electronics, Clothing, or Furniture, having a rating greater than 3, and whose city is not Mumbai.
+
+20. Find products whose name starts with S or M, whose city is not Indore or Mumbai, whose price is between ₹15,000 and ₹80,000, whose rating is at least 4, and whose manufacturing date is after 2023.
+
+
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| batch19                    |
+| batch20                    |
+| batch21                    |
+| company_db                 |
+| employee                   |
+| employee_12                |
+| employee_13                |
+| employee_management        |
+| employee_management_system |
+| information_schema         |
+| library                    |
+| library_management_system  |
+| movie                      |
+| mysql                      |
+| performance_schema         |
+| school2                    |
+| school_db                  |
+| shop_db                    |
+| student                    |
+| sys                        |
+| today                      |
++----------------------------+
+21 rows in set (0.00 sec)
+
+mysql> create database Product_Management_System;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> create table products(id int ,pro_name varchar(20),category varchar(50),brand varchar(50),city varchar(50),price int,stock int, rating int,Manufacturing_Date date);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc products;
++--------------------+-------------+------+-----+---------+-------+
+| Field              | Type        | Null | Key | Default | Extra |
++--------------------+-------------+------+-----+---------+-------+
+| id                 | int         | YES  |     | NULL    |       |
+| pro_name           | varchar(20) | YES  |     | NULL    |       |
+| category           | varchar(50) | YES  |     | NULL    |       |
+| brand              | varchar(50) | YES  |     | NULL    |       |
+| city               | varchar(50) | YES  |     | NULL    |       |
+| price              | int         | YES  |     | NULL    |       |
+| stock              | int         | YES  |     | NULL    |       |
+| rating             | int         | YES  |     | NULL    |       |
+| Manufacturing_Date | date        | YES  |     | NULL    |       |
++--------------------+-------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> INSERT INTO products
+    -> (id, pro_name, category, brand, city, price, stock, rating, Manufacturing_Date)
+    -> VALUES
+    -> (1, 'Laptop', 'Electronics', 'Dell', 'Indore', 55000, 10, 5, '2024-05-12'),
+    -> (2, 'Smartphone', 'Electronics', 'Samsung', 'Bhopal', 25000, 15, 4, '2025-02-20'),
+    -> (3, 'Office Chair', 'Furniture', 'Godrej', 'Pune', 8500, 20, 4, '2023-08-15'),
+    -> (4, 'TShirt', 'Clothing', 'Nike', 'Mumbai', 1200, 50, 5, '2024-11-10'),
+    -> (5, 'Rice Bag', 'Grocery', 'India Gate', 'Delhi', 800, 100, 4, '2026-01-05'),
+    -> (6, 'Monitor', 'Electronics', 'Dell', 'Indore', 18000, 0, 4, '2022-06-18'),
+    -> (7, 'Dining Table', 'Furniture', 'Godrej', 'Bhopal', 25000, 5, 3, '2021-09-22'),
+    -> (8, 'Jeans', 'Clothing', 'Levis', 'Pune', 1800, 0, 4, '2025-07-14'),
+    -> (9, 'Headphones', 'Electronics', 'Sony', 'Mumbai', 3000, 25, 5, '2026-03-11'),
+    -> (10, 'Shoes', 'Clothing', 'Nike', 'Delhi', 5500, 12, 4, '2023-04-09'),
+    -> (11, 'Refrigerator', 'Electronics', 'Samsung', 'Indore', 45000, 8, 5, '2024-12-01'),
+    -> (12, 'Washing Machine', 'Electronics', 'LG', 'Bhopal', 25000, 18, 3, '2025-10-16');
+Query OK, 12 rows affected (0.01 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+mysql> select* from products where price>30000 or rating>=4 or city!='mumbai';
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+12 rows in set (0.00 sec)
+
+mysql> select* from products where stock<20 or price>75000 or category!=grocery;
+ERROR 1054 (42S22): Unknown column 'grocery' in 'where clause'
+ ysql> select* from products where stock<20 or price>75000 or category!=clothing;
+ERROR 1054 (42S22): Unknown column 'clothing' in 'where clause'
+mysql> select* from products where (stock<20 or price>75000 or category!=clothing);
+ERROR 1054 (42S22): Unknown column 'clothing' in 'where clause'
+mysql> select* from products where (stock<20 or price>75000 or category!='clothing');
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+11 rows in set (0.00 sec)
+
+mysql> select* from products where (price between 15000 and 60000) or (rating between 3 and 5) or manufacturing_date>'2023-01-01' ;
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+12 rows in set (0.00 sec)
+
+mysql> select* from products where price>20000 or (city='indore' or city='pune' or city='delhi') or stock!=0;
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+12 rows in set (0.00 sec)
+
+mysql> select* from products where category in('Electronics' or'Furniture');
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+12 rows in set, 14 warnings (0.00 sec)
+
+mysql> select* from products where category in('Electronics' and 'Furniture');
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+12 rows in set, 13 warnings (0.00 sec)
+
+mysql> select* from products where category in('Electronics','Furniture');
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand   | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell    | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej  | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    6 | Monitor         | Electronics | Dell    | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej  | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    9 | Headphones      | Electronics | Sony    | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   11 | Refrigerator    | Electronics | Samsung | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG      | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+8 rows in set (0.00 sec)
+
+mysql> select* from products where category in('Electronics','Clothing','Grocery');
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+10 rows in set (0.00 sec)
+
+mysql> select* from products where city not in ('indore','bhopal');
++------+--------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name     | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+--------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    3 | Office Chair | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt       | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag     | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    8 | Jeans        | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones   | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes        | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
++------+--------------+-------------+------------+--------+-------+-------+--------+--------------------+
+6 rows in set (0.00 sec)
+
+mysql> select* from products where brand!='sony' or brand!='lg' or brand!='Samsung';
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+12 rows in set (0.00 sec)
+
+mysql> select* from products where (price between 10000 and 50000);
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand   | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+|    2 | Smartphone      | Electronics | Samsung | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    6 | Monitor         | Electronics | Dell    | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej  | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|   11 | Refrigerator    | Electronics | Samsung | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG      | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+5 rows in set (0.00 sec)
+
+mysql> select* from products where stock between 20 and 60;
++------+--------------+-------------+--------+--------+-------+-------+--------+--------------------+
+| id   | pro_name     | category    | brand  | city   | price | stock | rating | Manufacturing_Date |
++------+--------------+-------------+--------+--------+-------+-------+--------+--------------------+
+|    3 | Office Chair | Furniture   | Godrej | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt       | Clothing    | Nike   | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    9 | Headphones   | Electronics | Sony   | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
++------+--------------+-------------+--------+--------+-------+-------+--------+--------------------+
+3 rows in set (0.00 sec)
+
+mysql> select* from products where price>20000 or rating between 3 and 5;
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM products
+    -> WHERE Manufacturing_Date BETWEEN '2023-01-01' AND '2025-12-31'
+    -> AND category IN ('Electronics', 'Furniture');
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand   | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell    | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej  | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|   11 | Refrigerator    | Electronics | Samsung | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG      | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+5 rows in set (0.00 sec)
+
+mysql> select* from products where pro_name name like 's%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name like 's%'' at line 1
+mysql> select* from products where pro_name like 's%';
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+| id   | pro_name   | category    | brand   | city   | price | stock | rating | Manufacturing_Date |
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+|    2 | Smartphone | Electronics | Samsung | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|   10 | Shoes      | Clothing    | Nike    | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql> select* from products where pro_name like '%phone%';
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+| id   | pro_name   | category    | brand   | city   | price | stock | rating | Manufacturing_Date |
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+|    2 | Smartphone | Electronics | Samsung | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    9 | Headphones | Electronics | Sony    | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql> select* from products where pro_name like '%a';
+Empty set (0.00 sec)
+
+mysql> select* from products where city in ('indore','pune') or price between 20000 and 70000 or rating >=4;
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    6 | Monitor         | Electronics | Dell       | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+12 rows in set (0.00 sec)
+
+mysql> select* from products where pro_name like '%a%' or price not in(between 10000 and 50000) or stock>5;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'between 10000 and 50000) or stock>5' at line 1
+mysql> SELECT *
+    -> FROM products
+    -> WHERE pro_name LIKE '%a%'
+    ->    OR price NOT BETWEEN 10000 AND 50000
+    ->    OR stock > 5;
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand      | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop          | Electronics | Dell       | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone      | Electronics | Samsung    | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej     | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    4 | TShirt          | Clothing    | Nike       | Mumbai |  1200 |    50 |      5 | 2024-11-10         |
+|    5 | Rice Bag        | Grocery     | India Gate | Delhi  |   800 |   100 |      4 | 2026-01-05         |
+|    7 | Dining Table    | Furniture   | Godrej     | Bhopal | 25000 |     5 |      3 | 2021-09-22         |
+|    8 | Jeans           | Clothing    | Levis      | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|    9 | Headphones      | Electronics | Sony       | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   10 | Shoes           | Clothing    | Nike       | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator    | Electronics | Samsung    | Indore | 45000 |     8 |      5 | 2024-12-01         |
+|   12 | Washing Machine | Electronics | LG         | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+------------+--------+-------+-------+--------+--------------------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM products
+    -> WHERE category IN ('Electronics', 'Furniture')
+    ->   AND stock > 10
+    ->   AND price < 60000
+    ->   AND Manufacturing_Date > '2022-12-31';
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+| id   | pro_name        | category    | brand   | city   | price | stock | rating | Manufacturing_Date |
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+|    2 | Smartphone      | Electronics | Samsung | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair    | Furniture   | Godrej  | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    9 | Headphones      | Electronics | Sony    | Mumbai |  3000 |    25 |      5 | 2026-03-11         |
+|   12 | Washing Machine | Electronics | LG      | Bhopal | 25000 |    18 |      3 | 2025-10-16         |
++------+-----------------+-------------+---------+--------+-------+-------+--------+--------------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM products
+    -> WHERE Manufacturing_Date BETWEEN '2022-01-01' AND '2025-12-31'
+    ->   AND category IN ('Electronics', 'Clothing', 'Furniture')
+    ->   AND rating > 3
+    ->   AND city <> 'Mumbai';
++------+--------------+-------------+---------+--------+-------+-------+--------+--------------------+
+| id   | pro_name     | category    | brand   | city   | price | stock | rating | Manufacturing_Date |
++------+--------------+-------------+---------+--------+-------+-------+--------+--------------------+
+|    1 | Laptop       | Electronics | Dell    | Indore | 55000 |    10 |      5 | 2024-05-12         |
+|    2 | Smartphone   | Electronics | Samsung | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
+|    3 | Office Chair | Furniture   | Godrej  | Pune   |  8500 |    20 |      4 | 2023-08-15         |
+|    6 | Monitor      | Electronics | Dell    | Indore | 18000 |     0 |      4 | 2022-06-18         |
+|    8 | Jeans        | Clothing    | Levis   | Pune   |  1800 |     0 |      4 | 2025-07-14         |
+|   10 | Shoes        | Clothing    | Nike    | Delhi  |  5500 |    12 |      4 | 2023-04-09         |
+|   11 | Refrigerator | Electronics | Samsung | Indore | 45000 |     8 |      5 | 2024-12-01         |
++------+--------------+-------------+---------+--------+-------+-------+--------+--------------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM products
+    -> WHERE (pro_name LIKE 'S%' OR pro_name LIKE 'M%')
+    ->   AND city NOT IN ('Indore', 'Mumbai')
+    ->   AND price BETWEEN 15000 AND 80000
+    ->   AND rating >= 4
+    ->   AND Manufacturing_Date > '2023-12-31';
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+| id   | pro_name   | category    | brand   | city   | price | stock | rating | Manufacturing_Date |
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+|    2 | Smartphone | Electronics | Samsung | Bhopal | 25000 |    15 |      4 | 2025-02-20         |
++------+------------+-------------+---------+--------+-------+-------+--------+--------------------+
+1 row in set (0.00 sec)

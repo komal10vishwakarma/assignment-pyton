@@ -1,0 +1,403 @@
+Assignment 2 — Library Management System
+
+Design and create a Library_Management_System database in MySQL.
+
+In this assignment, you have to think and decide everything.
+
+You will be given only the requirements. You must decide:
+
+Database name
+Table names
+Column names
+Data types
+Primary keys
+Auto-increment
+Default values
+Appropriate constraints/data types
+Scenario
+
+A college wants to develop a Library Management System to maintain information about books, students, and book transactions.
+
+The system should store the following information:
+
+1. Books
+
+The library wants to maintain:
+
+Unique identification of every book
+Book title
+Author name
+ISBN number
+Price
+Number_of_available_copies
+Book_category
+Publication_date
+Whether the book is currently available
+A short_description_of_the_book
+
+2. Students
+
+The library wants to maintain:
+
+Unique identification of every student
+Student name
+Enrollment/registration number
+Age
+Gender
+Date of birth
+Contact number
+Email
+Whether the student is currently active
+Student registration date
+
+
+3. Book Issue/Return
+
+Whenever a student takes a book from the library, the system should record:
+
+Which student took the book
+Which book was issued
+Issue date
+Expected return date
+Actual return date
+Fine amount, if applicable
+Whether the book has been returned
+Any additional remarks
+
+
+
+Date and time when the transaction was created
+Requirements
+Decide how many tables are required.
+Decide the name of each table.
+Decide all column names yourself.
+Select the most appropriate MySQL data type for every column.
+Decide which columns should be PRIMARY KEY.
+Decide where AUTO_INCREMENT is appropriate.
+Decide where UNSIGNED is appropriate.
+Decide which fields should use ENUM, BOOLEAN, DATE, DATETIME, DECIMAL, etc.
+Create all tables using DDL.
+Insert at least 10 books, 10 students and 15 issue/return transactions.
+
+mysql> create database Library_Management_System;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| batch19                    |
+| batch20                    |
+| batch21                    |
+| company_db                 |
+| employee                   |
+| employee_12                |
+| employee_13                |
+| employee_management        |
+| employee_management_system |
+| information_schema         |
+| library                    |
+| library_management_system  |
+| movie                      |
+| mysql                      |
+| performance_schema         |
+| school2                    |
+| school_db                  |
+| shop_db                    |
+| student                    |
+| sys                        |
+| today                      |
++----------------------------+
+21 rows in set (0.00 sec)
+
+mysql> use Library_Management_System;
+Database changed
+mysql> create table books (id int primary key AUTO INCREMENT,book_title varchar(50),Author_name varchar(50),ISBN varchar(50),price int,Number_of_available_copies int,Book_category varchar(50),Publication_date date,A short_description_of_the_book text;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AUTO INCREMENT,book_title varchar(50),Author_name varchar(50),ISBN varchar(50),p' at line 1
+mysql> create table books (id int primary key AUTO_INCREMENT,book_title varchar(50),Author_name varchar(50),ISBN varchar(50),price int,Number_of_available_copies int,Book_category varchar(50),Publication_date date,A short_description_of_the_book text;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'short_description_of_the_book text' at line 1
+mysql> create table books (id int primary key AUTO_INCREMENT,book_title varchar(50),Author_name varchar(50),ISBN varchar(50),price int,Number_of_available_copies int,Book_category varchar(50),Publication_date date,A short_description_of_the_book text);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'short_description_of_the_book text)' at line 1
+mysql> create table books (id int primary key AUTO_INCREMENT,book_title varchar(50),Author_name varchar(50),ISBN varchar(50),price int,Number_of_available_copies int,Book_category varchar(50),Publication_date date,A short_description_of_the_book text);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'short_description_of_the_book text)' at line 1
+mysql> create table books (id int primary key AUTO_INCREMENT,book_title varchar(50),Author_name varchar(50),ISBN varchar(50),price int,Number_of_available_copies int,Book_category varchar(50),Publication_date date,A short_description text);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'short_description text)' at line 1
+mysql> create table books (id int primary key AUTO_INCREMENT,book_title varchar(50),Author_name varchar(50),ISBN varchar(50),price int,Number_of_available_copies int,Book_category varchar(50),Publication_date date,short_description text);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc books;
++----------------------------+-------------+------+-----+---------+----------------+
+| Field                      | Type        | Null | Key | Default | Extra          |
++----------------------------+-------------+------+-----+---------+----------------+
+| id                         | int         | NO   | PRI | NULL    | auto_increment |
+| book_title                 | varchar(50) | YES  |     | NULL    |                |
+| Author_name                | varchar(50) | YES  |     | NULL    |                |
+| ISBN                       | varchar(50) | YES  |     | NULL    |                |
+| price                      | int         | YES  |     | NULL    |                |
+| Number_of_available_copies | int         | YES  |     | NULL    |                |
+| Book_category              | varchar(50) | YES  |     | NULL    |                |
+| Publication_date           | date        | YES  |     | NULL    |                |
+| short_description          | text        | YES  |     | NULL    |                |
++----------------------------+-------------+------+-----+---------+----------------+
+9 rows ^C         1 sec)
+mysql> create table students(
+    -> student_id int primary key auto_increment,
+    -> Enrollment int,
+    -> age int,
+    -> gender set('male','female'),
+    -> date_of_birth date,
+    -> contact_number int,
+    -> email varchar(50),
+    -> student_is set('acitve','not active'),
+    -> student_regi_date timestamp default current_timestamp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 10
+mysql>  create table students(
+    ->     -> student_id int primary key auto_increment,
+    ->     -> Enrollment int,
+    ->     -> age int,
+    ->     -> gender set('male','female'),
+    ->     -> date_of_birth date,
+    ->     -> contact_number int,
+    ->     -> email varchar(50),
+    ->     -> student_is set('acitve','not active'),
+    ->     -> student_regi_date timestamp default current_timestamp);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> student_id int primary key auto_increment,
+    -> Enrollment int,
+    -> age ' at line 2
+mysql> create table students(student_id int primary key auto_increment,Enrollment int, age int, gender set('male','female'), date_of_birth date,contact_number int, email varchar(50), student_is set('acitve','not active'),student_regi_date timestamp default current_timestamp);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc student;
+ERROR 1146 (42S02): Table 'library_management_system.student' doesn't exist
+mysql> desc students;
++-------------------+----------------------------+------+-----+-------------------+-------------------+
+| Field             | Type                       | Null | Key | Default           | Extra             |
++-------------------+----------------------------+------+-----+-------------------+-------------------+
+| student_id        | int                        | NO   | PRI | NULL              | auto_increment    |
+| Enrollment        | int                        | YES  |     | NULL              |                   |
+| age               | int                        | YES  |     | NULL              |                   |
+| gender            | set('male','female')       | YES  |     | NULL              |                   |
+| date_of_birth     | date                       | YES  |     | NULL              |                   |
+| contact_number    | int                        | YES  |     | NULL              |                   |
+| email             | varchar(50)                | YES  |     | NULL              |                   |
+| student_is        | set('acitve','not active') | YES  |     | NULL              |                   |
+| student_regi_date | timestamp                  | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-------------------+----------------------------+------+-----+-------------------+-------------------+
+9 rows in set (0.00 sec)
+
+mysql> show tables;
++-------------------------------------+
+| Tables_in_library_management_system |
++-------------------------------------+
+| books                               |
+| students                            |
++-------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> create table book_issue(
+    -> student_id int,book_title varchar(50),issue_date date ,expected_date date,actual_return_date timestamp default current_timestamp,fine_amount int,remarks text);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++-------------------------------------+
+| Tables_in_library_management_system |
++-------------------------------------+
+| book_issue                          |
+| books                               |
+| students                            |
++-------------------------------------+
+3 rows in set (0.01 sec)
+
+mysql> desc book_issue;
++--------------------+-------------+------+-----+-------------------+-------------------+
+| Field              | Type        | Null | Key | Default           | Extra             |
++--------------------+-------------+------+-----+-------------------+-------------------+
+| student_id         | int         | YES  |     | NULL              |                   |
+| book_title         | varchar(50) | YES  |     | NULL              |                   |
+| issue_date         | date        | YES  |     | NULL              |                   |
+| expected_date      | date        | YES  |     | NULL              |                   |
+| actual_return_date | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| fine_amount        | int         | YES  |     | NULL              |                   |
+| remarks            | text        | YES  |     | NULL              |                   |
++--------------------+-------------+------+-----+-------------------+-------------------+
+7 rows in set (0.01 sec)
+
+mysql> insert into book_issues ( student_id,book_title,issue_date,^C
+mysql> insert into book_issues ( student_id,book_title,issue_date,expected_date,actual_return_date,fine_amount,remarks) values
+    -> (1,'ye jaan','2020-12-12',2021-01-01',2000,'return on time'),
+    '> ;
+    '> ^C
+mysql>  insert into book_issues ( student_id,book_title,issue_date,expected_date,actual_return_date,fine_amount,remarks) values (1,'ye jaan','2020-12-12','2021-01-01',2000,'return on time'),(1,'ye jaan','2020-3-12','2020-11-11',8000,'give me book asap'),(3,'ye mehengi book','2020-12-12','2025-10-10',5000,'return on time');
+ERROR 1146 (42S02): Table 'library_management_system.book_issues' doesn't exist
+mysql>  insert into book_issue ( student_id,book_title,issue_date,expected_date,actual_return_date,fine_amount,remarks) values (1,'ye jaan','2020-12-12','2021-01-01',2000,'return on time'),(1,'ye jaan','2020-3-12','2020-11-11',8000,'give me book asap'),(3,'ye mehengi book','2020-12-12','2025-10-10',5000,'return on time');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql>  insert into book_issue ( student_id,book_title,issue_date,expected_date,actual_return_date,fine_amount,remarks) values (1,'ye jaan','2020-12-12','2021-01-01',null,2000,'return on time'),(1,'ye jaan','2020-3-12','2020-11-11',NULL,8000,'give me book asap'),(3,'ye mehengi book','2020-12-12','2025-10-10',null,5000,'return on time');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from issue;
+ERROR 1146 (42S02): Table 'library_management_system.issue' doesn't exist
+mysql> select*from issues;
+ERROR 1146 (42S02): Table 'library_management_system.issues' doesn't exist
+mysql> select*from book_issue;
++------------+-----------------+------------+---------------+--------------------+-------------+-------------------+
+| student_id | book_title      | issue_date | expected_date | actual_return_date | fine_amount | remarks           |
++------------+-----------------+------------+---------------+--------------------+-------------+-------------------+
+|          1 | ye jaan         | 2020-12-12 | 2021-01-01    | NULL               |        2000 | return on time    |
+|          1 | ye jaan         | 2020-03-12 | 2020-11-11    | NULL               |        8000 | give me book asap |
+|          3 | ye mehengi book | 2020-12-12 | 2025-10-10    | NULL               |        5000 | return on time    |
++------------+-----------------+------------+---------------+--------------------+-------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO book_issue
+    -> (id, student_id, book_title, issue_date, expected_date,
+    ->  actual_return_date, fine_amount, remarks)
+    -> VALUES
+    -> (4, 2, 'Python Programming', '2025-01-10', '2025-01-20',
+    ->  '2025-01-18', 0, 'Returned early'),
+    ->
+    -> (5, 4, 'Database Management', '2025-02-05', '2025-02-15',
+    ->  '2025-02-20', 100, 'Returned late'),
+    ->
+    -> (6, 5, 'Data Structures', '2025-03-01', '2025-03-10',
+    ->  NULL, 0, 'Not returned yet'),
+    ->
+    -> (7, 6, 'Computer Networks', '2025-04-12', '2025-04-22',
+    ->  '2025-04-21', 0, 'Returned on time'),
+    ->
+    -> (8, 7, 'Operating Systems', '2025-05-08', '2025-05-18',
+    ->  '2025-05-25', 140, 'Fine due to late return'),
+    ->
+    -> (9, 8, 'Web Development', '2025-06-15', '2025-06-25',
+    ->  NULL, 0, 'Return pending'),
+    ->
+    -> (10, 9, 'Artificial Intelligence', '2025-07-02', '2025-07-12',
+    ->  '2025-07-11', 0, 'Returned in good condition');
+ERROR 1054 (42S22): Unknown column 'id' in 'field list'
+mysql> INSERT INTO book_issue
+    -> (student_id, book_title, issue_date, expected_date,
+    ->  actual_return_date, fine_amount, remarks)
+    -> VALUES
+    -> (2, 'Python Programming', '2025-01-10', '2025-01-20',
+    ->  '2025-01-18', 0, 'Returned early'),
+    ->
+    -> (4, 'Database Management', '2025-02-05', '2025-02-15',
+    ->  '2025-02-20', 100, 'Returned late'),
+    ->
+    -> (5, 'Data Structures', '2025-03-01', '2025-03-10',
+    ->  NULL, 0, 'Not returned yet'),
+    ->
+    -> (6, 'Computer Networks', '2025-04-12', '2025-04-22',
+    ->  '2025-04-21', 0, 'Returned on time'),
+    ->
+    -> (7, 'Operating Systems', '2025-05-08', '2025-05-18',
+    ->  '2025-05-25', 140, 'Fine due to late return'),
+    ->
+    -> (8, 'Web Development', '2025-06-15', '2025-06-25',
+    ->  NULL, 0, 'Return pending'),
+    ->
+    -> (9, 'Artificial Intelligence', '2025-07-02', '2025-07-12',
+    ->  '2025-07-11', 0, 'Returned in good condition');
+Query OK, 7 rows affected (0.01 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> desc students;
++-------------------+----------------------------+------+-----+-------------------+-------------------+
+| Field             | Type                       | Null | Key | Default           | Extra             |
++-------------------+----------------------------+------+-----+-------------------+-------------------+
+| student_id        | int                        | NO   | PRI | NULL              | auto_increment    |
+| Enrollment        | int                        | YES  |     | NULL              |                   |
+| age               | int                        | YES  |     | NULL              |                   |
+| gender            | set('male','female')       | YES  |     | NULL              |                   |
+| date_of_birth     | date                       | YES  |     | NULL              |                   |
+| contact_number    | int                        | YES  |     | NULL              |                   |
+| email             | varchar(50)                | YES  |     | NULL              |                   |
+| student_is        | set('acitve','not active') | YES  |     | NULL              |                   |
+| student_regi_date | timestamp                  | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-------------------+----------------------------+------+-----+-------------------+-------------------+
+9 rows in set (0.00 sec)
+
+mysql> ALTER TABLE students
+    -> ADD COLUMN student_name VARCHAR(100);
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO students
+    -> (Enrollment, age, gender, date_of_birth, contact_number,
+    ->  email, student_is)
+    -> VALUES
+    -> (1001, 20, 'male', '2006-02-15', 987654321,
+    ->  'aarav@gmail.com', 'acitve'),
+    -> (1002, 21, 'female', '2005-04-20', 987654322,
+    ->  'priya@gmail.com', 'acitve'),
+    -> (1003, 19, 'male', '2007-01-10', 987654323,
+    ->  'rahul@gmail.com', 'acitve'),
+    -> (1004, 22, 'female', '2004-07-12', 987654324,
+    ->  'sneha@gmail.com', 'acitve'),
+    -> (1005, 20, 'male', '2006-09-25', 987654325,
+    ->  'aman@gmail.com', 'not active'),
+    -> (1006, 21, 'female', '2005-11-08', 987654326,
+    ->  'neha@gmail.com', 'acitve'),
+    -> (1007, 23, 'male', '2003-05-18', 987654327,
+    ->  'rohit@gmail.com', 'acitve'),
+    -> (1008, 20, 'female', '2006-03-30', 987654328,
+    ->  'pooja@gmail.com', 'not active'),
+    -> (1009, 22, 'male', '2004-12-05', 987654329,
+    ->  'vikas@gmail.com', 'acitve'),
+    -> (1010, 19, 'female', '2007-08-14', 987654330,
+    ->  'anjali@gmail.com', 'acitve');
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> desc books;
++----------------------------+-------------+------+-----+---------+----------------+
+| Field                      | Type        | Null | Key | Default | Extra          |
++----------------------------+-------------+------+-----+---------+----------------+
+| id                         | int         | NO   | PRI | NULL    | auto_increment |
+| book_title                 | varchar(50) | YES  |     | NULL    |                |
+| Author_name                | varchar(50) | YES  |     | NULL    |                |
+| ISBN                       | varchar(50) | YES  |     | NULL    |                |
+| price                      | int         | YES  |     | NULL    |                |
+| Number_of_available_copies | int         | YES  |     | NULL    |                |
+| Book_category              | varchar(50) | YES  |     | NULL    |                |
+| Publication_date           | date        | YES  |     | NULL    |                |
+| short_description          | text        | YES  |     | NULL    |                |
++----------------------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.00 sec)
+
+mysql> INSERT INTO books
+    -> (book_title, Author_name, ISBN, price,
+    ->  Number_of_available_copies, Book_category,
+    ->  Publication_date, short_description)
+    -> VALUES
+    -> ('Python Basics', 'John Smith', '9781234567001', 550, 10,
+    ->  'Programming', '2022-01-15', 'Introduction to Python programming'),
+    ->
+    -> ('MySQL Guide', 'David Miller', '9781234567002', 650, 8,
+    ->  'Database', '2021-05-20', 'Learn MySQL and database management'),
+    ->
+    -> ('Data Structures', 'Mark Allen', '9781234567003', 700, 12,
+    ->  'Computer Science', '2020-08-10', 'Study of common data structures'),
+    ->
+    -> ('Web Development', 'Sarah Wilson', '9781234567004', 800, 6,
+    ->  'Programming', '2023-03-12', 'HTML CSS and JavaScript basics'),
+    ->
+    -> ('Java Programming', 'James Gosling', '9781234567005', 750, 9,
+    ->  'Programming', '2022-07-18', 'Fundamentals of Java programming'),
+    ->
+    -> ('Computer Networks', 'Andrew Tanenbaum', '9781234567006', 900, 5,
+    ->  'Networking', '2021-09-25', 'Introduction to computer networks'),
+    ->
+    -> ('Operating Systems', 'Abraham Silberschatz', '9781234567007', 850, 7,
+    ->  'Computer Science', '2020-11-05', 'Concepts of operating systems'),
+    ->
+    -> ('Machine Learning', 'Tom Mitchell', '9781234567008', 950, 4,
+    ->  'Artificial Intelligence', '2023-06-14', 'Introduction to machine learning'),
+    ->
+    -> ('Cyber Security', 'William Stallings', '9781234567009', 680, 11,
+    ->  'Security', '2022-04-22', 'Fundamentals of cyber security'),
+    ->
+    -> ('Cloud Computing', 'Thomas Erl', '9781234567010', 780, 6,
+    ->  'Cloud Computing', '2023-10-08', 'Introduction to cloud technologies');
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0

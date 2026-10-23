@@ -1,0 +1,120 @@
+ASSIGNMENT 1 – STUDENT MANAGEMENT SYSTEM
+
+Q1. Create a database named school_db and use the database.
+
+Q2. Create a table named student with:
+- student_id – INT, PRIMARY KEY, AUTO_INCREMENT
+- student_name – VARCHAR(50)
+- age – INT
+- course – VARCHAR(50)
+- city – VARCHAR(50)
+- marks – INT
+
+Q3. Insert the following 10 student records:
+
+student_name | age | course | city | marks
+Rahul Sharma | 21 | Python | Indore | 85
+Priya Verma | 22 | Java | Bhopal | 78
+Amit Singh | 20 | Python | Indore | 92
+Neha Patel | 23 | Java | Pune | 81
+Rohit Mehta | 21 | Python | Mumbai | 88
+Sneha Jain | 22 | Java | Indore | 76
+Karan Gupta | 20 | Python | Delhi | 95
+Pooja Mishra | 23 | Java | Bhopal | 84
+Ankit Tiwari | 21 | Python | Pune | 79
+Riya Kapoor | 22 | Java | Mumbai | 91
+
+Q4. Display the structure of the student table using DESC.
+
+Q5. Display all records from the student table.
+
+Microsoft Windows [Version 10.0.26200.9711]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\HYY>cd ..
+
+C:\Users>cd..
+
+C:\>cd /d "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| batch19                    |
+| batch20                    |
+| batch21                    |
+| company_db                 |
+| employee                   |
+| employee_12                |
+| employee_13                |
+| employee_management        |
+| employee_management_system |
+| information_schema         |
+| library                    |
+| movie                      |
+| mysql                      |
+| performance_schema         |
+| school2                    |
+| school_db                  |
+| shop_db                    |
+| student                    |
+| sys                        |
+| today                      |
++----------------------------+
+20 rows in set (0.02 sec)
+
+mysql> use school_db;
+Database changed
+mysql> show tables;
++---------------------+
+| Tables_in_school_db |
++---------------------+
+| product             |
+| student             |
++---------------------+
+2 rows in set (0.03 sec)
+
+mysql> desc student;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| student_id   | int         | NO   | PRI | NULL    | auto_increment |
+| student_name | varchar(50) | YES  |     | NULL    |                |
+| age          | int         | YES  |     | NULL    |                |
+| course       | varchar(50) | YES  |     | NULL    |                |
+| city         | varchar(50) | YES  |     | NULL    |                |
+| marks        | int         | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.02 sec)
+
+mysql> select*from student;
++------------+--------------+------+--------+--------+-------+
+| student_id | student_name | age  | course | city   | marks |
++------------+--------------+------+--------+--------+-------+
+|          1 | Rahul Sharma |   21 | Python | Indore |    85 |
+|          2 | Priya Verma  |   22 | Java   | Bhopal |    78 |
+|          3 | Amit Singh   |   20 | Python | Indore |    92 |
+|          4 | Neha Patel   |   23 | Java   | Pune   |    81 |
+|          5 | Rohit Mehta  |   21 | Python | Mumbai |    88 |
+|          6 | Sneha Jain   |   22 | Java   | Indore |    76 |
+|          7 | Karan Gupta  |   20 | Python | Delhi  |    95 |
+|          8 | Pooja Mishra |   23 | Java   | Bhopal |    84 |
+|          9 | Ankit Tiwari |   21 | Python | Pune   |    79 |
+|         10 | Riya Kapoor  |   22 | Java   | Mumbai |    91 |
++------------+--------------+------+--------+--------+-------+
+10 rows in set (0.01 sec)
