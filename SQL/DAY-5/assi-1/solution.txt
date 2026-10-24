@@ -16,7 +16,7 @@ Create an `employees` table with the following columns:
 * `age`
 * `gender`
 * `employment_type`
-* `skills`
+* `skills`alte
 * `email`
 * `manager_id`
 
@@ -53,32 +53,1129 @@ Your data must include:
 ## Write SQL queries for the following questions:
 
 Find employees from IT, Finance, or HR who joined after '2023-01-01', have salary between ₹40,000 and ₹90,000, and have experience greater than 3 years.
+
 Find employees whose email is NULL, salary is greater than ₹50,000, and joining date is after '2022-01-01'.
+
 Find employees whose manager_id is NOT NULL, department is not HR, and salary is either below ₹40,000 or above ₹80,000.
+
 Find employees from Indore, Pune, or Delhi who joined between '2022-01-01' and '2025-12-31', have salary greater than ₹45,000, and experience of at least 3 years.
+
 Find employees who are FULL_TIME, have JAVA or PYTHON in their skills, salary greater than ₹50,000, and email is NOT NULL.
+
 Find employees whose name starts with A or S, joining date is after '2023-01-01', salary is between ₹30,000 and ₹80,000, and age is between 25 and 35.
+
 Find employees who belong to IT or Finance, have JAVA in skills, experience greater than 4 years, and salary is NOT between ₹50,000 and ₹80,000.
+
 Find employees whose department is IT, HR, or Marketing, city is not Mumbai, salary is greater than ₹40,000, and either email is NULL or manager_id is NULL.
+
 Find employees who joined after '2022-01-01', are not INTERN, have salary greater than ₹45,000, and have either SQL or PYTHON in their skills.
+
 Find employees whose salary is greater than ₹60,000 OR experience is greater than 7 years, but exclude employees from Mumbai and Bhopal.
+
 Find employees who joined between '2023-01-01' and '2026-12-31', belong to Electronics-related departments? Instead, use: departments IT or Development, salary greater than ₹50,000, and email is NOT NULL.
+
 Find employees whose name contains the letter a, department is not HR, salary is between ₹35,000 and ₹75,000, and joining date is after '2022-06-01'.
+
 Find employees who have both JAVA and SQL skills, salary greater than ₹55,000, experience greater than 3 years, and manager_id is NOT NULL.
+
 Find employees who have PYTHON or REACT skills, belong to IT or Development, joined after '2023-01-01', and salary is greater than ₹50,000.
+
 Find employees whose employment type is CONTRACT or PART_TIME, salary is greater than ₹35,000, joining date is between '2022-01-01' and '2025-12-31', and email is NOT NULL.
+
 Find employees whose gender is FEMALE, department is IT or Finance, salary is greater than ₹45,000, and experience is greater than 2 years.
+
 Find employees whose city is Indore, Pune, or Delhi, department is not HR, joining date is after '2023-01-01', salary is between ₹40,000 and ₹1,00,000, and manager_id is NOT NULL.
+
 Find employees whose salary is NOT between ₹30,000 and ₹60,000, experience is greater than 5 years, and either department is IT or Finance.
+
 Find employees whose email is NULL OR manager_id is NULL, but salary must be greater than ₹40,000 and joining date must be after '2022-01-01'.
+
 Find employees whose name starts with S OR contains a, department is IT or Finance, salary is between ₹40,000 and ₹90,000, and experience is at least 3 years.
+
 Find employees who joined between '2022-01-01' and '2025-12-31', are not from Mumbai or Bhopal, salary is greater than ₹50,000, and have JAVA in their skills.
+
 Find employees who are FULL_TIME, joined after '2023-01-01', have salary greater than ₹60,000, and have either JAVA + SQL or PYTHON + REACT skills.
+
 Find employees from IT, Finance, or Development whose salary is between ₹45,000 and ₹90,000, experience is greater than 3 years, email is NOT NULL, and manager_id is NOT NULL.
+
 Find employees whose joining date is after '2023-01-01', department is not HR, salary is greater than ₹50,000 OR experience is greater than 6 years, and city is not Mumbai.
+
 Find employees whose name starts with A or M, gender is FEMALE, employment type is FULL_TIME, salary is greater than ₹45,000, and email is NOT NULL.
+
 Find employees who have JAVA or SPRING in their skills, joined after '2022-01-01', salary is NOT between ₹40,000 and ₹70,000, and manager_id is NOT NULL.
+
 Find employees from Indore, Pune, or Delhi whose joining date is between '2023-01-01' and '2026-12-31', salary is between ₹40,000 and ₹1,00,000, experience is greater than 2 years, and either email or manager_id is NULL.
+
 Find employees belonging to IT or Development, whose name contains a, skills contain JAVA or PYTHON, salary is greater than ₹50,000, joining date is after '2023-01-01', and email is NOT NULL.
-Find employees whose department is IT, Finance, or Development, city is not Mumbai or Bhopal, salary is between ₹40,000 and ₹90,000, experience is greater than 3 years, skills contain SQL, and manager_id is NOT NULL. Display the result ordered by salary in descending order.
+
+Find employees whose department is IT, Finance, or Development, city is not Mumbai or Bhopal, salary is between ₹40,000 and ₹90,000, experience is greater than 3 years, skills contain SQL, and manager_id is NOT NULL. Display the result ordered by salary in descending order
+.
 Find employees whose name starts with S OR contains a, department is IT or Finance, joining date is between '2023-01-01' and '2026-12-31', salary is between ₹40,000 and ₹1,00,000, experience is greater than 2 years, email is NOT NULL, manager_id is NOT NULL, skills contain JAVA or PYTHON, and city is Indore, Pune, or Delhi. Display the result first by department ascending and then by salary descending.
+
+
+Microsoft Windows [Version 10.0.26200.9711]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\HYY>cd..\
+
+C:\Users>cd..
+
+C:\>cd..
+
+C:\>show databases;
+'show' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\>cd /d "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| batch19                    |
+| batch20                    |
+| batch21                    |
+| company_db                 |
+| employee                   |
+| employee_12                |
+| employee_13                |
+| employee_management        |
+| employee_management_system |
+| information_schema         |
+| library                    |
+| library_management_system  |
+| movie                      |
+| mysql                      |
+| performance_schema         |
+| product_management_system  |
+| school2                    |
+| school_db                  |
+| shop_db                    |
+| student                    |
+| sys                        |
+| today                      |
++----------------------------+
+22 rows in set (0.01 sec)
+
+mysql> use employee_management_system;
+Database changed
+mysql> desc employee_management_system;
+ERROR 1146 (42S02): Table 'employee_management_system.employee_management_system' doesn't exist
+mysql> show tables;
++--------------------------------------+
+| Tables_in_employee_management_system |
++--------------------------------------+
+| employee                             |
++--------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> desc employee
+    -> ;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| employee_id   | int           | YES  |     | NULL    |       |
+| employee_name | varchar(50)   | YES  |     | NULL    |       |
+| department    | varchar(50)   | YES  |     | NULL    |       |
+| city          | varchar(50)   | YES  |     | NULL    |       |
+| salary        | decimal(10,2) | YES  |     | NULL    |       |
+| experience    | int           | YES  |     | NULL    |       |
+| age           | int           | YES  |     | NULL    |       |
+| joining_date  | date          | YES  |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> alter table employee add column gender ENUM ('male','female');
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add column employment_type ENUM ('intern','full_time','senior','junior');
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add column skills set ('python','java','sql','ml','ai');
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add column email varchar(50);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add column manager_id int;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++-----------------+----------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                         | Null | Key | Default | Extra |
++-----------------+----------------------------------------------+------+-----+---------+-------+
+| employee_id     | int                                          | YES  |     | NULL    |       |
+| employee_name   | varchar(50)                                  | YES  |     | NULL    |       |
+| department      | varchar(50)                                  | YES  |     | NULL    |       |
+| city            | varchar(50)                                  | YES  |     | NULL    |       |
+| salary          | decimal(10,2)                                | YES  |     | NULL    |       |
+| experience      | int                                          | YES  |     | NULL    |       |
+| age             | int                                          | YES  |     | NULL    |       |
+| joining_date    | date                                         | YES  |     | NULL    |       |
+| gender          | enum('male','female')                        | YES  |     | NULL    |       |
+| employment_type | enum('intern','full_time','senior','junior') | YES  |     | NULL    |       |
+| skills          | set('python','java','sql','ml','ai')         | YES  |     | NULL    |       |
+| email           | varchar(50)                                  | YES  |     | NULL    |       |
+| manager_id      | int                                          | YES  |     | NULL    |       |
++-----------------+----------------------------------------------+------+-----+---------+-------+
+13 rows in set (0.00 sec)
+
+mysql> insert into employee (employee_id,employee_name,department,city,salary,experience,age,joining_date,gender,employment_type,skills,email,manager_id) values(1,'shreeji','hr','indore',9000,4,44,'2020-12-12','male','fulltime','ml','shree@123',123);
+ERROR 1265 (01000): Data truncated for column 'employment_type' at row 1
+mysql> insert into employee (employee_id,employee_name,department,city,salary,experience,age,joining_date,gender,employment_type,skills,email,manager_id) values(1,'shreeji','hr','indore',9000,4,44,'2020-12-12','male','full_time','ml','shree@123',123);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employee
+    -> (employee_id, employee_name, department, city, salary, experience, age,
+    ->  joining_date, gender, employment_type, skills, email, manager_id)
+    -> VALUES
+    -> (2, 'Aarav', 'IT', 'Indore', 45000.00, 2, 24,
+    ->  '2021-06-15', 'male', 'junior', 'python,sql', 'aarav@gmail.com', NULL),
+    ->
+    -> (3, 'Priya', 'HR', 'Pune', 55000.00, 4, 28,
+    ->  '2022-08-10', 'female', 'full_time', 'sql,java', NULL, 2),
+    ->
+    -> (4, 'Rahul', 'Finance', 'Mumbai', 75000.00, 6, 32,
+    ->  '2023-03-20', 'male', 'senior', 'python,java,sql', 'rahul@gmail.com', 2),
+    ->
+    -> (5, 'Sneha', 'IT', 'Bhopal', 30000.00, 1, 22,
+    ->  '2025-01-12', 'female', 'intern', 'python,ml', NULL, 3),
+    ->
+    -> (6, 'Vikram', 'Marketing', 'Delhi', 90000.00, 8, 35,
+    ->  '2020-11-05', 'male', 'senior', 'java,sql,ai', 'vikram@gmail.com', NULL),
+    ->
+    -> (7, 'Ananya', 'Data Science', 'Indore', 65000.00, 3, 26,
+    ->  '2024-07-18', 'female', 'full_time', 'python,ml,ai', 'ananya@gmail.com', 4),
+    ->
+    -> (8, 'Rohit', 'IT', 'Jaipur', 25000.00, 0, 21,
+    ->  '2025-06-01', 'male', 'intern', 'python,sql,ai', NULL, 3),
+    ->
+    -> (9, 'Kavya', 'Finance', 'Pune', 80000.00, 5, 30,
+    ->  '2022-02-14', 'female', 'senior', 'java,ml,ai', 'kavya@gmail.com', 6),
+    ->
+    -> (10, 'Aditya', 'Data Science', 'Mumbai', 50000.00, 2, 25,
+    ->  '2023-09-25', 'male', 'full_time', 'python,sql,ml', 'aditya@gmail.com', 4);
+Query OK, 9 rows affected (0.01 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+25 rows in set (0.00 sec)
+       ^C
+mysql> select* from employee where department in ('IT','Finance','HR') or joining_date='2023-01-01' or salary between 40000 and 90000 or experience>=3;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+24 rows in set (0.00 sec)
+
+mysql> select* from employee where email=NUll or salary>50000 or joining_date='2022-01-01';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+14 rows in set (0.00 sec)
+
+mysql> select* from employee where manager_id=null or department!='hr' or salary<40000 or salary>80000 ;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+22 rows in set (0.00 sec)
+       select* from employee where city in("","","") or joining_date between ''select* from employee where city in("","","") or joining_date between '' and '' ;
+ERROR 1525 (HY000): Incorrect DATE value: ''
+mysql> select* from employee where city in("indore","pune","delhi") or joining_date between '2022-01-01' and '2025-12-31' or salary>45000 or experience =3 ;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+25 rows in set (0.00 sec)
+
+mysql> select * from employee where employee_name like 'a%'or 's%' or joining_date='2023-01-01' or salary between 30000 and 80000 and age between 25 and 35;
++-------------+---------------+--------------+-----------+----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary   | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    | 70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    | 40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      | 65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    | 45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    | 75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      | 50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    | 80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore | 60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    | 55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    | 70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore | 45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aarav         | IT           | Indore    | 45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      | 55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    | 75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           7 | Ananya        | Data Science | Indore    | 65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      | 80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    | 50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+17 rows in set, 1 warning (0.00 sec)
+
+mysql> select* from employee where department in('it' or 'finance') or skills ='java' or experience >4 or salary not between 50000 and 80000;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+25 rows in set, 15 warnings (0.00 sec)
+
+
+mysql> use employee_management_system;
+Database changed
+mysql> select*from employee;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+25 rows in set (0.00 sec)
+
+mysql> desc employee;
++-----------------+----------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                         | Null | Key | Default | Extra |
++-----------------+----------------------------------------------+------+-----+---------+-------+
+| employee_id     | int                                          | YES  |     | NULL    |       |
+| employee_name   | varchar(50)                                  | YES  |     | NULL    |       |
+| department      | varchar(50)                                  | YES  |     | NULL    |       |
+| city            | varchar(50)                                  | YES  |     | NULL    |       |
+| salary          | decimal(10,2)                                | YES  |     | NULL    |       |
+| experience      | int                                          | YES  |     | NULL    |       |
+| age             | int                                          | YES  |     | NULL    |       |
+| joining_date    | date                                         | YES  |     | NULL    |       |
+| gender          | enum('male','female')                        | YES  |     | NULL    |       |
+| employment_type | enum('intern','full_time','senior','junior') | YES  |     | NULL    |       |
+| skills          | set('python','java','sql','ml','ai')         | YES  |     | NULL    |       |
+| email           | varchar(50)                                  | YES  |     | NULL    |       |
+| manager_id      | int                                          | YES  |     | NULL    |       |
++-----------------+----------------------------------------------+------+-----+---------+-------+
+13 rows in set (0.01 sec)
+
+mysql> select*from employee where employment_type='full_time' or skills in ('python','java') or salary> 50000 or email=not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'not null' at line 1
+mysql> select*from employee where employment_type='full_time' or skills in ('python','java') or salary> 50000 or email='not null';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+16 rows in set (0.00 sec)
+
+mysql> select*from employee where department in ('hr','marketing','it')or city!='mumbai' or salary>40000 or email='null' or manager_id ='null';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+24 rows in set, 1 warning (0.00 sec)
+
+mysql> select*from employee where joining_date='2022-01-01' or employment_type!='intern' or salary>45000 skills in ('sql','python');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'skills in ('sql','python')' at line 1
+mysql> select*from employee where joining_date='2022-01-01' or employment_type!='intern' or salary>45000 or skills in ('sql','python');
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+18 rows in set (0.00 sec)
+
+mysql> select*from employee where salary>60000 or experience >7 or city not in ('Mumbai','Bhopal');
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+21 rows in set (0.00 sec)
+
+mysql> select*from employee where joining_date between '2023-01-01' and '2026-12-31' or salary >50000 or email='not null' or department in ('it');
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+22 rows in set (0.00 sec)
+
+mysql> select*from employee where department not in ('hr') or or employe_name like '%a%' or salary between 35000 and 70000 or joining_date='2022-06-01';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'or employe_name like '%a%' or salary between 35000 and 70000 or joining_date='20' at line 1
+mysql> select*from employee where department not in ('hr') or employe_name like '%a%' or salary between 35000 and 70000 or joining_date='2022-06-01';
+ERROR 1054 (42S22): Unknown column 'employe_name' in 'where clause'
+mysql> select*from employee where department not in ('hr') or employee_name like '%a%' or salary between 35000 and 70000 or joining_date='2022-06-01';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+24 rows in set (0.00 sec)
+
+mysql> select*from employee where department in ('java' ,'sql') or salary >55000 orexperience >3 or manager_id ='not null';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'orexperience >3 or manager_id ='not null'' at line 1
+mysql> select*from employee where department in ('java' ,'sql') or salary >55000 or experience >3 or manager_id ='not null';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+16 rows in set, 1 warning (0.00 sec)
+
+mysql> desc employee;
++-----------------+----------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                         | Null | Key | Default | Extra |
++-----------------+----------------------------------------------+------+-----+---------+-------+
+| employee_id     | int                                          | YES  |     | NULL    |       |
+| employee_name   | varchar(50)                                  | YES  |     | NULL    |       |
+| department      | varchar(50)                                  | YES  |     | NULL    |       |
+| city            | varchar(50)                                  | YES  |     | NULL    |       |
+| salary          | decimal(10,2)                                | YES  |     | NULL    |       |
+| experience      | int                                          | YES  |     | NULL    |       |
+| age             | int                                          | YES  |     | NULL    |       |
+| joining_date    | date                                         | YES  |     | NULL    |       |
+| gender          | enum('male','female')                        | YES  |     | NULL    |       |
+| employment_type | enum('intern','full_time','senior','junior') | YES  |     | NULL    |       |
+| skills          | set('python','java','sql','ml','ai')         | YES  |     | NULL    |       |
+| email           | varchar(50)                                  | YES  |     | NULL    |       |
+| manager_id      | int                                          | YES  |     | NULL    |       |
++-----------------+----------------------------------------------+------+-----+---------+-------+
+13 rows in set (0.01 sec)
+
+mysql> alter table employee modify column skills set ('python','java','sql','ml','ai','react','angular','js');
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select*from employee where skills ('PYTHON', 'REACT') or department=it or joining_date='2023-01-01' or salary>50000;
+ERROR 1305 (42000): FUNCTION employee_management_system.skills does not exist
+mysql> desc employee;
++-----------------+-------------------------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                                        | Null | Key | Default | Extra |
++-----------------+-------------------------------------------------------------+------+-----+---------+-------+
+| employee_id     | int                                                         | YES  |     | NULL    |       |
+| employee_name   | varchar(50)                                                 | YES  |     | NULL    |       |
+| department      | varchar(50)                                                 | YES  |     | NULL    |       |
+| city            | varchar(50)                                                 | YES  |     | NULL    |       |
+| salary          | decimal(10,2)                                               | YES  |     | NULL    |       |
+| experience      | int                                                         | YES  |     | NULL    |       |
+| age             | int                                                         | YES  |     | NULL    |       |
+| joining_date    | date                                                        | YES  |     | NULL    |       |
+| gender          | enum('male','female')                                       | YES  |     | NULL    |       |
+| employment_type | enum('intern','full_time','senior','junior')                | YES  |     | NULL    |       |
+| skills          | set('python','java','sql','ml','ai','react','angular','js') | YES  |     | NULL    |       |
+| email           | varchar(50)                                                 | YES  |     | NULL    |       |
+| manager_id      | int                                                         | YES  |     | NULL    |       |
++-----------------+-------------------------------------------------------------+------+-----+---------+-------+
+13 rows in set (0.00 sec)
+
+mysql> select*from employee where skills in ('PYTHON', 'REACT') or department=it or joining_date='2023-01-01' or salary>50000;
+ERROR 1054 (42S22): Unknown column 'it' in 'where clause'
+mysql> select*from employee where skills in ('PYTHON', 'REACT') or department='it' or joining_date='2023-01-01' or salary>50000;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+17 rows in set (0.00 sec)
+
+mysql> alter table employee modify column employment_type ('intern','full_time','senior','junior','contract');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('intern','full_time','senior','junior','contract')' at line 1
+mysql> alter table employee modify column employment_type set ('intern','full_time','senior','junior','contract');
+Query OK, 25 rows affected (0.08 sec)
+Records: 25  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee where  employment_type in ('CONTRACT','PART_TIME')
+    -> or salary > 35000 or joining_date between 2022-01-01' and '2025-12-31' or email='not null';
+    '>
+    '> ^C
+mysql>  select * from employee where  employment_type in ('CONTRACT','PART_TIME')  or salary > 35000 or joining_date between 2022-01-01' and '2025-12-31' or email='not null';
+    '>
+    '> ^C
+mysql>  select * from employee where  employment_type in ('CONTRACT','PART_TIME')  or salary > 35000 or joining_date between 2022-01-01' and '2025-12-31' or email='not null';
+    '> ^C
+mysql>  select * from employee where  employment_type in ('CONTRACT','PART_TIME')  or salary > 35000 or joining_date between '2022-01-01' and '2025-12-31' or email='not null';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+23 rows in set (0.00 sec)
+
+mysql> select * from employee gender ='female' or department!='hr' or joining
+    -> ^C
+mysql>  select * from employee gender ='female' or department!='hr' or joining_date='2023-01-01' or salary between 40000 and 100000 or manager_id='not null';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='female' or department!='hr' or joining_date='2023-01-01' or salary between 400' at line 1
+mysql>  select * from employee gender = 'female' or department!='hr' or joining_date='2023-01-01' or salary between 40000 and 100000 or manager_id='not null';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 'female' or department!='hr' or joining_date='2023-01-01' or salary between 40' at line 1
+mysql>  select * from employee gender= 'female' or department!='hr' or joining_date='2023-01-01' or salary between 40000 and 100000 or manager_id='not null';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 'female' or department!='hr' or joining_date='2023-01-01' or salary between 40' at line 1
+mysql>  select * from employee where gender= 'female' or department!='hr' or joining_date='2023-01-01' or salary between 40000 and 100000 or manager_id='not null';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+23 rows in set, 1 warning (0.00 sec)
+
+mysql> select * from employee where email!-'null' or manager_id='null' or salary >40000 or joining_date='2022-01-01';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '!-'null' or manager_id='null' or salary >40000 or joining_date='2022-01-01'' at line 1
+mysql> select * from employee where email!='null' or manager_id='null' or salary >40000 or joining_date='2022-01-01';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+20 rows in set, 1 warning (0.00 sec)
+
+mysql>  select * from employee where employee_name like 's%' or department in ('it', 'finance') or salary between 40000 and 90000;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+23 rows in set (0.00 sec)
+
+mysql> select * from employee where joining_date between '2022-01-01' and '2025-12-31' or city not in ('mumbai','bhopal') or salary>50000 or skills='java';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+25 rows in set (0.00 sec)
+
+mysql> select * from employee where joining_date='2023-01-01' or salary>60000 or skills in ('java','sql','python','react');
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+11 rows in set (0.00 sec)
+
+mysql>  select * from employee where emperience>3 or manager_id='not null' or department in ('it', 'finance') or salary between 45000 and 90000;
+ERROR 1054 (42S22): Unknown column 'emperience' in 'where clause'
+mysql>  select * from employee where experience>3 or manager_id='not null' or department in ('it', 'finance') or salary between 45000 and 90000;
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+22 rows in set, 1 warning (0.00 sec)
+
+mysql> select * from employee where joining_date='2023-01-01' or department!='hr' or salary>50000 or experience>6 or city!='mumbai';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           2 | Aayush        | HR           | Bhopal    |  40000.00 |          2 |   24 | 2024-03-10   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           4 | Rahul         | Sales        | Mumbai    |  35000.00 |          1 |   22 | 2025-01-12   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          11 | Pooja         | HR           | Pune      |  30000.00 |          1 |   23 | 2026-01-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          15 | Riya          | Sales        | Bangalore |  45000.00 |          3 |   26 | 2026-03-11   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           2 | Aarav         | IT           | Indore    |  45000.00 |          2 |   24 | 2021-06-15   | male   | junior          | python,sql      | aarav@gmail.com  |       NULL |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           8 | Rohit         | IT           | Jaipur    |  25000.00 |          0 |   21 | 2025-06-01   | male   | intern          | python,sql,ai   | NULL             |          3 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+25 rows in set (0.00 sec)
+
+mysql> select * from employee where employee_name like 'Am%' or gender='female' or employee_type='full_time' or salary>45000 or email='not null';
+ERROR 1054 (42S22): Unknown column 'employee_type' in 'where clause'
+mysql> select * from employee where employee_name like 'Am%' or gender='female' or employment_type='full_time' or salary>45000 or email='not null';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+19 rows in set (0.00 sec)
+
+mysql> select * from employee where employee_name like '%Am%' or gender='female' or employment_type='full_time' or salary>45000 or email='not null';
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+| employee_id | employee_name | department   | city      | salary    | experience | age  | joining_date | gender | employment_type | skills          | email            | manager_id |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+|           1 | Komal         | IT           | Indore    |  70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           3 | Priya         | Finance      | Pune      |  65000.00 |          6 |   30 | 2022-08-20   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           5 | Neha          | IT           | Bangalore |  90000.00 |          8 |   32 | 2021-04-05   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           6 | Amit          | HR           | Indore    |  45000.00 |          3 |   27 | 2020-11-18   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           7 | Sneha         | Finance      | Bhopal    |  75000.00 |          7 |   35 | 2023-09-25   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           8 | Rohit         | Sales        | Pune      |  50000.00 |          4 |   28 | 2022-02-14   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           9 | Anjali        | IT           | Mumbai    |  80000.00 |          9 |   38 | 2020-07-30   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          10 | Vikas         | Finance      | Bangalore |  60000.00 |          5 |   31 | 2024-12-01   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          12 | Karan         | Sales        | Indore    |  55000.00 |          4 |   29 | 2021-10-22   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          13 | Meena         | IT           | Bhopal    | 100000.00 |         10 |   40 | 2025-05-19   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|          14 | Arjun         | Finance      | Mumbai    |  70000.00 |          6 |   34 | 2022-06-08   | NULL   | NULL            | NULL            | NULL             |       NULL |
+|           1 | shreeji       | hr           | indore    |   9000.00 |          4 |   44 | 2020-12-12   | male   | full_time       | ml              | shree@123        |        123 |
+|           3 | Priya         | HR           | Pune      |  55000.00 |          4 |   28 | 2022-08-10   | female | full_time       | java,sql        | NULL             |          2 |
+|           4 | Rahul         | Finance      | Mumbai    |  75000.00 |          6 |   32 | 2023-03-20   | male   | senior          | python,java,sql | rahul@gmail.com  |          2 |
+|           5 | Sneha         | IT           | Bhopal    |  30000.00 |          1 |   22 | 2025-01-12   | female | intern          | python,ml       | NULL             |          3 |
+|           6 | Vikram        | Marketing    | Delhi     |  90000.00 |          8 |   35 | 2020-11-05   | male   | senior          | java,sql,ai     | vikram@gmail.com |       NULL |
+|           7 | Ananya        | Data Science | Indore    |  65000.00 |          3 |   26 | 2024-07-18   | female | full_time       | python,ml,ai    | ananya@gmail.com |          4 |
+|           9 | Kavya         | Finance      | Pune      |  80000.00 |          5 |   30 | 2022-02-14   | female | senior          | java,ml,ai      | kavya@gmail.com  |          6 |
+|          10 | Aditya        | Data Science | Mumbai    |  50000.00 |          2 |   25 | 2023-09-25   | male   | full_time       | python,sql,ml   | aditya@gmail.com |          4 |
++-------------+---------------+--------------+-----------+-----------+------------+------+--------------+--------+-----------------+-----------------+------------------+------------+
+19 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM employee
+    -> WHERE city IN ('Indore', 'Pune', 'Delhi')
+    ->   AND joining_date BETWEEN '2023-01-01' AND '2026-12-31'
+    ->   AND salary BETWEEN 40000 AND 100000
+    ->   AND experience > 2
+    ->   AND (email IS NULL OR manager_id IS NULL);
++-------------+---------------+------------+--------+----------+------------+------+--------------+--------+-----------------+--------+-------+------------+
+| employee_id | employee_name | department | city   | salary   | experience | age  | joining_date | gender | employment_type | skills | email | manager_id |
++-------------+---------------+------------+--------+----------+------------+------+--------------+--------+-----------------+--------+-------+------------+
+|           1 | Komal         | IT         | Indore | 70000.00 |          5 |   25 | 2023-06-15   | NULL   | NULL            | NULL   | NULL  |       NULL |
++-------------+---------------+------------+--------+----------+------------+------+--------------+--------+-----------------+--------+-------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM employee
+    -> WHERE department IN ('IT', 'Development')
+    ->   AND employee_name LIKE '%a%'
+    ->   AND (FIND_IN_SET('java', skills) > 0
+    ->        OR FIND_IN_SET('python', skills) > 0)
+    ->   AND salary > 50000
+    ->   AND joining_date > '2023-01-01'
+    ->   AND email IS NOT NULL;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM employee WHERE department IN ('IT','Development') AND employee_name LIKE '%a%' AND (FIND_IN_SET('java', skills) > 0 OR FIND_IN_SET('python', skills) > 0) AND salary > 50000 AND joining_date > '2023-01-01' AND email IS NOT NULL;
+Empty set (0.00 sec)
+
+mysql>
+mysql> desc employee;
++-----------------+-------------------------------------------------------------+------+-----+---------+-------+
+| Field           | Type                                                        | Null | Key | Default | Extra |
++-----------------+-------------------------------------------------------------+------+-----+---------+-------+
+| employee_id     | int                                                         | YES  |     | NULL    |       |
+| employee_name   | varchar(50)                                                 | YES  |     | NULL    |       |
+| department      | varchar(50)                                                 | YES  |     | NULL    |       |
+| city            | varchar(50)                                                 | YES  |     | NULL    |       |
+| salary          | decimal(10,2)                                               | YES  |     | NULL    |       |
+| experience      | int                                                         | YES  |     | NULL    |       |
+| age             | int                                                         | YES  |     | NULL    |       |
+| joining_date    | date                                                        | YES  |     | NULL    |       |
+| gender          | enum('male','female')                                       | YES  |     | NULL    |       |
+| employment_type | set('intern','full_time','senior','junior','contract')      | YES  |     | NULL    |       |
+| skills          | set('python','java','sql','ml','ai','react','angular','js') | YES  |     | NULL    |       |
+| email           | varchar(50)                                                 | YES  |     | NULL    |       |
+| manager_id      | int                                                         | YES  |     | NULL    |       |
++-----------------+-------------------------------------------------------------+------+-----+---------+-------+
+13 rows in set (0.01 sec)
+
+mysql> alter table employee modify column department ('python','java','sql','ml','ai','react','angular','js','spring','development');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('python','java','sql','ml','ai','react','angular','js','spring','development')' at line 1
+mysql> alter table employee modify column department set ('python','java','sql','ml','ai','react','angular','js','spring','development');
+ERROR 1265 (01000): Data truncated for column 'department' at row 1
+mysql> alter table employee modify column skills set ('python','java','sql','ml','ai','react','angular','js','spring','development');
+Query OK, 25 rows affected (0.07 sec)
+Records: 25  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM employee WHERE department IN ('IT','Development') AND employee_name LIKE '%a%' AND (FIND_IN_SET('java', skills) > 0 OR FIND_IN_SET('python', skills) > 0) AND salary > 50000 AND joining_date > '2023-01-01' AND email IS NOT NULL;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM employee WHERE (employee_name LIKE 'S%' OR employee_name LIKE '%a%') AND department IN ('IT','Finance') AND joining_date BETWEEN '2023-01-01' AND '2026-12-31' AND salary BETWEEN 40000 AND 100000 AND experience > 2 AND email IS NOT NULL AND manager_id IS NOT NULL AND (FIND_IN_SET('java', skills) > 0 OR FIND_IN_SET('python', skills) > 0) AND city IN ('Indore','Pune','Delhi') ORDER BY department ASC, salary DESC;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM employee WHERE department IN ('IT','Finance','Development') AND city NOT IN ('Mumbai','Bhopal') AND salary BETWEEN 40000 AND 90000 AND experience > 3 AND FIND_IN_SET('sql', skills) > 0 AND manager_id IS NOT NULL ORDER BY salary DESC;
