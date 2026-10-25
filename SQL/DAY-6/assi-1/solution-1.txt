@@ -1,0 +1,107 @@
+1.
+Create a table named Students with the following columns:
+
+StudentID (INT, Primary Key)
+Name (VARCHAR(50), NOT NULL)
+Age (INT, should be between 18 and 25)
+Marks (DECIMAL(5,2), should be between 0 and 100)
+Insert the following records and observe what happens:
+
+(101, 'Alice', 20, 85.5)
+(102, 'Bob', 17, 90.0) (This should fail due to Age constraint)
+(102, 'Bob', 17, 90.0) (This should fail due to Marks constraint)
+(104, 'David', 24, 75.0)
+
+Microsoft Windows [Version 10.0.26200.9711]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\HYY>cd..
+
+C:\Users>cd..
+
+C:\>cd /d "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| batch19                    |
+| batch20                    |
+| batch21                    |
+| company_db                 |
+| employee                   |
+| employee_12                |
+| employee_13                |
+| employee_management        |
+| employee_management_system |
+| information_schema         |
+| library                    |
+| library_management_system  |
+| movie                      |
+| mysql                      |
+| performance_schema         |
+| product_management_system  |
+| school2                    |
+| school_db                  |
+| shop_db                    |
+| student                    |
+| sys                        |
+| today                      |
++----------------------------+
+22 rows in set (0.00 sec)
+
+mysql> use students;
+ERROR 1049 (42000): Unknown database 'students'
+mysql> use database student;
+ERROR 1049 (42000): Unknown database 'database'
+mysql> use student;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_student |
++-------------------+
+| stu               |
+| student           |
++-------------------+
+2 rows in set (0.01 sec)
+
+mysql> desc stu;
++------------+---------------+------+-----+---------+-------+
+| Field      | Type          | Null | Key | Default | Extra |
++------------+---------------+------+-----+---------+-------+
+| student_id | int           | NO   | PRI | NULL    |       |
+| name       | varchar(20)   | YES  |     | NULL    |       |
+| age        | int           | YES  |     | NULL    |       |
+| marks      | decimal(10,2) | YES  |     | NULL    |       |
++------------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into stu(student_id,name,age,marks) values(101, 'Alice', 20, 85.5)
+    -> ;
+ERROR 1062 (23000): Duplicate entry '101' for key 'stu.PRIMARY'
+mysql> insert into stu(student_id,name,age,marks) values(102, 'Alice', 20, 85.5);
+ERROR 1062 (23000): Duplicate entry '102' for key 'stu.PRIMARY'
+mysql> select
+    -> * from stu;
++------------+-------+------+-------+
+| student_id | name  | age  | marks |
++------------+-------+------+-------+
+|        101 | Alice |   20 | 85.50 |
+|        102 | Bob   |   17 | 90.00 |
++------------+-------+------+-------+
+2 rows in set (0.00 sec)
+

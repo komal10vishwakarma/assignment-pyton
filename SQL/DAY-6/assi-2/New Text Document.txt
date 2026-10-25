@@ -1,0 +1,384 @@
+EMPLOYEE_PAYROLL AND JOB_MANAGEMENT_SYSTEM
+
+A company wants to maintain employee information in MySQL. You have been asked to design an employee table that strictly enforces the company's data rules using NOT NULL, UNIQUE and CHECK constraints.
+
+1. CREATE THE EMPLOYEE TABLE
+
+Create a table named employee with the following columns.
+
+emp_id INT Primary Key Auto_Increment
+
+emp_name VARCHAR(50)
+Mandatory
+
+email VARCHAR(100)
+Mandatory and must be unique
+
+phone VARCHAR(15)
+Mandatory and must be unique
+
+department VARCHAR(30)
+Mandatory
+
+designation VARCHAR(30)
+Mandatory
+
+age INT
+Mandatory, employee must be between 21 and 60
+
+salary DECIMAL(10,2)
+Mandatory, salary must be greater than 15000
+
+experience INT
+Mandatory, experience must be between 0 and 35 years
+
+joining_year INT
+Mandatory
+
+status VARCHAR(20)
+Mandatory, only Active, Inactive or On Leave
+
+bonus DECIMAL(10,2)
+Mandatory, cannot be negative
+
+create table employee(emp_id INT Primary Key Auto_Increment,emp_name VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(30),designation VARCHAR(30),age INT,salary DECIMAL(10,2),experience INT,
+joining_year INT,status Enum('Active','Inactive','On Leave'),bonus DECIMAL(10,2),CHECK((age  between 21 and 60) and (salary>15000) and (experience between 0 and 35) and (bonus>0)));
+
+2. APPLY THE CONSTRAINTS
+
+NOT NULL CONSTRAINTS
+
+The following columns cannot contain NULL.
+
+emp_name
+email
+phone
+department
+designation
+age
+salary
+experience
+joining_year
+status
+bonus
+
+
+UNIQUE CONSTRAINTS
+
+The following values must be unique across employees.
+
+email
+phone
+
+Two employees cannot have the same email or phone number.
+
+
+CHECK CONSTRAINTS ON INDIVIDUAL COLUMNS
+
+1. Age must be between 21 and 60.
+
+2. Salary must be greater than 15000.
+
+3. Experience must be between 0 and 35 years.
+
+4. Bonus must be greater than or equal to 0.
+
+5. Status can only be Active, Inactive or On Leave.
+
+
+3. COMBINATION CHECK CONSTRAINTS
+
+Rule 1: Experience and Age
+
+An employee cannot have more experience than realistically possible based on age.
+
+Create a CHECK constraint such that:
+
+experience must be less than or equal to age minus 21.
+
+Example:
+
+Age 25 and Experience 4 is valid.
+
+Age 25 and Experience 10 is invalid.
+
+
+Rule 2: Salary and Experience
+
+Employees with more experience must have an appropriate minimum salary.
+
+If experience is greater than or equal to 10, salary must be greater than or equal to 50000.
+
+Example:
+
+Experience 12 and Salary 60000 is valid.
+
+Experience 12 and Salary 35000 is invalid.
+
+
+Rule 3: Department and Designation
+
+The company allows only certain designation combinations.
+
+IT
+Developer
+Tester
+Team Lead
+
+HR
+HR Executive
+HR Manager
+
+Finance
+Accountant
+Finance Manager
+
+Sales
+Sales Executive
+Sales Manager
+
+Examples:
+
+IT and Developer is valid.
+
+IT and HR Manager is invalid.
+
+HR and Developer is invalid.
+
+Finance and Accountant is valid.
+
+Implement this using a CHECK constraint involving both department and designation.
+
+
+Rule 4: Status and Bonus
+
+Business rules:
+
+Active employees can receive bonus.
+
+Inactive employees must have bonus equal to 0.
+
+On Leave employees can have a bonus, but it cannot exceed 20 percent of salary.
+
+Examples:
+
+Active with salary 50000 and bonus 10000 is valid.
+
+Inactive with salary 50000 and bonus 5000 is invalid.
+
+Inactive with salary 50000 and bonus 0 is valid.
+
+On Leave with salary 50000 and bonus 10000 is valid.
+
+On Leave with salary 50000 and bonus 15000 is invalid.
+
+
+Rule 5: Joining Year and Experience
+
+Assume the current year is 2026.
+
+The employee's experience cannot be greater than the number of years since joining.
+
+Example:
+
+Joining year 2020 and Experience 6 is valid.
+
+Joining year 2020 and Experience 10 is invalid.
+
+Joining year cannot be greater than 2026.
+
+
+4. INSERT VALID RECORDS
+
+Insert at least 10 valid employees satisfying all constraints simultaneously.
+
+Your records should cover:
+
+Multiple departments
+Multiple designations
+Different experience levels
+Different salary ranges
+All three statuses
+Different bonus values
+
+
+5. CONSTRAINT TESTING
+
+After inserting valid records, deliberately execute at least 12 invalid INSERT statements.
+
+NOT NULL TESTING
+
+Try inserting NULL into emp_name.
+
+Try inserting NULL into email.
+
+Try inserting NULL into salary.
+
+
+UNIQUE TESTING
+
+Try inserting a duplicate email.
+
+Try inserting a duplicate phone number.
+
+
+INDIVIDUAL CHECK TESTING
+
+Try age equal to 18.
+
+Try salary equal to 10000.
+
+Try experience equal to -2.
+
+Try bonus equal to -500.
+
+Try status equal to Retired.
+
+
+COMBINATION CHECK TESTING
+
+Test age 25 and experience 10.
+
+Test experience 12 and salary 35000.
+
+Test department IT and designation HR Manager.
+
+Test status Inactive and bonus 5000.
+
+Test status On Leave, salary 50000 and bonus 15000.
+
+Test joining year 2020 and experience 10.
+
+Test joining year 2027.
+
+
+
+mysql> create database JOB_MANAGEMENT_SYSTEM;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use JOB_MANAGEMENT_SYSTEM;
+Database changed
+mysql> create table employee(emp_id INT Primary Key Auto_Increment,emp_name VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(30),designation VARCHAR(30),^C
+mysql>
+mysql> create table employee(emp_id INT Primary Key Auto_Increment,emp_name VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(30),designation VARCHAR(30),age INT,salary DECIMAL(10,2),experience INT,
+    -> joining_year INT,status Enum('Active','Inactive','On Leave'),bonus DECIMAL(10,2),CHECK((age  between 21 and 60) and (salary>15000) and (experience between 0 and 35) and (bonus>0));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql>
+mysql> create table employee(emp_id INT Primary Key Auto_Increment,emp_name VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(30),designation VARCHAR(30),age INT,salary DECIMAL(10,2),experience INT,
+    -> joining_year INT,status Enum('Active','Inactive','On Leave'),bonus DECIMAL(10,2),CHECK((age  between 21 and 60) and (salary>15000) and (experience between 0 and 35) and (bonus>0));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> create table employee(emp_id INT Primary Key Auto_Increment,emp_name
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table employee(emp_id INT Primary Key Auto_Increment,emp_name VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(30),designation VARCHAR(30),age INT,salary DECIMAL(10,2),experience INT,
+    -> joining_year INT,status Enum('Active','Inactive','On Leave'),bonus DECIMAL(10,2),CHECK((age  between 21 and 60) and (salary>15000) and (experience between 0 and 35) and (bonus>0));VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(30),designation VARCHAR(30),age INT,salary DECIMAL(10,2),experience INT,
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+    -> joining_year INT,status Enum('Active','Inactive','On Leave'),bonus DECIMAL(10,2),CHECK((age  between 21 and 60) and (salary>15000) and (experience between 0 and 35) and (bonus>0));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(30),designat' at line 1
+mysql> create table employee(emp_id INT Primary Key Auto_Increment,emp_name VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table employee(emp_id INT Primary Key Auto_Increment,emp_name VARCHAR(50),email VARCHAR(100),phone VARCHAR(15),department VARCHAR(30),designation VARCHAR(30),age INT,salary DECIMAL(10,2),experience INT,
+    -> joining_year INT,status Enum('Active','Inactive','On Leave'),bonus DECIMAL(10,2),CHECK((age  between 21 and 60) and (salary>15000) and (experience between 0 and 35) and (bonus>0)));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table employee modify column emp_name int not null;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column email VARCHAR(100);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column phone VARCHAR(15);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column department VARCHAR(30);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column designation VARCHAR(30) not null;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column department VARCHAR(30) not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column phone VARCHAR(15) not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column email VARCHAR(100) not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column age INT not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+ ysql> alter table employee modify column salary DECIMAL(10,2) not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column experience INT not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column joining_year INT not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column status VARCHAR(20) not null;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column bonus DECIMAL(10,2)not null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column email varchar(100) unique;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee modify column phone varchar(15) unique;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| emp_id       | int           | NO   | PRI | NULL    | auto_increment |
+| emp_name     | int           | NO   |     | NULL    |                |
+| email        | varchar(100)  | YES  | UNI | NULL    |                |
+| phone        | varchar(15)   | YES  | UNI | NULL    |                |
+| department   | varchar(30)   | NO   |     | NULL    |                |
+| designation  | varchar(30)   | NO   |     | NULL    |                |
+| age          | int           | NO   |     | NULL    |                |
+| salary       | decimal(10,2) | NO   |     | NULL    |                |
+| experience   | int           | NO   |     | NULL    |                |
+| joining_year | int           | NO   |     | NULL    |                |
+| status       | varchar(20)   | NO   |     | NULL    |                |
+| bonus        | decimal(10,2) | NO   |     | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
+12 rows in set (0.01 sec)
+
+mysql> insert into employee(experience,age) values(10,25);
+ERROR 1364 (HY000): Field 'emp_name' doesn't have a default value
+mysql> alter table employee add constraint new_constraint Check(experience<=age-21);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add constraint cons_salary_exp Check(experience>=10 or (salary>=5000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table employee add constraint cons_salary_exp Check(experience>=10) or (salary>=5000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'or (salary>=5000)' at line 1
+mysql> alter table employee add constraint cons_salary_exp Check(experience>=10)or (salary>=5000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'or (salary>=5000)' at line 1
+mysql> alter table employee add constraint cons_salary_exp Check(experience>=10)or (salary>=5000));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'or (salary>=5000))' at line 1
+mysql> alter table employee add constraint cons_salary_exp Check((experience>=10)or (salary>=5000));
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0

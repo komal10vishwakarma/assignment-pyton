@@ -1,0 +1,88 @@
+3.
+Create a table GymMembers with:
+
+MemberID (INT, Primary Key)
+MemberName (VARCHAR(50), NOT NULL)
+MembershipType (VARCHAR(15), should be 'Basic', 'Premium', or 'VIP', DEFAULT 'Basic')
+MonthlyFee (DECIMAL(6,2), should be at least 500)
+Insert records and check constraints:
+
+(501, 'John', 'Premium', 1200)
+(502, 'Emma', 'Gold', 800) (Should fail due to MembershipType constraint)
+(503, 'Daniel', DEFAULT, 700) (Should insert 'Basic' as default)
+(504, 'Sophia', 'VIP', 300) (Should fail due to MonthlyFee constraint)
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| batch19                    |
+| batch20                    |
+| batch21                    |
+| company_db                 |
+| employee                   |
+| employee_12                |
+| employee_13                |
+| employee_management        |
+| employee_management_system |
+| hospital                   |
+| information_schema         |
+| library                    |
+| library_management_system  |
+| movie                      |
+| mysql                      |
+| performance_schema         |
+| product_management_system  |
+| school2                    |
+| school_db                  |
+| shop_db                    |
+| student                    |
+| sys                        |
+| today                      |
++----------------------------+
+23 rows in set (0.00 sec)
+
+mysql> create database gym;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use gym;
+Database changed
+mysql> create table GymMembers(MemberID INT Primary Key,MemberName VARCHAR(50  NOT NULL,MembershipType VARCHAR(15) Enum( 'Basic','Premium','VIP') DEFAULT 'Basic',MonthlyFee DECIMAL(6,2),Check((MonthlyFee>=500));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NOT NULL,MembershipType VARCHAR(15) Enum( 'Basic','Premium','VIP') DEFAULT 'Basi' at line 1
+mysql> create table GymMembers(MemberID INT Primary Key,MemberName VARCHAR(50) NOT NULL,MembershipType VARCHAR(15) Enum( 'Basic','Premium','VIP') DEFAULT 'Basic',MonthlyFee DECIMAL(6,2),Check((MonthlyFee>=500));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Enum( 'Basic','Premium','VIP') DEFAULT 'Basic',MonthlyFee DECIMAL(6,2),Check((Mo' at line 1
+mysql> create table GymMembers(MemberID INT Primary Key,MemberName VARCHAR(50) NOT NULL,MembershipType VARCHAR(15) Enum('Basic','Premium','VIP') DEFAULT 'Basic',MonthlyFee DECIMAL(6,2),Check((MonthlyFee>=500));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Enum('Basic','Premium','VIP') DEFAULT 'Basic',MonthlyFee DECIMAL(6,2),Check((Mon' at line 1
+mysql> create table GymMembers(MemberID INT Primary Key,MemberName VARCHAR(50) NOT NULL,MembershipType Enum('Basic','Premium','VIP') DEFAULT 'Basic',MonthlyFee DECIMAL(6,2),Check((MonthlyFee>=500));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table GymMembers(MemberID INT Primary Key,MemberName VARCHAR(50) NOT NULL,MembershipType Enum('Basic','Premium','VIP') DEFAULT 'Basic',MonthlyFee DECIMAL(6,2),Check(MonthlyFee>=500));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc GymMembers;
++----------------+-------------------------------+------+-----+---------+-------+
+| Field          | Type                          | Null | Key | Default | Extra |
++----------------+-------------------------------+------+-----+---------+-------+
+| MemberID       | int                           | NO   | PRI | NULL    |       |
+| MemberName     | varchar(50)                   | NO   |     | NULL    |       |
+| MembershipType | enum('Basic','Premium','VIP') | YES  |     | Basic   |       |
+| MonthlyFee     | decimal(6,2)                  | YES  |     | NULL    |       |
++----------------+-------------------------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql>  insert into GymMembers(MemberID,MemberName,MembershipType,MonthlyFee) values(501, 'John', 'Premium', 1200);
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  insert into GymMembers(MemberID,MemberName,MembershipType,MonthlyFee) values(502, 'Emma', 'Gold', 800);
+ERROR 1265 (01000): Data truncated for column 'MembershipType' at row 1
+mysql>  insert into GymMembers(MemberID,MemberName,MembershipType,MonthlyFee) values(503, 'Daniel', DEFAULT, 700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  insert into GymMembers(MemberID,MemberName,MembershipType,MonthlyFee) values(504, 'Sophia', 'VIP', 300);
+ERROR 3819 (HY000): Check constraint 'gymmembers_chk_1' is violated.
+mysql> select*from GymMembers;
++----------+------------+----------------+------------+
+| MemberID | MemberName | MembershipType | MonthlyFee |
++----------+------------+----------------+------------+
+|      501 | John       | Premium        |    1200.00 |
+|      503 | Daniel     | Basic          |     700.00 |
++----------+------------+----------------+------------+

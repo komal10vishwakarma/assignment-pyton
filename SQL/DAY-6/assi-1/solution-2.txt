@@ -1,0 +1,80 @@
+2.
+
+Create a table Patients with:
+
+PatientID (INT, Primary Key)
+PatientName (VARCHAR(50), NOT NULL)
+Age (INT, should be between 1 and 100)
+AdmissionStatus (VARCHAR(15), should be 'Admitted' or 'Discharged', DEFAULT 'Admitted')
+TreatmentCost (DECIMAL(10,2), should be at least 1000)
+Insert records and check constraints:
+
+(201, 'Michael', 25, 'Admitted', 5000)
+(202, 'Linda', 105, 'Admitted', 8000) (Should fail due to Age constraint)
+(202, 'Linda', 105, 'Admitted', 8000) (Should insert 'Admitted' as default)
+(204, 'Sarah', 30, 'Discharged', 700) (Should fail due to TreatmentCost constraint)
+
+mysql> drop database hospital;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| batch19                    |
+| batch20                    |
+| batch21                    |
+| company_db                 |
+| employee                   |
+| employee_12                |
+| employee_13                |
+| employee_management        |
+| employee_management_system |
+| information_schema         |
+| library                    |
+| library_management_system  |
+| movie                      |
+| mysql                      |
+| performance_schema         |
+| product_management_system  |
+| school2                    |
+| school_db                  |
+| shop_db                    |
+| student                    |
+| sys                        |
+| today                      |
++----------------------------+
+22 rows in set (0.00 sec)
+
+mysql> create database hospital;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> create table patients(p_id int primary key,)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> create table patients(p_id int primary key,p_name varchar(50) not null,age int,AdmissionStatus enum('Admitted','Discharged') default 'Admitted',TreatmentCost decimal(10,2),Check((age>1 and age<100)and(treatmentcose>=1000));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table patients(p_id int primary key,p_name varchar(50) not null,age int,AdmissionStatus enum('Admitted','Discharged') default 'Admitted',TreatmentCost decimal(10,2),Check((age>1 and age<100)and(treatmentcost>=1000)));
+ERROR 1046 (3D000): No database selected
+mysql> use hospital;
+Database changed
+mysql> create table patients(p_id int primary key,p_name varchar(50) not null,age int,AdmissionStatus enum('Admitted','Discharged') default 'Admitted',TreatmentCost decimal(10,2),Check((age>1 and age<100)and(treatmentcost>=1000)));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into pat(pat_id,pat_name,age,AdmissionStatus,treatmentcost) values(204, 'Sarah', 30, 'Discharged', 700);
+ERROR 1146 (42S02): Table 'hospital.pat' doesn't exist
+mysql> insert into patients(p_id,p_name,age,AdmissionStatus,TreatmentCost) values(201, 'Michael', 25, 'Admitted', 5000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into patients(p_id,p_name,age,AdmissionStatus,TreatmentCost) values(202, 'Linda', 105, 'Admitted', 8000);
+ERROR 3819 (HY000): Check constraint 'patients_chk_1' is violated.
+mysql> insert into patients(p_id,p_name,age,AdmissionStatus,TreatmentCost) values(202, 'Linda', 105, 'Admitted', 8000);
+ERROR 3819 (HY000): Check constraint 'patients_chk_1' is violated.
+mysql> insert into patients(p_id,p_name,age,AdmissionStatus,TreatmentCost) values(204, 'Sarah', 30, 'Discharged', 700);
+ERROR 3819 (HY000): Check constraint 'patients_chk_1' is violated.
+mysql> select * from patients;
++------+---------+------+-----------------+---------------+
+| p_id | p_name  | age  | AdmissionStatus | TreatmentCost |
++------+---------+------+-----------------+---------------+
+|  201 | Michael |   25 | Admitted        |       5000.00 |
++------+---------+------+-----------------+---------------+
