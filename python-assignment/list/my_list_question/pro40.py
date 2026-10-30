@@ -4,5 +4,6 @@
 l=list(map(int,input("enter the list elements:").split()))
 g=[]
 s=sum(l)
-i=-1			
+i=0
+while 
 			

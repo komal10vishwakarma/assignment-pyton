@@ -1,0 +1,342 @@
+Assignment 1:
+
+ Employee_Salary_Analysis
+Use the following employees table to solve the questions below.
+
+NOTE:-use your friends names in the given table.
+Table: employees
+id name department job_role salary hire_date
+1 Alice HR       Manager       6000.00 2022-01-15
+2 Bob HR Recruiter 4000.00 2023-03-20
+3 Charlie IT Developer 5000.00 2022-07-25
+4 David IT Developer 5500.00 2021-12-05
+5 Eve IT Tester 4500.00 2023-06-10
+6 Frank IT Tester 4800.00 2023-09-12
+7 Grace Finance Analyst 5200.00 2021-11-18
+8 Hank Finance Analyst 5300.00 2022-04-30
+9 Ivy Finance Manager 7000.00 2023-08-14
+10 Jack HR Recruiter 4200.00 2022-10-05
+Questions
+Find the total number of employees in each department.
+Find the average salary of employees in each job role.
+Find the highest salary in the IT department.
+Find the lowest salary among all employees.
+Count the number of employees who joined after January 1, 2023.
+Find the total salary paid in each department.
+Find the job role that has the highest total salary payout.
+Find the average salary of employees who joined after 2022.
+Find departments where the total salary exceeds 10,000.
+Find the department with the highest number of employees.
+
+
+
+
+2.
+Student_Performance_Analysis
+Use the following students table for the queries.
+
+NOTE: use your friends names in the given table.
+Table: students
+student_id name class subject marks exam_date
+1 ,'John' ,10, 'Math' ,85 ,'2023-02-10'
+2 Alice 10 Science 78 2023-03-15
+3 Bob 9 Math 92 2023-04-20
+4 David 9 Science 80 2023-05-25
+5 Eve 10 Math 88 2023-06-30
+6 Frank 9 Science 75 2023-07-10
+7 Grace 10 Math 90 2023-08-20
+8 Hank 9 Math 85 2023-09-15
+9 Ivy 10 Science 82 2023-10-10
+10 Jack 9 Science 79 2023-11-05
+Questions
+Find the total number of students in each class.
+Find the highest marks scored in Math.
+Find the average marks in each subject.
+Find the total number of students who scored above 80.
+Find the number of students who took the exam in each month.
+Find the subject where students scored the highest average marks.
+Find the student who scored the lowest marks in Science.
+Find the number of students in each class who scored more than 85.
+Find the average marks for each subject where the average is above 80.
+Find the student who scored the highest marks overall.
+ 
+
+4.
+
+Find the average marks in each subject and display only subjects where the average is above 80. (GROUP BY + HAVING)
+Find the total number of students in each class and order them by class in descending order. (GROUP BY + ORDER BY)
+Find the subject where students scored the highest average marks, displaying only subjects where the average is above 85. (GROUP BY + HAVING + ORDER BY)
+Find the student who scored the highest marks overall. (ORDER BY + LIMIT 1)
+Find the number of students in each class who scored more than 85, displaying only classes with more than 2 such students. (GROUP BY + HAVING)
+
+mysql> create Student_Performance_Analysis;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Student_Performance_Analysis' at line 1
+mysql> create database Student_Performance_Analysis;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use Student_Performance_Analysis'
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+mysql> use Student_Performance_Analysis;
+Database changed
+mysql> create table students(student_id int ,name varchar(20),class varchar(20),subject varchar(20)
+    -> ^C
+mysql> create table students(student_id int ,name varchar(20),class varchar(20),subject varchar(20),marks int ,exam_date date);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc students;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | int         | YES  |     | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| class      | varchar(20) | YES  |     | NULL    |       |
+| subject    | varchar(20) | YES  |     | NULL    |       |
+| marks      | int         | YES  |     | NULL    |       |
+| exam_date  | date        | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> insert into students(student_id,name,class,subject,marks,exam_date ) values(1 ,'John' ,10, 'Math' ,85 ,'2023-02-10')
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students (student_id, name, class, subject, marks, exam_date) VALUES
+    -> (2, 'Alice', '10', 'Science', 78, '2023-03-15'),
+    -> (3, 'Bob', '9', 'Math', 92, '2023-04-20'),
+    -> (4, 'David', '9', 'Science', 80, '2023-05-25'),
+    -> (5, 'Eve', '10', 'Math', 88, '2023-06-30'),
+    -> (6, 'Frank', '9', 'Science', 75, '2023-07-10'),
+    -> (7, 'Grace', '10', 'Math', 90, '2023-08-20'),
+    -> (8, 'Hank', '9', 'Math', 85, '2023-09-15'),
+    -> (9, 'Ivy', '10', 'Science', 82, '2023-10-10'),
+    -> (10, 'Jack', '9', 'Science', 79, '2023-11-05');
+Query OK, 9 rows affected (0.01 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> select* from students;
++------------+-------+-------+---------+-------+------------+
+| student_id | name  | class | subject | marks | exam_date  |
++------------+-------+-------+---------+-------+------------+
+|          1 | John  | 10    | Math    |    85 | 2023-02-10 |
+|          2 | Alice | 10    | Science |    78 | 2023-03-15 |
+|          3 | Bob   | 9     | Math    |    92 | 2023-04-20 |
+|          4 | David | 9     | Science |    80 | 2023-05-25 |
+|          5 | Eve   | 10    | Math    |    88 | 2023-06-30 |
+|          6 | Frank | 9     | Science |    75 | 2023-07-10 |
+|          7 | Grace | 10    | Math    |    90 | 2023-08-20 |
+|          8 | Hank  | 9     | Math    |    85 | 2023-09-15 |
+|          9 | Ivy   | 10    | Science |    82 | 2023-10-10 |
+|         10 | Jack  | 9     | Science |    79 | 2023-11-05 |
++------------+-------+-------+---------+-------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select count(*) from students group by class;
++----------+
+| count(*) |
++----------+
+|        5 |
+|        5 |
++----------+
+2 rows in set (0.00 sec)
+
+mysql> select class,count(*) from students group by class;
++-------+----------+
+| class | count(*) |
++-------+----------+
+| 10    |        5 |
+| 9     |        5 |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select subject ,max(marks) as highest group by subject having sunject='math';
+ERROR 1054 (42S22): Unknown column 'subject' in 'field list'
+mysql> select subject ,max(marks) as highest from students group by subject having sunject='math';
+ERROR 1054 (42S22): Unknown column 'sunject' in 'having clause'
+mysql> select subject ,max(marks) as highest from students group by subject having subject='math';
++---------+---------+
+| subject | highest |
++---------+---------+
+| Math    |      92 |
++---------+---------+
+1 row in set (0.00 sec)
+
+mysql> select subject,avg(marks) as average from students group by subject;
++---------+---------+
+| subject | average |
++---------+---------+
+| Math    | 88.0000 |
+| Science | 78.8000 |
++---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select sum(marks) as above from students group by marks having marks>80;
++-------+
+| above |
++-------+
+|   170 |
+|    92 |
+|    88 |
+|    90 |
+|    82 |
++-------+
+5 rows in set (0.00 sec)
+
+mysql> select marks,sum(marks) as above from students group by marks having marks>80;
++-------+-------+
+| marks | above |
++-------+-------+
+|    85 |   170 |
+|    92 |    92 |
+|    88 |    88 |
+|    90 |    90 |
+|    82 |    82 |
++-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select count(*) as total from students where marks>80;
++-------+
+| total |
++-------+
+|     6 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> select min(marks) where subject='science' group by name;
+ERROR 1054 (42S22): Unknown column 'marks' in 'field list'
+mysql> select min(marks) from studentswhere subject='science' group by name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='science' group by name' at line 1
+mysql> select min(marks) from students where subject='science' group by name;
++------------+
+| min(marks) |
++------------+
+|         78 |
+|         80 |
+|         75 |
+|         82 |
+|         79 |
++------------+
+5 rows in set (0.00 sec)
+
+mysql> select name,min(marks) from students where subject='science';
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'student_performance_analysis.students.name'; this is incompatible with sql_mode=only_full_group_by
+mysql> select subject,min(marks) from students where subject='science' group sunject ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sunject' at line 1
+mysql> select subject,min(marks) from students where subject='science' group subject ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'subject' at line 1
+mysql> select subject,min(marks) from students where subject='science' group by subject ;
++---------+------------+
+| subject | min(marks) |
++---------+------------+
+| Science |         75 |
++---------+------------+
+1 row in set (0.00 sec)
+
+mysql> select class,count(*) from students where marks>85 group by class;
++-------+----------+
+| class | count(*) |
++-------+----------+
+| 9     |        1 |
+| 10    |        2 |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select subject,avg(marks) from students where marks>80 group by subjects;
+ERROR 1054 (42S22): Unknown column 'subjects' in 'group statement'
+mysql> select subject,avg(marks) from students where marks>80 group by subject;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
+| Science |    82.0000 |
++---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select max(marks) from students;
++------------+
+| max(marks) |
++------------+
+|         92 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select name,max(marks) from students group by name;
++-------+------------+
+| name  | max(marks) |
++-------+------------+
+| John  |         85 |
+| Alice |         78 |
+| Bob   |         92 |
+| David |         80 |
+| Eve   |         88 |
+| Frank |         75 |
+| Grace |         90 |
+| Hank  |         85 |
+| Ivy   |         82 |
+| Jack  |         79 |
++-------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select max(marks) from students group by name;
++------------+
+| max(marks) |
++------------+
+|         85 |
+|         78 |
+|         92 |
+|         80 |
+|         88 |
+|         75 |
+|         90 |
+|         85 |
+|         82 |
+|         79 |
++------------+
+10 rows in set (0.00 sec)
+
+mysql>  select* max(marks) from students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'max(marks) from students' at line 1
+mysql>  select* ,max(marks) from students;
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'student_performance_analysis.students.student_id'; this is incompatible with sql_mode=only_full_group_by
+mysql> select * from students order by marks;
++------------+-------+-------+---------+-------+------------+
+| student_id | name  | class | subject | marks | exam_date  |
++------------+-------+-------+---------+-------+------------+
+|          6 | Frank | 9     | Science |    75 | 2023-07-10 |
+|          2 | Alice | 10    | Science |    78 | 2023-03-15 |
+|         10 | Jack  | 9     | Science |    79 | 2023-11-05 |
+|          4 | David | 9     | Science |    80 | 2023-05-25 |
+|          9 | Ivy   | 10    | Science |    82 | 2023-10-10 |
+|          1 | John  | 10    | Math    |    85 | 2023-02-10 |
+|          8 | Hank  | 9     | Math    |    85 | 2023-09-15 |
+|          5 | Eve   | 10    | Math    |    88 | 2023-06-30 |
+|          7 | Grace | 10    | Math    |    90 | 2023-08-20 |
+|          3 | Bob   | 9     | Math    |    92 | 2023-04-20 |
++------------+-------+-------+---------+-------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from students order by marks desc;
++------------+-------+-------+---------+-------+------------+
+| student_id | name  | class | subject | marks | exam_date  |
++------------+-------+-------+---------+-------+------------+
+|          3 | Bob   | 9     | Math    |    92 | 2023-04-20 |
+|          7 | Grace | 10    | Math    |    90 | 2023-08-20 |
+|          5 | Eve   | 10    | Math    |    88 | 2023-06-30 |
+|          1 | John  | 10    | Math    |    85 | 2023-02-10 |
+|          8 | Hank  | 9     | Math    |    85 | 2023-09-15 |
+|          9 | Ivy   | 10    | Science |    82 | 2023-10-10 |
+|          4 | David | 9     | Science |    80 | 2023-05-25 |
+|         10 | Jack  | 9     | Science |    79 | 2023-11-05 |
+|          2 | Alice | 10    | Science |    78 | 2023-03-15 |
+|          6 | Frank | 9     | Science |    75 | 2023-07-10 |
++------------+-------+-------+---------+-------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from students order by marks desc limit 1 ;
++------------+------+-------+---------+-------+------------+
+| student_id | name | class | subject | marks | exam_date  |
++------------+------+-------+---------+-------+------------+
+|          3 | Bob  | 9     | Math    |    92 | 2023-04-20 |
++------------+------+-------+---------+-------+------------+
+1 row in set (0.00 sec)
+
+mysql> ^Z

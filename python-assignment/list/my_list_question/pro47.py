@@ -3,6 +3,4 @@
 '''
 l1=list(map(int,input("enter l1 elements :").split()))
 
-for i in l1:
-	l1.count(i)
-print(count)
+
