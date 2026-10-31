@@ -1,0 +1,72 @@
+QNO 2:-
+
+A hospital wants to store patient records and their assigned doctors. If a doctor leaves, all related patient records should be deleted.
+
+Tasks:
+Create a Doctors table:
+
+DoctorID PRIMARY KEY AUTO_INCREMENT
+DoctorName NOT NULL
+Specialization NOT NULL, UNIQUE
+
+Create a Patients table:
+
+PatientID int PRIMARY KEY AUTO_INCREMENT
+PatientName varchar(20) NOT NULL
+DoctorID int FOREIGN KEY
+Insert sample data (at least 3 doctors and 5 patients).
+
+Delete a doctor and check if related patients are removed automatically.
+mysql> delete from doctor_table where DoctorID=13;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from doctor_table;
++----------+------------+------------------+
+| DoctorID | DoctorName | Specialization   |
++----------+------------+------------------+
+|       11 | shreeji    | neuro            |
+|       12 | komal      | heart specialist |
++----------+------------+------------------+
+
+-----------------Update a patient’s doctor to a new doctor.
+
+mysql> create database day8_hospital;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use day8_hospital;
+Database changed
+
+mysql> create table doctor_table(DoctorID int PRIMARY KEY AUTO_INCREMENT,DoctorName varchar(30) NOT NULL,Specialization varchar(30) NOT NULL UNIQUE);
+Query OK, 0 rows affected (0.07
+
+mysql> create table patients_table(PatientID int PRIMARY KEY AUTO_INCREMENT,PatientName varchar(20) NOT NULL,DoctorID int ,foreign key (DoctorID) references doctor_table(DoctorID) on delete cascade );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> insert into doctor_table values(11,'shreeji','neuro'),(12,'komal','heart specialist'),(13,'aayush','gynacologist');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into patients_table values(101,'nannu',12),(102,'chakku',11),(103,'chanchal',13),(104,'cutie',13),(105,'cheeks',11);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from doctor_table;
++----------+------------+------------------+
+| DoctorID | DoctorName | Specialization   |
++----------+------------+------------------+
+|       11 | shreeji    | neuro            |
+|       12 | komal      | heart specialist |
+|       13 | aayush     | gynacologist     |
++----------+------------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from patients_table;
++-----------+-------------+----------+
+| PatientID | PatientName | DoctorID |
++-----------+-------------+----------+
+|       101 | nannu       |       12 |
+|       102 | chakku      |       11 |
+|       103 | chanchal    |       13 |
+|       104 | cutie       |       13 |
+|       105 | cheeks      |       11 |
++-----------+-------------+----------+

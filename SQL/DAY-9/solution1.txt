@@ -1,0 +1,116 @@
+QNO 1:
+A company wants to manage its employees and their respective departments. Each employee must belong to a department. If a department is deleted, all employees in that department should also be removed automatically.
+Tasks:
+1. Create the Departments Table
+Each department has a unique ID (DepartmentID).
+The department name must be unique.
+The department name cannot be NULL.
+
+2. Create the Employees Table
+Each employee has a unique ID (EmployeeID).
+Each employee has a name and salary, both cannot be NULL.
+Each employee must be assigned to a department (DepartmentID), which is a FOREIGN KEY referencing Departments(DepartmentID).
+If a department is deleted, all employees in that department should also be deleted.
+
+3. Insert Sample Data
+Insert at least 3 departments.
+Insert at least 5 employees (make sure at least two employees belong to the same department).
+
+4. Implement Query Constraints (Without Using JOIN)
+Write a query to list all employees and their department names (without using JOIN).
+Write a query to update an employee's department.
+Try deleting a department and observe what happens to the employees under that department.
+
+mysql> create database day_8_employee_department;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use day_8_employee_department;
+Database changed
+mysql> create table dep(DepartmentID int primary key,d_name varchar(20) not null)
+    -> ;
+Query OK, 0 rows affected (0.03 sec)
+mysql> create table employees(EmployeeID int,e_name varchar(20) not null unique,salary decimal(10,2) not null ,DepartmentID int,foreign key (DepartmentID) references dep(DepartmentID));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc dep;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| DepartmentID | int         | NO   | PRI | NULL    |       |
+| d_name       | varchar(20) | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> desc employees;
++--------------+---------------+------+-----+---------+-------+
+| Field        | Type          | Null | Key | Default | Extra |
++--------------+---------------+------+-----+---------+-------+
+| EmployeeID   | int           | YES  |     | NULL    |       |
+| e_name       | varchar(20)   | NO   | PRI | NULL    |       |
+| salary       | decimal(10,2) | NO   |     | NULL    |       |
+| DepartmentID | int           | YES  | MUL | NULL    |       |
++--------------+---------------+------+-----+---------+-------+
+
+mysql> alter table employees add constraint fk_name foreign key (DepartmentID) references dep(DepartmentID) on delete cascade;
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> select*from dep;
++--------------+--------+
+| DepartmentID | d_name |
++--------------+--------+
+|            1 | CS     |
+|            2 | IT     |
+|            3 | CSIT   |
+|            4 | CIVIL  |
+|            5 | EC     |
++--------------+--------+
+
+mysql> insert into employees values(101,'komal',10101,1),(102,'shreeji',100001,1),(103,'aayushda',10,2),(104,'chanchal',10000,3),(105,'bakchhod',119911,5);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select*from employees;
++------------+----------+-----------+--------------+
+| EmployeeID | e_name   | salary    | DepartmentID |
++------------+----------+-----------+--------------+
+|        103 | aayushda |     10.00 |            2 |
+|        105 | bakchhod | 119911.00 |            5 |
+|        104 | chanchal |  10000.00 |            3 |
+|        101 | komal    |  10101.00 |            1 |
+|        102 | shreeji  | 100001.00 |            1 |
++------------+----------+-----------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> delete from employees where DepartmentID=5;
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> select*from employees;
++------------+----------+-----------+--------------+
+| EmployeeID | e_name   | salary    | DepartmentID |
++------------+----------+-----------+--------------+
+|        103 | aayushda |     10.00 |            2 |
+|        101 | komal    |  10101.00 |            1 |
+|        102 | shreeji  | 100001.00 |            1 |
++------------+----------+-----------+--------------+
+
+mysql> update employees set DepartmentID=5 where e_name='bakchhod' or e_name='chanchal';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 2  Changed: 1  Warnings: 0
+
+mysql> select*from employees;
++------------+----------+-----------+--------------+
+| EmployeeID | e_name   | salary    | DepartmentID |
++------------+----------+-----------+--------------+
+|        103 | aayushda |     10.00 |            2 |
+|        105 | bakchhod | 119911.00 |            5 |
+|        104 | chanchal |  10000.00 |            5 |
+|        101 | komal    |  10101.00 |            1 |
+|        102 | shreeji  | 100001.00 |            1 |
++------------+----------+-----------+--------------+
+
+
+ALTER TABLE child_table
+ADD CONSTRAINT fk_name
+FOREIGN KEY (column_name)
+REFERENCES parent_table(column_name)
+ON DELETE CASCADE;7
