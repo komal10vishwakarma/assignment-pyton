@@ -2,17 +2,140 @@ QNO 3:
 A library maintains a record of books and their authors. If an author is removed, their books should not be deleted, but their author information should be set to NULL.
 
 Tasks:
-Create an Authors table:
+Create an Authors_table:
 
-AuthorID (PRIMARY KEY, AUTO_INCREMENT)
-AuthorName (NOT NULL, UNIQUE)
-Create a Books table:
+AuthorID int PRIMARY KEY AUTO_INCREMENT
+AuthorName varchar(20) NOT NULL UNIQUE
 
-BookID (PRIMARY KEY, AUTO_INCREMENT)
-BookTitle (NOT NULL, UNIQUE)
-AuthorID (FOREIGN KEY )
+Create a Books_table:
+
+BookID int PRIMARY KEY AUTO_INCREMENT
+BookTitle varchar(20) NOT NULL UNIQUE 
+AuthorID FOREIGN KEY 
 Insert sample data (at least 3 authors and 5 books).
 
-Delete an author and check if books remain, but the AuthorID is set to NULL.
+Delete an author and check if books remain, but the AuthorID is set to NUL
+L.
+mysql> delete from Authors_table where AuthorID=4;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Authors_table;
++----------+---------------+
+| AuthorID | AuthorName    |
++----------+---------------+
+|        2 | Chetan Bhagat |
+|        1 | J K Rowling   |
+|        3 | Ruskin Bond   |
++----------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from book_name;
++--------+--------------------+----------+
+| BookID | BookTitle          | AuthorID |
++--------+--------------------+----------+
+|      1 | Harry Potter       |        1 |
+|      2 | Half Girlfriend    |        2 |
+|      3 | Five Point Someone |        2 |
+|      4 | The Blue Umbrella  |        3 |
++--------+--------------------+----------+
+
+mysql> update Authors_table set AuthorName='null' where AuthorID=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
 
 Update the author of a book to a new author.
+
+mysql> update Authors_table set AuthorName='aayushda' where AuthorID=3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Authors_table;
++----------+---------------+
+| AuthorID | AuthorName    |
++----------+---------------+
+|        3 | aayushda      |
+|        2 | Chetan Bhagat |
+|        1 | J K Rowling   |
++----------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from book_name;
++--------+--------------------+----------+
+| BookID | BookTitle          | AuthorID |
++--------+--------------------+----------+
+|      1 | Harry Potter       |        1 |
+|      2 | Half Girlfriend    |        2 |
+|      3 | Five Point Someone |        2 |
+|      4 | The Blue Umbrella  |        3 |
++--------+--------------------+----------+
+
+mysql> create database day8_library_managment;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use day8_library_managment;
+Database changed
+mysql> create table Authors_table(AuthorID int PRIMARY KEY AUTO_INCREMENT,AuthorName varchar(20) NOT NULL UNIQUE);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table book_name(BookID int PRIMARY KEY AUTO_INCREMENT,BookTitle varchar(20) NOT NULL UNIQUE ,AuthorID int,constraint fk_author_book foreign key (AuthorID) references Authors_table (AuthorID) on update cascade on delete cascade);
+Query OK, 0 rows affected (0.05 sec)
+
+ALTER TABLE child_table
+ADD CONSTRAINT fk_name
+FOREIGN KEY (parent_id)
+REFERENCES parent_table(id)
+ON DELETE CASCADE;
+
+mysql> INSERT INTO Authors_table (AuthorName)
+    -> VALUES
+    -> ('J K Rowling'),
+    -> ('Chetan Bhagat'),
+    -> ('Ruskin Bond'),
+    -> ('R K Narayan');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Book_name(BookTitle, AuthorID) VALUES ('Harry Potter', 1), ('Half Girlfriend', 2), ('Five Point Someone', 2), ('The Blue Umbrella', 3), ('Malgudi Days', 4);
+
+mysql> desc Authors_table;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| AuthorID   | int         | NO   | PRI | NULL    | auto_increment |
+| AuthorName | varchar(20) | NO   | UNI | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> desc book_name;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| BookID    | int         | NO   | PRI | NULL    | auto_increment |
+| BookTitle | varchar(20) | NO   | UNI | NULL    |                |
+| AuthorID  | int         | YES  | MUL | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Authors_table;
++----------+---------------+
+| AuthorID | AuthorName    |
++----------+---------------+
+|        2 | Chetan Bhagat |
+|        1 | J K Rowling   |
+|        4 | R K Narayan   |
+|        3 | Ruskin Bond   |
++----------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from book_name;
++--------+--------------------+----------+
+| BookID | BookTitle          | AuthorID |
++--------+--------------------+----------+
+|      1 | Harry Potter       |        1 |
+|      2 | Half Girlfriend    |        2 |
+|      3 | Five Point Someone |        2 |
+|      4 | The Blue Umbrella  |        3 |
+|      5 | Malgudi Days       |        4 |
++--------+--------------------+----------+
+
+
