@@ -2,16 +2,88 @@ QNO 4:
 A university wants to track students' exam results. If a student is deleted, their results should also be deleted.
 Tasks:
 Create a Students table:
-StudentID (PRIMARY KEY, AUTO_INCREMENT)
-StudentName (NOT NULL)
+StudentID int PRIMARY KEY AUTO_INCREMENT
+StudentName varchar(20) NOT NULL
+
+
 Create an Exams table:
-ExamID (PRIMARY KEY, AUTO_INCREMENT)
-SubjectName (NOT NULL, UNIQUE)
+ExamID int PRIMARY KEY AUTO_INCREMENT
+SubjectName varchar(20) NOT NULL  UNIQUE
+
+
 Create a Results table:
-ResultID (PRIMARY KEY, AUTO_INCREMENT)
-StudentID (FOREIGN key)
-ExamID (FOREIGN KEY)
+ResultID int PRIMARY KEY AUTO_INCREMENT
+StudentID int (FOREIGN key)
+ExamID int FOREIGN KEY
 Score (NOT NULL, CHECK Score BETWEEN 0 AND 100)
 Insert sample data (at least 3 students, 3 exams, and 5 results).
+
 Delete a student and check if their results are removed automatically.
+
 Update an exam’s subject name and observe the effect.
+
+mysql> create database day9_university;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use day9_university;
+Database changed
+mysql> create table students(StudentID int PRIMARY KEY AUTO_INCREMENT,^C
+mysql> create table students(StudentID int PRIMARY KEY AUTO_INCREMENT,StudentName varchar(20) NOT NULL);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> create table exams(ExamID int PRIMARY KEY AUTO_INCREMENT,SubjectName varchar(20) NOT NULL  UNIQUE);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table results(ResultID int PRIMARY KEY AUTO_INCREMENT,StudentID int,ExamID int,FOREIGN KEY(StudentID) references students(StudentID));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> drop table results;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table results(ResultID int PRIMARY KEY AUTO_INCREMENT,StudentID int,ExamID int,constraint fk_student FOREIGN KEY(StudentID) references students(StudentID),constraint fk_exam FOREIGN KEY(ExamID) references exams(ExamID));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> desc students
+    -> ;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| StudentID   | int         | NO   | PRI | NULL    | auto_increment |
+| StudentName | varchar(20) | NO   |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+2 rows in set (0.02 sec)
+
+mysql> insert into students values(1,'komal'),(2,'shreeji'),(3,'aayushda');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into exams
+    -> values (101,'maths'),(102,'science'),(3,'biology');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc results;
++-----------+------+------+-----+---------+----------------+
+| Field     | Type | Null | Key | Default | Extra          |
++-----------+------+------+-----+---------+----------------+
+| ResultID  | int  | NO   | PRI | NULL    | auto_increment |
+| StudentID | int  | YES  | MUL | NULL    |                |
+| ExamID    | int  | YES  | MUL | NULL    |                |
++-----------+------+------+-----+---------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> insert into results values(1003,3,101),(1002,1,102),(1001,3,3),(1004,2,102),(1005,2,3);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from results;
++----------+-----------+--------+
+| ResultID | StudentID | ExamID |
++----------+-----------+--------+
+|     1001 |         3 |      3   |
+|     1002 |         1 |    102 |
+|     1003 |         3 |    101 |
+|     1004 |         2 |    102 |
+|     1005 |         2 |      3   |
++----------+-----------+--------+
+5 rows in set (0.00 sec)
