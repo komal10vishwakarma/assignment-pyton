@@ -1,0 +1,78 @@
+QNO 2:
+
+Customer_and_Orders
+Problem Statement:
+A retail store wants to generate a report displaying all customers and their latest order details. The report should include customers who have not placed any orders.
+
+Tables:
+Customer (cust_id, cust_name)
+Orders (order_id, cust_id, order_date, total_amount)
+
+mysql> create database Customer_and_Orders;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use Customer_and_Orders;
+Database changed
+mysql> create table Customer(cust_id int primary key, cust_name varchar(20));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table Orders (order_id int,cust_id int , order_date date, total_amount decimal(10,2));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Customer (cust_id, cust_name)
+    -> VALUES
+    -> (1, 'Amit'),
+    -> (2, 'Priya'),
+    -> (3, 'Rahul'),
+    -> (4, 'Sneha'),
+    -> (5, 'Karan');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Orders (order_id, cust_id, order_date, total_amount)
+    -> VALUES
+    -> (101, 1, '2026-01-10', 2500),
+    -> (102, 1, '2026-02-15', 3500),
+    -> (103, 2, '2026-01-20', 1500),
+    -> (104, 3, '2026-03-05', 4000),
+    -> (105, 3, '2026-04-10', 5000);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from Customer;
++---------+-----------+
+| cust_id | cust_name |
++---------+-----------+
+|       1 | Amit      |
+|       2 | Priya     |
+|       3 | Rahul     |
+|       4 | Sneha     |
+|       5 | Karan     |
++---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from orders;
++----------+---------+------------+--------------+
+| order_id | cust_id | order_date | total_amount |
++----------+---------+------------+--------------+
+|      101 |       1 | 2026-01-10 |      2500.00 |
+|      102 |       1 | 2026-02-15 |      3500.00 |
+|      103 |       2 | 2026-01-20 |      1500.00 |
+|      104 |       3 | 2026-03-05 |      4000.00 |
+|      105 |       3 | 2026-04-10 |      5000.00 |
++----------+---------+------------+--------------+
+5 rows in set (0.00 sec)
+
+Query 1:
+Write an SQL query using LEFT JOIN to display all customers with their order details, ensuring that customers with no orders are still included in the result.
+
+Query 2:
+Problem Statement:
+The store wants to generate a report including all orders placed, even if the customer record is missing (i.e., orphan orders due to data inconsistency).
+
+Query 3:
+The store wants a comprehensive report showing all customers and all orders, even if some customers have no orders and some orders have missing customer details.
+
+Query 4:
+Problem Statement:
+The store wants to analyze all possible customer-order pairings, regardless of actual transactions.
