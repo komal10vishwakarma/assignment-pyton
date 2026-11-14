@@ -981,3 +981,516 @@ SELECT * FROM emp WHERE dept_id IN (SELECT dept_id FROM emp GROUP BY dept_id HAV
 |    111 | Meena    | 65000.00 |       3 |
 +--------+----------+----------+---------+
 6 rows in set (0.00 sec)
+
+
+Q57.
+Display the department whose maximum employee salary is the highest among all departments.
+select * from department where dept_id in (select dept_id from employee where salary = (select max(max_salary) from (select max(salary) as max_salary from employee group by dept_id) as max_salaries));
+
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       2 | it        | pune     |
++---------+-----------+----------+
+Q58.
+Display the department whose minimum employee salary is the lowest among all departments.
+select * from department where dept_id in (select dept_id from employee where salary = (select min(min_salary) from (select min(salary) as min_salary from employee group by dept_id) as min_salaries));
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       5 | admin     | delhi    |
++---------+-----------+----------+
+
+Q59.
+Display employees whose salary is greater than the maximum salary of the HR department.
+select * from employee where salary > (select max(salary) from employee where dept_id = (select dept_id from department where dept_name = 'HR'));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | rahul    | 50000.00 |       2 |
+|    103 | priya    | 40000.00 |       2 |
+|    104 | neha     | 60000.00 |       3 |
+|    105 | rohit    | 35000.00 |       3 |
+|    106 | sneha    | 45000.00 |       4 |
+|    107 | karan    | 55000.00 |       4 |
+|    109 | vijay    | 70000.00 |       2 |
+|    110 | ankit    | 32000.00 |       5 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+Q60.
+Display employees whose salary is less than the minimum salary of the Finance department.
+select * from employee where salary < (select min(salary) from employee where dept_id = (select dept_id from department where dept_name = 'Finance'));
+mysql> select * from employee where salary < (select min(salary) from employee where dept_id = (select dept_id from department where dept_name = 'Finance'));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    101 | amit     | 30000.00 |       1 |
+|    108 | pooja    | 28000.00 |       1 |
+|    110 | ankit    | 32000.00 |       5 |
+|    112 | arjun    | 25000.00 |       5 |
++--------+----------+----------+---------+
+
+
+Q61.
+Display employees whose salary is greater than every employee in HR but less than the salary of at least one employee in IT.
+select * from employee where salary > (select max(salary) from employee where dept_id = (select dept_id from department where dept_name = 'HR')) and salary < (select max(salary) from employee where dept_id = (select dept_id from department where dept_name = 'IT'));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | rahul    | 50000.00 |       2 |
+|    103 | priya    | 40000.00 |       2 |
+|    104 | neha     | 60000.00 |       3 |
+|    105 | rohit    | 35000.00 |       3 |
+|    106 | sneha    | 45000.00 |       4 |
+|    107 | karan    | 55000.00 |       4 |
+|    110 | ankit    | 32000.00 |       5 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+
+
+Q62.
+Display employees whose salary is greater than at least one employee in Finance but less than every employee in IT.
+select * from employee where salary < (select min(salary) from employee where dept_id = (select dept_id from department where dept_name = 'IT')) and salary > (select min(salary) from employee where dept_id = (select dept_id from department where dept_name = 'Finance'));
+
+Empty set (0.00 sec)
+
+Q63.
+Display employees who work in departments where the department's average salary is greater than 40000.
+select * from employee e where (select avg(salary) from employee where dept_id=e.dept_id)>40000;
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | rahul    | 50000.00 |       2 |
+|    103 | priya    | 40000.00 |       2 |
+|    104 | neha     | 60000.00 |       3 |
+|    105 | rohit    | 35000.00 |       3 |
+|    106 | sneha    | 45000.00 |       4 |
+|    107 | karan    | 55000.00 |       4 |
+|    109 | vijay    | 70000.00 |       2 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+
+Q64.
+Display departments where the average salary is greater than 40000 and at least one employee earns more than 60000.
+select * from department d where (select avg(salary) from employee where dept_id=d.dept_id)>40000 and (select max(salary) from employee where dept_id = d.dept_id) > 60000;
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       2 | it        | pune     |
+|       3 | finance   | mumbai   |
++---------+-----------+----------+
+
+
+Q65.
+Display employees whose salary is greater than their department average salary but less than the company's overall average salary.
+select * from employee e where salary > (select avg(salary) from employee where dept_id = e.dept_id) and salary < (select avg(salary) from employee);+--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    101 | amit     | 30000.00 |       1 |
+|    110 | ankit    | 32000.00 |       5 |
++--------+----------+----------+---------+
+
+
+Q66.
+Display employees whose salary is less than their department average salary but greater than the company's overall average salary.
+select * from employee e where salary < (select avg(salary) from employee where dept_id = e.dept_id) and salary > (select avg(salary) from employee);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | rahul    | 50000.00 |       2 |
+|    106 | sneha    | 45000.00 |       4 |
++--------+----------+----------+---------+
+
+
+Q67.
+Display the highest-paid employee from each department without using GROUP BY to directly select the employee.
+select * from employee e where salary = (select max(salary) from employee where dept_id=e.dept_id);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    101 | amit     | 30000.00 |       1 |
+|    107 | karan    | 55000.00 |       4 |
+|    109 | vijay    | 70000.00 |       2 |
+|    110 | ankit    | 32000.00 |       5 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+
+Q68.
+Display the second-highest salary employee from each department.
+select *  from employee e where salary = (select max(salary) from employee where dept_id = e.dept_id and salary < (select max(salary) from employee where dept_id = e.dept_id ));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | rahul    | 50000.00 |       2 |
+|    104 | neha     | 60000.00 |       3 |
+|    106 | sneha    | 45000.00 |       4 |
+|    108 | pooja    | 28000.00 |       1 |
+|    112 | arjun    | 25000.00 |       5 |
++--------+----------+----------+---------+
+
+
+Q69.
+Display departments that have at least two employees.
+select * from department d where dept_id in (select dept_id from employee where (select count(*) from employee where dept_id = d.dept_id)>=2);
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       1 | hr        | indore   |
+|       2 | it        | pune     |
+|       3 | finance   | mumbai   |
+|       4 | sales     | indore   |
+|       5 | admin     | delhi    |
++---------+-----------+----------+
+
+
+Q70.
+Display employees working in departments that have more employees than the HR department.
+select * from employee e where (select count(*) from employee where dept_id = e.dept_id ) > (select count(*) from employee where dept_id = (select dept_id from department where dept_name = 'HR'));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | rahul    | 50000.00 |       2 |
+|    103 | priya    | 40000.00 |       2 |
+|    104 | neha     | 60000.00 |       3 |
+|    105 | rohit    | 35000.00 |       3 |
+|    109 | vijay    | 70000.00 |       2 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+Q71.
+Display employees working in departments that have fewer employees than the IT department.
+select * from employee e where (select count(*) from employee where dept_id = e.dept_id ) < (select count(*) from employee where dept_id = (select dept_id from department where dept_name = 'IT'));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    101 | amit     | 30000.00 |       1 |
+|    106 | sneha    | 45000.00 |       4 |
+|    107 | karan    | 55000.00 |       4 |
+|    108 | pooja    | 28000.00 |       1 |
+|    110 | ankit    | 32000.00 |       5 |
+|    112 | arjun    | 25000.00 |       5 |
++--------+----------+----------+---------+
+
+
+Q72.
+Display the department(s) having the same average salary as the Finance department.
+select * from department where dept_id in (select dept_id from employee e where (select avg(salary) from employee where dept_id = e.dept_id) = (select avg(salary) from employee where dept_id = (select dept_id from department where dept_name = 'Finance')));
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       2 | it        | pune     |
+|       3 | finance   | mumbai   |
++---------+-----------+----------+
+
+
+Q73.
+Display employees whose salary is equal to the highest salary of any department other than their own department.
+
+select * from employee e where salary in (select max(salary) from employee where dept_id <> e.dept_id group by dept_id);
+
+select * from employee e where salary in (select 1 from employee e1 where e1.dept_id <> e.dept_id and e1.salary = e.salary and e1.salary = (select max(salary) from employee e2 where e2.dept_id = e1.dept_id));
+
+select * from employee e where salary in (select salary from employee e1 where dept_id <> e.dept_id and salary = (select max(salary) from employee e2 where e2.dept_id = e1.dept_id));
+
+select * from employee e where salary in (select distinct(select max(e2.salary) from employee e2 where e2.dept_id = e1.dept_id) from employee e1 where e.dept_id <> e1.dept_id );
+
+Q74.
+Display employees whose salary is greater than the average salary of every department.
+select * from employee e where salary>all(select distinct(select avg(salary) from employee e1 where e1.dept_id = e2.dept_id) as average_salaries from employee e2);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    104 | neha     | 60000.00 |       3 |
+|    107 | karan    | 55000.00 |       4 |
+|    109 | vijay    | 70000.00 |       2 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+Q75.
+Display employees whose salary is greater than the average salary of at least one department.
+select * from employee e where salary>any(select distinct(select avg(salary) from employee e1 where e1.dept_id = e2.dept_id) as average_salaries from employee e2);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    101 | amit     | 30000.00 |       1 |
+|    102 | rahul    | 50000.00 |       2 |
+|    103 | priya    | 40000.00 |       2 |
+|    104 | neha     | 60000.00 |       3 |
+|    105 | rohit    | 35000.00 |       3 |
+|    106 | sneha    | 45000.00 |       4 |
+|    107 | karan    | 55000.00 |       4 |
+|    109 | vijay    | 70000.00 |       2 |
+|    110 | ankit    | 32000.00 |       5 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+
+Q76.
+Display the employee whose salary is closest to the company's average salary.
+select * from employee where abs(salary - (select avg(salary) from employee)) = (select min(abs(salary-(select avg(salary) from employee))) from employee);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    106 | sneha    | 45000.00 |       4 |
++--------+----------+----------+---------+
+
+
+Q77.
+Display the department whose average salary is closest to the company's overall average salary.
+select * from department where dept_id = (select dept_id from employee where abs(salary - (select avg(salary) from employee)) = ( select min(abs(salary - (select avg(salary) from employee))) from employee));
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       4 | sales     | indore   |
++---------+-----------+----------+
+
+
+Q78.
+Display employees who are earning more than the average salary of all employees but are not the highest-paid employee.
+select * from employee where salary > (select avg(salary) from employee) and salary <> (select max(salary) from employee);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | rahul    | 50000.00 |       2 |
+|    104 | neha     | 60000.00 |       3 |
+|    106 | sneha    | 45000.00 |       4 |
+|    107 | karan    | 55000.00 |       4 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+
+Q79.
+Display employees who earn more than the average salary of their department and whose department has at least two employees.
+select * from employee e where (select count(*) from employee e1 where e1.dept_id = e.dept_id)>=2 and salary > (select avg(salary) from employee e3 where e3.dept_id = e.dept_id);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    101 | amit     | 30000.00 |       1 |
+|    104 | neha     | 60000.00 |       3 |
+|    107 | karan    | 55000.00 |       4 |
+|    109 | vijay    | 70000.00 |       2 |
+|    110 | ankit    | 32000.00 |       5 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+
+Q80.
+Find employees who satisfy ALL of the following conditions:
+
+1. Salary is greater than the company average salary.
+2. Salary is greater than their department average salary.
+3. Their department has at least two employees.
+4. They are not the highest-paid employee in the company.
+
+select * from employee e where salary>(select avg(salary) from employee) and salary > (select avg(salary) from employee e1 where e1.dept_id = e.dept_id) and (select count(*) from employee e1 where e1.dept_id = e.dept_id)>=2 and salary <> (select max(salary) from employee);
+
+
+============================================================
+CHALLENGE QUESTIONS
+============================================================
+
+
+Q81.
+Find the department having the second-highest average salary.
+select * from department where dept_id = (select dept_id from employee group by dept_id having avg(salary) = (select distinct avg(salary) as avg_sal from employee group by dept_id order by avg_sal desc limit 1 offset 1));
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       4 | sales     | indore   |
++---------+-----------+----------+
+
+
+Q82.
+Find the employee working in the department having the second-highest average salary.
+select * from employee where dept_id = (select dept_id from employee group by dept_id having avg(salary) = (select distinct avg(salary) as avg_sal from employee group by dept_id order by avg_sal desc limit 1 offset 1));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    106 | sneha    | 45000.00 |       4 |
+|    107 | karan    | 55000.00 |       4 |
++--------+----------+----------+---------+
+
+
+Q83.
+Find the second-highest salary employee from every department.
+select * from employee where salary in ( select max(salary) from employee e where salary < (select max(salary) from employee e1 where e1.dept_id = e.dept_id group by dept_id) group by dept_id);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | rahul    | 50000.00 |       2 |
+|    104 | neha     | 60000.00 |       3 |
+|    106 | sneha    | 45000.00 |       4 |
+|    108 | pooja    | 28000.00 |       1 |
+|    112 | arjun    | 25000.00 |       5 |
++--------+----------+----------+---------+
+
+
+Q84.
+Find the department having the second-highest maximum salary.
+select * from department where dept_id = (select dept_id from employee where salary = (select max(salary) as max_salary from employee e1 group by dept_id order by max_salary desc limit 1 offset 1));
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       3 | finance   | mumbai   |
++---------+-----------+----------+
+
+
+Q85.
+Find employees whose salary is greater than the average salary of the department having the second-highest average salary.
+select * from employee where salary > (select distinct avg(salary) from employee group by dept_id order by avg(salary) desc limit 1 offset 1);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    104 | neha     | 60000.00 |       3 |
+|    107 | karan    | 55000.00 |       4 |
+|    109 | vijay    | 70000.00 |       2 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+
+Q86.
+Find the employee(s) whose salary is closest to the highest salary in the company without being the highest-paid employee.
+select * from employee where salary < (select max(salary) from employee) order by salary desc limit 1 ;
+
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+Q87.
+Find departments where the difference between the highest and lowest salary is greater than 30000.
+select * from department d where abs( (select max(salary) from employee where dept_id = d.dept_id) - (select min(salary) from employee where dept_id = d.dept_id))>30000;
+Empty set (0.00 sec)
+
+
+Q88.
+Find employees whose salary is above their department average and whose salary difference from the department average is greater than 10000.
+select * from employee e where salary > (select avg(salary) from employee where dept_id = e.dept_id) and abs(salary-(select avg(salary) from employee where dept_id = e.dept_id))>10000;
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    109 | vijay    | 70000.00 |       2 |
+|    111 | meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+
+
+Q89.
+Find the department(s) where the highest-paid employee earns more than the highest-paid employee of the HR department.
+select * from department where dept_id in (select dept_id from employee where salary in (select max(salary) from employee group by dept_id having max(salary) > (select max(salary) from employee where dept_id = (select dept_id from department where dept_name = 'HR'))));
++---------+-----------+----------+
+| dept_id | dept_name | location |
++---------+-----------+----------+
+|       2 | it        | pune     |
+|       3 | finance   | mumbai   |
+|       4 | sales     | indore   |
+|       5 | admin     | delhi    |
++---------+-----------+----------+
+
+
+Q90.
+Find employees who earn more than every employee in HR, Finance, and Sales.
+select * from employee where salary > (select max(salary) from employee where dept_id in (select dept_id from department where dept_name in ( 'HR','Finance','Sales')));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    109 | vijay    | 70000.00 |       2 |
++--------+----------+----------+---------+
+
+
+
+============================================================
+FINAL INTERVIEW CHALLENGE
+============================================================
+
+
+Q91.
+Without using:
+
+JOIN
+LIMIT
+WINDOW FUNCTIONS
+
+Find the employee having the third-highest distinct salary.
+select * from employee e where (select count(distinct salary) from employee where e.salary < salary) = 2 ;
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    104 | neha     | 60000.00 |       3 |
++--------+----------+----------+---------+
+
+
+Q92.
+Without using LIMIT or Window Functions, find the employee having the second-highest salary in each department.
+select * from employee e1 where (select count(distinct salary) from employee e2 where e1.dept_id = e2.dept_id and e1.salary<e2.salary) = 1;
+
+
+Q93.
+Find the department(s) in which every employee earns more than the company's average salary.
+select * from department where dept_id in (select dept_id from employee e where (select min(salary) from employee where e.dept_id = dept_id) > (select avg(salary) from employee));
+
+
+
+Q94.
+Find the department(s) in which at least one employee earns more than the company's average salary and at least one employee earns less than the company's average salary.
+select * from department where dept_id in (select dept_id from employee e where (select max(salary) from employee e1 where e.dept_id = e1.dept_id) > (select avg(salary) from employee) and (select min(salary) from employee e2 where e.dept_id = e2.dept_id) < (select avg(salary) from employee));
+
+
+
+Q95.
+Find employees whose salary satisfies all the following:
+
+1. Greater than their department average.
+2. Greater than the company average.
+3. Less than the highest salary in the company.
+
+select * from employee e where salary > (select avg(salary) from employee e1 where e.dept_id = e1.dept_id) and salary > (select avg(salary) from employee) and salary < (select max(salary) from employee);
+
+
+
+Q96.
+Find the department having the highest average salary and then display all employees belonging to that department along with their salary.
+select dept_id from employee e where ((select avg(salary) from employee e1 where e1.dept_id = e.dept_id) = (select max(avg_salary) from (select avg(salary) as avg_salary from employee group by dept_id) as avg_salaries));
+
+select * from employee e where round((select avg(salary) from employee e1 where e1.dept_id = e.dept_id),2) = round((select max(avg_salary) from (select avg(salary) as avg_salary from employee group by dept_id) as avg_salaries),2);
+
+
+Q97.
+Find the department having the lowest average salary and then display all employees belonging to that department.
+select * from employee e where (select avg(salary) from employee e1 where e.dept_id=e1.dept_id) = (select min(avg_salary) from (select avg(salary) as avg_salary from employee group by dept_id) as avg_salaries);
+
+
+Q98.
+Find the department with the highest number of employees and display all employees belonging to that department.
+select * from employee e where (select count(*) from employee e1 where e.dept_id=e1.dept_id ) = (select max(emp_count) from (select count(*) as emp_count from employee group by dept_id) as employee_counts);
+
+
+
+Q99.
+Find the department with the lowest number of employees, excluding departments having zero employees, and display its employees.
+select * from employee e where (select count(*) from employee e1 where e.dept_id=e1.dept_id ) = (select min(emp_count) from (select count(*) as emp_count from employee group by dept_id) as employee_counts) and (select count(*) from employee e2 where e2.dept_id = e.dept_id) <> 0 ;
+
+
+
+Q100.
+Find employees who satisfy ALL of the following conditions:
+
+1. Salary is above their department average.
+2. Salary is above the company average.
+3. Employee is not the highest-paid employee of the department.
+4. Employee works in a department having at least 2 employees.
+
+Display:
+
+emp_id
+emp_name
+salary
+dept_id
+
+select * from employee e where salary > (select avg(salary) from employee e1 where e.dept_id = e1.dept_id) and salary > (select avg(salary) from employee) and salary <> (select max(salary) from employee e2 where e.dept_id = e2.dept_id) and (select count(*) from employee e3 where e3.dept_id = e.dept_id)>=2;
+
+============================================================

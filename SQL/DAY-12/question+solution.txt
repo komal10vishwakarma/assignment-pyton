@@ -1,5 +1,5 @@
 ============================================================
-          MYSQL SUBQUERY –  ASSIGNMENT
+          MYSQL_SUBQUERY –  ASSIGNMENT
 ============================================================
 
 CASE STUDY: EMPLOYEE MANAGEMENT SYSTEM
@@ -75,6 +75,35 @@ emp_id    emp_name     salary       dept_id
 NOTE:
 Department 6 currently has no employees.
 
+mysql> use DAY12_MYSQL_SUBQUERY;;
+Database changed
+ERROR:
+No query specified
+
+mysql> use DAY12_MYSQL_SUBQUERY;
+Database changed
+mysql> create table department (
+    ->     dept_id int,
+    ->     dept_name varchar(30),
+    ->     location varchar(30)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table employee (
+    ->     emp_id int,
+    ->     emp_name varchar(30),
+    ->     salary decimal(10,2),
+    ->     dept_id int
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into department values (1,'hr','indore'),(2,'it','pune'),(3,'finance','mumbai'),(4,'sales','indore'),(5,'admin','delhi'),(6,'research','bangalore');
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> insert into employee values (101,'amit',30000,1),(102,'rahul',50000,2),(103,'priya',40000,2),(104,'neha',60000,3),(105,'rohit',35000,3),(106,'sneha',45000,4),(107,'karan',55000,4),(108,'pooja',28000,1),(109,'vijay',70000,2),(110,'ankit',32000,5),(111,'meena',65000,3),(112,'arjun',25000,5);
+Query OK, 12 rows affected (0.01 sec)
+Records: 12  Duplicates: 0  Warnings: 0
 
 ============================================================
 QUESTIONS
@@ -84,26 +113,80 @@ QUESTIONS
 Q1.
 Display all employees whose salary is greater than the average
 salary of all employees.
+mysql> select salary from employee where salary>(select avg(salary) from employee);
++----------+
+| salary   |
++----------+
+| 50000.00 |
+| 60000.00 |
+| 45000.00 |
+| 55000.00 |
+| 70000.00 |
+| 65000.00 |
++----------+
+6 rows in set (0.01 sec)
 
 
 Q2.
 Display the employee or employees who receive the highest salary
 in the company.
+mysql> select salary from employee where salary=(select max(salary) from employee);
++----------+
+| salary   |
++----------+
+| 70000.00 |
++----------+
+1 row in set (0.00 sec)
 
 
 Q3.
 Display the employee or employees who receive the lowest salary
 in the company.
+mysql> select salary from employee where salary=(select min(salary) from employee);
++----------+
+| salary   |
++----------+
+| 25000.00 |
++----------+
+1 row in set (0.00 sec)
 
 
 Q4.
 Display all employees whose salary is greater than the salary
 of Amit.
+mysql> select salary from employee where salary>(select (salary) from employee where emp_name ='amit' );
++----------+
+| salary   |
++----------+
+| 50000.00 |
+| 40000.00 |
+| 60000.00 |
+| 35000.00 |
+| 45000.00 |
+| 55000.00 |
+| 70000.00 |
+| 32000.00 |
+| 65000.00 |
++----------+
+9 rows in set (0.00 sec)
 
 
 Q5.
 Display all employees whose salary is less than the salary
 of Rahul.
+mysql> select salary from employee where salary<(select (salary) from employee where emp_name ='rahul' );
++----------+
+| salary   |
++----------+
+| 30000.00 |
+| 40000.00 |
+| 35000.00 |
+| 45000.00 |
+| 28000.00 |
+| 32000.00 |
+| 25000.00 |
++----------+
+7 rows in set (0.00 sec)
 
 
 Q6.
