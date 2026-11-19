@@ -6,6 +6,8 @@ from display import display
 from search import search
 from updateproduct import updatepro
 from updateorder import updateorder
+from total_customer import cus_total_purchase_amt
+from singlerowsub import single
 
 while True:
     print("""
@@ -43,11 +45,9 @@ while True:
     elif choice==8:    
         pass
     elif choice==9:
-       pass
-    elif choice==9:
-       pass
+       cus_total_purchase_amt()
     elif choice==10:
-        pass
+        single()
     elif choice==11:
         pass
     elif choice==12:

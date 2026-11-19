@@ -1,3 +1,5 @@
+
+
 from connectivity import connect_db
 
 
@@ -25,8 +27,34 @@ from connectivity import connect_db
 # 5            Karan           200.00
 
 # Formula:
-# SUM(order_quantity * product_price) as Total_Purchase_Amount
-def cus_toal_purchase_amt():
+# SUM(quantity *price) as Total_Purchase_Amount
+def cus_total_purchase_amt():
     conn=connect_db()
     cursor=conn.cursor()
-    query=""
+    query = """
+SELECT
+    c.customer_id,
+    c.customer_name,
+    SUM(o.quantity * p.price) AS Total_Purchase_Amount
+
+FROM customer_order_pdbc AS c
+
+INNER JOIN customer_order_details AS o
+ON c.customer_id = o.customer_id
+
+INNER JOIN product_order_pdbc AS p
+ON o.product_id = p.product_id
+
+GROUP BY c.customer_id, c.customer_name
+
+ORDER BY c.customer_id;
+    """
+    cursor.execute(query)
+
+    result = cursor.fetchall()
+    for row in result:
+        print(row)
+
+    cursor.close()
+    conn.close()
+cus_total_purchase_amt()
