@@ -12,6 +12,7 @@ class Employeedao:
         cursor.execute(query,values)
         connection.commit()
         print("emp saved successfully")
+
     def getallemployees(self):
         db = Database()
         connection=db.connect()
@@ -26,6 +27,7 @@ class Employeedao:
         cursor.close()
         connection.close()
         return employees
+    
     def getemployeebyid(self,id):
         db = Database()
         connection=db.connect()
@@ -39,6 +41,7 @@ class Employeedao:
             employee=Employee(row[0],row[1],row[2])
             return employee
         return None
+    
     def update_employee(self,employee):
         db = Database()
         connection=db.connect()

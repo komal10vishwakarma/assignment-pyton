@@ -1,0 +1,119 @@
+<!-- 1.
+You are designing a more detailed travel blog page to provide a rich user experience. The page should include a header, navigation links, multiple destinations with images, headings, descriptions, and interactive elements like "Read More" links and a footer.
+
+Requirements
+Header Section:
+
+Use an <h1> tag for the blog title, e.g., "Global Adventures Blog."
+Add a brief tagline using an <h2> tag, e.g., "Discover the world's most amazing places."
+Navigation Bar:
+
+Create a simple navigation bar at the top using anchor tags to navigate to different sections:
+"Home"
+"Destinations"
+"Contact Us"
+Featured Section:
+
+Add a prominent image (<img> tag) at the top of the page to act as a banner.
+Include a caption under the image using an <h3> tag, describing the featured destination.
+Destination Sections:
+
+Divide the content into four destinations, each with:
+An <h2> heading for the name of the destination.
+A paragraph describing the destination.
+A small image of the destination with a descriptive alt tag.
+A "Read More" link (<a> tag) to an external site for detailed information.
+Highlight Section:
+
+Include an <h3> tag for a special destination highlight.
+Add a larger image for this destination and describe what makes it unique.
+Back to Top Link:
+
+Add a "Back to Top" anchor link at the bottom of the page.
+Footer Section:
+
+Add a footer with:
+Contact information (e.g., email or social media links using anchor tags).
+Copyright information.
+A small logo image -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/071/918/907/small/scenic-canyon-landscape-with-river-mountain-peaks-green-forest-nature-travel-nature-s-art-free-photo.jpg">
+    <h3>welcome tourists....</h3>
+    <h1>Global Adventures Blog</h1>
+    <h2>Discover the world's most amazing places</h2>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Destinations</a></li>
+            <li><a href="/">Contact Us</a></li>
+            
+        </ul>
+    </nav>
+     <!-- Destination 2 -->
+    <h2>LADAKH</h2>
+    <p>
+        Ladakh is a beautiful destination in northern India.
+        It is famous for its high mountains, lakes, monasteries
+        and adventure activities.
+    </p>
+    <img src="https://imgs.search.brave.com/0N6FQQdDsYql5DQ14392NxlRdFLLT0HQLGphnFhiuGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNDgx/Mzg2MjA4L3Bob3Rv/L21vdW50YWlucy1h/bmQtcmNva3MtcGFu/Z29uZy10c28tbGVo/LWxhZGFraC1pbmRp/YS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9THRvOXI3Sndf/U1FxSWFCWEJfNXpB/QjdhQXZMTDVlM3lw/WWZBbzRYWk5IVT0" alt="Beautiful mountains and Pangong Lake in Ladakh" width="200">
+    <br>
+    <a href="https://leh.nic.in/tourism/" target="_blank">Read More</a>
+
+
+    <!-- Destination 3 -->
+    <h2>JAISALMER</h2>
+    <p>
+        Jaisalmer is known as the Golden City of Rajasthan.
+        It is famous for its golden sand dunes, desert safari
+        and beautiful Jaisalmer Fort.
+    </p>
+    <img src="https://imgs.search.brave.com/0tT8iXmYyNqRnuijia9frZEeTiQPJCHBmu7dqMDWK24/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YTEudGhyaWxsb3Bo/aWxpYS5jb20vZmls/ZXN0b3JlL3JvbGtq/aXhjamNuYzFjM3ht/NjIzMWV3dHd4ZjNf/SmFpc2FsbWVyJTIw/Rm9ydC5qcGc_dz0x/NTM2JnE9NjUmZm9y/bWF0PWF1dG8" alt="Golden Jaisalmer Fort in Rajasthan" width="200">
+    <br>
+    <a href="https://www.tourism.rajasthan.gov.in/" target="_blank">Read More</a>
+
+
+    <!-- Destination 4 -->
+    <h2>ANDAMAN AND NICOBAR</h2>
+    <p>
+        Andaman and Nicobar Islands are famous for their beautiful
+        beaches, blue water, coral reefs and water sports.
+        It is a perfect destination for nature lovers.
+    </p>
+    <img src="https://imgs.search.brave.com/XZhQJ2Ne_xMikMHCYaj_ZmBbYbhW61pk2iOfdyQxVOU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA5LzA0LzI2LzU1/LzM2MF9GXzkwNDI2/NTU1Nl9tOFpkd1Ft/T0dObWY3Vk0yYzN0/NjM4Qk82MWxhMnJS/cS5qcGc" alt="Beautiful blue beaches of Andaman and Nicobar Islands" width="200">
+    <br>
+    <a href="https://www.andamantourism.gov.in/" target="_blank">Read More</a>
+    
+<footer>
+    <h2>Contact Us</h2>
+
+    <p>Email:
+        <a href="mailto:info@example.com">info@example.com</a>
+    </p>
+
+    <p>Follow Us:</p>
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a> |
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+
+    <br><br>
+
+    <!-- Small Logo -->
+    <img src="https://imgs.search.brave.com/arXkD7PJWWbKlzAc5ciNm6jUBOcQ8mhhSDpb3N5f1j0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/bG9nb2pveS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjAw/NjA1MTYxMDIzL3Ry/YXZlbG9jaXR5LWxv/Z28tMS5wbmc" alt="Travel Website Logo" width="300">
+
+    <p>&copy; 2026 Travel Destinations. All Rights Reserved.</p>
+    <a href="http://127.0.0.1:5500/que4.html">back to top </a>
+</footer>
+
+</body>
+</html>
+
+
+

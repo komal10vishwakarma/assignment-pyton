@@ -1,4 +1,4 @@
-
+from dao.dao import add,view,update,delete
 try:
     while True:
             print("""
@@ -9,13 +9,19 @@ try:
     """)
             choice=int(input("enter your choice here"))
             if choice==1:
-                pass
+                add()
             elif choice==2:
-                print("2")
+                view()
             elif choice==3:
-                print("3")
+                
+                rollnum=int(input("enter the roll number here"))
+                name=input("enter the name here....")
+                age=int(input("enter the age here/..."))
+                marks=int(input("enter your marks here...."))
+                update()
+
             elif choice==4:
-                print("4")
+                delete()
 except Exception as e:
     print(e)
         

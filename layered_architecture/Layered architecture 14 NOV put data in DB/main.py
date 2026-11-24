@@ -25,12 +25,16 @@ while True:
             continue
         employee=Employee(eid,name,salary)
         service.addemployee(employee)
+
+
     elif choice==2:
         service.displayallemployees()
     
     elif choice==6:
         print("Application Close")
         break
+
+
     elif choice==3:
         try:
             eid = int(input("enter Id to search: "))
@@ -38,6 +42,8 @@ while True:
             print("please enter a valid employee ID")
             continue
         service.search_employee(eid)
+
+
     elif choice==4:
         try:
             eid = int(input("enter id: "))
@@ -48,6 +54,8 @@ while True:
             continue
         employee = Employee(eid, name, salary)
         service.modify_employee(employee)
+
+        
     elif choice==5:
         try:
             eid = int(input("enter id to delete: "))
