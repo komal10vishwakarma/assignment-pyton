@@ -10,3 +10,4 @@ def get_connection():
         use_pure=True
         
     )
+    return con 

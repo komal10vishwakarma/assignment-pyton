@@ -1,0 +1,55 @@
+mysql> use project
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_project |
++-------------------+
+| claims            |
+| items             |
+| users             |
++-------------------+
+3 rows in set (0.42 sec)
+
+mysql> desc claims;
++---------------+---------------------------------------+------+-----+-------------------+-------------------+
+| Field         | Type                                  | Null | Key | Default           | Extra             |
++---------------+---------------------------------------+------+-----+-------------------+-------------------+
+| claim_id      | int                                   | NO   | PRI | NULL              | auto_increment    |
+| item_id       | int                                   | NO   | MUL | NULL              |                   |
+| user_id       | int                                   | NO   | MUL | NULL              |                   |
+| claim_message | text                                  | NO   |     | NULL              |                   |
+| claim_status  | enum('PENDING','APPROVED','REJECTED') | YES  |     | PENDING           |                   |
+| created_at    | timestamp                             | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++---------------+---------------------------------------+------+-----+-------------------+-------------------+
+6 rows in set (0.10 sec)
+
+mysql> desc items;
++-------------+--------------------------------------------+------+-----+-------------------+-------------------+
+| Field       | Type                                       | Null | Key | Default           | Extra             |
++-------------+--------------------------------------------+------+-----+-------------------+-------------------+
+| item_id     | int                                        | NO   | PRI | NULL              | auto_increment    |
+| item_name   | varchar(100)                               | NO   |     | NULL              |                   |
+| category    | varchar(50)                                | NO   |     | NULL              |                   |
+| description | text                                       | YES  |     | NULL              |                   |
+| location    | varchar(150)                               | NO   |     | NULL              |                   |
+| item_type   | enum('LOST','FOUND')                       | NO   |     | NULL              |                   |
+| item_date   | date                                       | NO   |     | NULL              |                   |
+| status      | enum('OPEN','CLAIMED','RETURNED','CLOSED') | YES  |     | OPEN              |                   |
+| reported_by | int                                        | NO   | MUL | NULL              |                   |
+| created_at  | timestamp                                  | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-------------+--------------------------------------------+------+-----+-------------------+-------------------+
+10 rows in set (0.05 sec)
+
+mysql> desc users;
++------------+----------------------+------+-----+-------------------+-------------------+
+| Field      | Type                 | Null | Key | Default           | Extra             |
++------------+----------------------+------+-----+-------------------+-------------------+
+| user_id    | int                  | NO   | PRI | NULL              | auto_increment    |
+| full_name  | varchar(100)         | NO   |     | NULL              |                   |
+| email      | varchar(100)         | NO   | UNI | NULL              |                   |
+| password   | varchar(255)         | NO   |     | NULL              |                   |
+| phone      | varchar(15)          | YES  |     | NULL              |                   |
+| role       | enum('USER','ADMIN') | YES  |     | USER              |                   |
+| created_at | timestamp            | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++------------+----------------------+------+-----+-------------------+-------------------+
+7 rows in set (0.01 sec)
